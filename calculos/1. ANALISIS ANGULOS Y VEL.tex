@@ -1,0 +1,120 @@
+% !TeX program = lualatex
+\documentclass{article}
+
+\usepackage[spanish]{babel}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{amsmath}
+
+\setmainfont{Latin Modern Roman}
+
+% Usa STIX Two Math que tiene los símbolos geométricos
+\setmathfont{STIXTwoMath-Regular.otf}[
+  Path = C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/,
+  BoldFont = STIXTwoMath-Regular.otf
+]
+
+\usepackage{newunicodechar}
+
+% ==== Definición de símbolos geométricos especiales ====
+\newcommand{\measuredangleright}{\ensuremath{\symbol{"29AD}}} % ⦭
+\newunicodechar{⦭}{\measuredangleright}
+% =======================================================
+
+\begin{document}
+
+\section{Modelos teóricos empleados}
+
+\subsection{Modelo cinemático}
+
+\subsubsection{Relación entre $\theta$ y $\phi$}
+
+El análisis geométrico del mecanismo permite establecer la relación fundamental entre los ángulos.
+
+
+
+A partir del triángulo formado por las longitudes $r$, $d$ y $L$, se obtiene:
+
+(ACA VA EL DIAGRAMA!!!!!)
+
+\begin{equation}
+L^2 = r^2 + d^2 - 2rd \cos(180^\circ - \phi)
+\end{equation}
+
+sabiendo que  $\cos(180^\circ - \Phi) = -\cos(\phi)$, se tiene:
+
+\begin{equation}
+L = \sqrt{r^2 + d^2 + 2rd \cos(\phi)}
+\end{equation}
+
+Por la ley de senos:
+
+\begin{equation}
+\frac{\sin(180^\circ - \Phi)}{L} = \frac{\sin(\Theta)}{r}
+\end{equation}
+
+sabiendo que $\sin(180-\phi) = sin(\phi) $ y despejando:
+
+\begin{equation}
+\sin(\theta) = \frac{\sin(\phi) L}{r}
+\end{equation}
+
+
+Sustituyendo la expresión de $L$:
+
+\begin{equation}
+\boxed{
+\sin(\Theta) =
+\frac{\sqrt{r^2 + d^2 + 2rd \cos(\Phi)} \sin(\Phi)}
+{r}
+}
+\end{equation}
+
+obtenemos una Relacion entre $\theta$ y $\phi$.
+
+\subsubsection{Análisis de velocidades}
+
+Sabemos que la barra $O_2A$ tiene velocidad y aceleración angulares, y al no presentar traslación, aplicamos rotación respecto a eje fijo:
+\[
+  \vec V_a = \boldsymbol{\omega}_2 \times \vec r,\; ⦭\, \Phi^\circ
+\]
+Podemos escribir una descomposición relativa de $ \vec V_a $:
+\[
+  \vec V_a = \vec V'_a + \vec V_{a/f}
+\]
+
+% Imagen comentada porque el archivo no existe
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=0.27\textwidth]{imagenes/poligono_velocidades.png}
+% \caption{Polígono vectorial de velocidades.}
+% \label{fig:poligono_velocidades}
+% \end{figure}
+
+donde $\vec V'_a$ sigue la trayectoria del sistema de rotación y $\vec V_{a/f}$ es la velocidad relativa.
+
+\begin{equation}
+    V_{a/f} = ( \omega_2\cdot r \cdot \sin(\phi - \theta))
+\end{equation}
+
+Además:
+\begin{equation}
+    V_a' = \cos(\Phi -\Theta) \, V_a
+\end{equation}
+
+De donde:
+\[
+    \omega_1 L = [\cos(\Phi -\Theta)]\, \omega_2 r
+\]
+
+Por tanto, la velocidad angular del eslabón es:
+\begin{equation}
+    \boxed{
+    \omega_1 = \frac{\omega_2 r}{L} \, \cos(\Phi -\Theta)
+    }
+\end{equation}
+
+\end{document}
