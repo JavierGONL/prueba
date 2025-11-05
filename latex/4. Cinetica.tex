@@ -1,0 +1,143 @@
+% !TeX program = lualatex
+\documentclass{article}
+
+\usepackage[spanish]{babel}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{amsmath}
+
+\setmainfont{Latin Modern Roman}
+\setmathfont{STIXTwoMath-Regular.otf}[
+  Path = C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/,
+  BoldFont = STIXTwoMath-Regular.otf
+]
+
+\usepackage{newunicodechar}
+
+% ==== Definición de símbolos geométricos especiales (flechas de dirección) ====
+% Código Unicode U+29A8 a U+29AF
+\newcommand{\angulese}{\ensuremath{\symbol{"29A8}}} % ⦨
+\newunicodechar{⦨}{\angulese}
+
+\newcommand{\anglees}{\ensuremath{\symbol{"29A9}}} % ⦩
+\newunicodechar{⦩}{\anglees}
+
+\newcommand{\anglenesw}{\ensuremath{\symbol{"29AA}}} % ⦪
+\newunicodechar{⦪}{\anglenesw}
+
+\newcommand{\anglensw}{\ensuremath{\symbol{"29AB}}} % ⦫
+\newunicodechar{⦫}{\anglensw}
+
+\newcommand{\measuredangleleft}{\ensuremath{\symbol{"29AC}}} % ⦬
+\newunicodechar{⦬}{\measuredangleleft}
+
+\newcommand{\measuredangleright}{\ensuremath{\symbol{"29AD}}} % ⦭
+\newunicodechar{⦭}{\measuredangleright}
+
+\newcommand{\sphericalangleup}{\ensuremath{\symbol{"29AE}}} % ⦮
+\newunicodechar{⦮}{\sphericalangleup}
+
+\newcommand{\sphericalangledown}{\ensuremath{\symbol{"29AF}}} % ⦯
+\newunicodechar{⦯}{\sphericalangledown}
+% =======================================================
+
+\begin{document}
+
+\section*{Análisis Cinético}
+
+\subsection*{Ecuaciones de movimiento}
+
+\begin{enumerate}
+    \item Y - C:
+    \begin{equation}
+        W_c - C = m_c \bar{a}_c \quad \Rightarrow \quad C = m_c (g - \bar{a_c})
+    \end{equation}
+
+    \item X - BC:
+    \begin{equation}
+        B_x = m_{BC} \cdot (\bar{a}_{BC})_x
+    \end{equation}
+
+    \item Y - BC:
+    \begin{equation}
+        B_y - W_R - C = m_{BC} \cdot (\bar{a}_{BC})_y \quad \Rightarrow \quad B_y = m_{BC}(g + (\bar{a}_{BC})_y) + C
+    \end{equation}
+
+    \item Z - BC:
+    \begin{equation}
+        \frac{K}{2}(B_y \sin\beta - B_x \cos\beta + C\sin(\beta)) = \bar{I_{BC}} \cdot \alpha_3
+    \end{equation}
+
+    \item X - $O_1$:
+    \begin{equation}
+        O_{1x} + A_x - B_x = m_{o_1}(\bar{a}_{o_1})_x \quad \Rightarrow \quad O_{1x} + A_x = m_{o_1}(\bar{a}_{o_1})_x + B_x
+    \end{equation}
+
+    \item Y - $O_1$:
+    \begin{equation}
+        O_{1y} + A_y - B_y = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad (O_1)_y + A_y = m_{o_1}(\bar{a}_{o_1})_y + B_y
+    \end{equation}
+
+    \item Z - $O_1$:
+    \begin{equation}
+        \left(\frac{R}{2} - L\right)(A_x \sin\theta - A_y \cos\theta) - \frac{R}{2}(B_y \cos\theta + A\cos\theta - B_x \sin\theta - A_x \sin\theta) = \bar{I_{o_1}} \cdot \alpha_1
+    \end{equation}
+
+    \item X - $O_2$:
+    \begin{equation}
+        (O_2)_x - A_x = m_r(\bar{a}_{o_2})_x
+    \end{equation}
+
+    \item Y - $O_2$:
+    \begin{equation}
+        (O_2)_y - A_y - W_r= m_r(\bar{a}_{o_2})_y
+    \end{equation}
+
+    \item Z - $O_2$:
+        \begin{equation}
+            \frac{r}{2}\cdot{(A_x\sin\phi + (o_2)_x\sin\phi - A_y \cos\phi - (o_2)_y \cos\phi)} =  \bar{I_{o_2}} \cdot \alpha_2
+        \end{equation}
+
+\end{enumerate}
+
+\subsection*{Aceleraciones Centroidales}
+
+\subsubsection*{Eslabón $O_1-B$}
+
+\begin{align}
+\bar{a}_{O_1} &= \alpha_1 \frac{R}{2} ,\;⦭ \, \theta^\circ \quad + \omega_1^2 \frac{R}{2} ,\; ⦫\, \theta^\circ \\
+\bar{a}_{O_{1x}} &= -\left(\alpha_1 \frac{R}{2} \sin\theta + \omega_1^2 \frac{R}{2} \cos\theta\right) \\
+\bar{a}_{O_{1y}} &= \alpha_1 \frac{R}{2} \cos\theta - \omega_1^2 \frac{R}{2} \sin\theta
+\end{align}
+
+\subsubsection*{Eslabón $O_2$}
+
+\begin{align}
+\bar{a}_{O_2} &= \alpha_1 \frac{r}{2} ,\; ⦭\, \theta^\circ \quad + \omega_1^2 \frac{r}{2} ,\; ⦫\, \theta^\circ \\
+\bar{a}_{O_{2x}} &= -\left(\alpha_2 \frac{r}{2} \sin\theta + \omega_2^2 \frac{r}{2} \cos\theta\right) \\
+\bar{a}_{O_{2y}} &= \alpha_2 \frac{r}{2} \cos\theta - \omega_2^2 \frac{r}{2} \sin\theta
+\end{align}
+
+\subsubsection*{Eslabón $B-C$}
+
+\begin{align}
+\bar{a}_{BC} &= a_c + \alpha_3 \frac{K}{2} ,\; ⦩\, \beta^\circ \quad + \omega_3^2 \frac{K}{2} ,\; ⦯\, \beta^\circ \\
+\bar{a}_{BC,x} &= -\frac{K}{2}(\alpha_3 \cos\beta + \omega_3^2 \sin\beta) \\
+\bar{a}_{BC,y} &= -a_c + \frac{K}{2}(\alpha_3 \sin\beta - \omega_3^2 \cos\beta)
+\end{align}
+
+donde $\bar{a}_c = \bar{a}_c$
+
+\subsection*{Notas adicionales}
+
+Las ecuaciones anteriores describen el sistema completo de fuerzas y momentos actuando sobre el mecanismo. Para resolver el sistema, se necesita:
+\begin{itemize}
+    \item Conocer las aceleraciones angulares $\alpha_1$, $\alpha_2$, $\alpha_3$
+    \item Determinar las fuerzas de reacción $A_x$, $A_y$, $B_x$, $B_y$, $C$
+    \item Calcular las reacciones en el punto de apoyo $O_1$
+    \item Usar las aceleraciones centroidales para evaluar los términos inerciales
+\end{itemize}
+
+\end{document}

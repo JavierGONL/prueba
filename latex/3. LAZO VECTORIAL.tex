@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[spanish]{babel}
+
+\begin{document}
+
+\section*{LAZO VECTORIAL PARA OBTENER VEL Y ACEL DEL MARTILLO}
+
+Planteando el lazo vectorial para el mecanismo, se tiene:
+
+(diagrama lazo vectorial)
+
+
+Al proyectar en los ejes $x$ y $y$:
+
+\begin{align*}
+    X: D - R\cos\theta + K\sin\beta &= 0 \\
+    Y: y_c + K\cos\beta - R\sin\theta &= 0
+\end{align*}
+
+Elevando ambas ecuaciones al cuadrado y sumando:
+
+\begin{equation*}
+    K^2 = {(R\cos\theta - D)}^{2} + {(R\sin\theta - y_c)}^{2}
+\end{equation*}
+
+
+Derivando ambos lados respecto al tiempo. Donde:
+\begin{itemize}
+    \item $K$ es constante
+    \item $\frac{d\theta}{dt} = \omega_1$
+    \item $y_c$ es variable
+    \item $R$ es constante
+    \item $D$ es constante
+\end{itemize}
+
+
+\begin{align}
+\frac{d(K^2)}{dt} &= \frac{d}{dt}\left[(R\cos(\theta) - D)^2 + (R\sin(\theta) - y_c)^2\right]
+\end{align}
+
+Como $K$ es constante:
+\begin{align}
+0 &= \frac{d}{dt}\left[(R\cos(\theta) - D)^2 + (R\sin(\theta) - y_c)^2\right]
+\end{align}
+
+Aplicando la regla de la cadena:
+\begin{align}
+0 &= 2(R\cos(\theta) - D)\frac{d}{dt}(R\cos(\theta) - D) + 2(R\sin(\theta) - y_c)\frac{d}{dt}(R\sin(\theta) - y_c)
+\end{align}
+
+Calculando las derivadas internas:
+\begin{align}
+\frac{d}{dt}(R\cos(\theta) - D) &= -R\sin(\theta)\frac{d\theta}{dt} = -R\sin(\theta)\omega_1 \\
+\frac{d}{dt}(R\sin(\theta) - y_c) &= R\cos(\theta)\frac{d\theta}{dt} - \dot{y}_c = R\cos(\theta)\omega_1 - \dot{y}_c
+\end{align}
+
+Sustituyendo:
+\begin{align}
+0 &= 2(R\cos(\theta) - D)(-R\sin(\theta)\omega_1) + 2(R\sin(\theta) - y_c)(R\cos(\theta)\omega_1 - \dot{y}_c)
+\end{align}
+
+Dividiendo entre 2:
+\begin{align}
+0 &= -(R\cos(\theta) - D)R\sin(\theta)\omega_1 + (R\sin(\theta) - y_c)(R\cos(\theta)\omega_1 - \dot{y}_c)
+\end{align}
+
+Expandiendo:
+\begin{align}
+0 &= -R^2\cos(\theta)\sin(\theta)\omega_1 + DR\sin(\theta)\omega_1 \nonumber \\
+  &\quad + R^2\sin(\theta)\cos(\theta)\omega_1 - R\sin(\theta)\dot{y}_c \nonumber \\
+  &\quad - y_cR\cos(\theta)\omega_1 + y_c\dot{y}_c
+\end{align}
+
+Los términos $R^2\cos(\theta)\sin(\theta)\omega_1$ se cancelan, quedando:
+\begin{align}
+0 &= DR\sin(\theta)\omega_1 - R\sin(\theta)\dot{y}_c - y_cR\cos(\theta)\omega_1 + y_c\dot{y}_c
+\end{align}
+
+Reorganizando:
+\begin{align}
+\dot{y}_c(R\sin(\theta) - y_c) &= R\omega_1(D\sin(\theta) - y_c\cos(\theta))
+\end{align}
+
+\subsection*{Despeje de $\dot{y}_c$}
+Dividiendo ambos lados por $(R\sin(\theta) - y_c)$:
+\begin{align}
+\boxed{\dot{y}_c = \frac{R\omega_1(D\sin(\theta) - y_c\cos(\theta))}{R\sin(\theta) - y_c}}
+\end{align}
+
+Esta expresión es válida siempre que $R\sin(\theta) \neq y_c$ (es decir, que el denominador no sea cero).
+
+\subsection*{Aceleración mediante lazo vectorial}
+
+Derivando nuevamente la ecuación de velocidad para obtener la aceleración:
+
+\begin{equation}
+\ddot{y}_c = 
+R \; 
+\frac{
+\big[ \dot{\omega}_1 A - \omega_1^2 B - \omega_1 \dot{y}_c \cos\theta \big] D_{en}
+- \omega_1 A (\dot{y}_c + R \omega_1 \cos\theta)
+}{
+D_{en}^2
+}
+\end{equation}
+
+\noindent donde:
+\begin{align*}
+A &= D\sin\theta - y_c\cos\theta,\\
+B &= D\cos\theta + y_c\sin\theta,\\
+D_{en} &= R\sin\theta - y_c.
+\end{align*}
+
+Nota: $\dot{\omega}_1 = \ddot{\theta} = \alpha_1$ es la aceleración angular.
+
+\subsection*{Forma expandida de la aceleración}
+
+Expandiendo la expresión anterior:
+
+
+% Forma expandida corregida (dividida para evitar líneas muy largas)
+\begin{equation}
+\begin{aligned}
+\ddot{y}_c = &\; \frac{R\alpha_1(D\sin\theta - y_c\cos\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
+&\; - \frac{R\omega_1^2(D\cos\theta + y_c\sin\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
+&\; + \frac{R\omega_1\dot{y}_c[R\sin\theta\cos\theta - y_c\cos\theta - D\sin\theta + y_c\cos\theta]}{(R\sin\theta - y_c)^2}
+\end{aligned}
+\end{equation}
+
+% Factorizando:
+
+\begin{align}
+\ddot{y}_c &= \frac{R(R\sin\theta - y_c)\alpha_1(D\sin\theta - y_c\cos\theta)}{(R\sin\theta - y_c)^2} \nonumber \\
+&\quad + \frac{R\omega_1^2[Ry_c - Dy_c\cos\theta - y_c^2\sin\theta - R(D\cos\theta + y_c\sin\theta)]}{(R\sin\theta - y_c)^2} \nonumber \\
+&\quad + \frac{R\omega_1\dot{y}_c[\cos\theta(R\sin\theta - y_c) - (D\sin\theta - y_c\cos\theta)]}{(R\sin\theta - y_c)^2}
+\end{align}
+
+Simplificando:
+\begin{equation}
+\begin{split}
+\ddot{y}_c = &\; \frac{R\alpha_1(D\sin\theta - y_c\cos\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
+&\; - \frac{R\omega_1^2(D\cos\theta + y_c\sin\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
+&\; + \frac{R\omega_1\dot{y}_c\big(R\sin\theta\cos\theta - D\sin\theta\big)}{(R\sin\theta - y_c)^2}
+\end{split}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,107 @@
+\documentclass[12pt]{article}
+% Compilar con LuaLaTeX
+\usepackage[spanish, es-nodecimaldot]{babel}
+\usepackage[a4paper, margin=2.2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{STIX Two Math}
+
+\usepackage{newunicodechar}
+
+% ==== Definición de símbolos geométricos especiales (flechas de dirección) ====
+% Código Unicode U+29A8 a U+29AF
+\newcommand{\angulese}{\ensuremath{\symbol{"29A8}}} % ⦨
+\newunicodechar{⦨}{\angulese}
+
+\newcommand{\anglees}{\ensuremath{\symbol{"29A9}}} % ⦩
+\newunicodechar{⦩}{\anglees}
+
+\newcommand{\anglenesw}{\ensuremath{\symbol{"29AA}}} % ⦪
+\newunicodechar{⦪}{\anglenesw}
+
+\newcommand{\anglensw}{\ensuremath{\symbol{"29AB}}} % ⦫
+\newunicodechar{⦫}{\anglensw}
+
+\newcommand{\measuredangleleft}{\ensuremath{\symbol{"29AC}}} % ⦬
+\newunicodechar{⦬}{\measuredangleleft}
+
+\newcommand{\measuredangleright}{\ensuremath{\symbol{"29AD}}} % ⦭
+\newunicodechar{⦭}{\measuredangleright}
+
+\newcommand{\sphericalangleup}{\ensuremath{\symbol{"29AE}}} % ⦮
+\newunicodechar{⦮}{\sphericalangleup}
+
+\newcommand{\sphericalangledown}{\ensuremath{\symbol{"29AF}}} % ⦯
+\newunicodechar{⦯}{\sphericalangledown}
+
+\title{Cómo obtener $\omega_3$ y $\alpha_3$}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+Este apunte resume, paso a paso, cómo calcular primero la velocidad angular $\omega_3$ y luego la aceleración angular $\alpha_3$ del eslabón $K$ (ángulo $\beta$), a partir del giro del manivela $R$ (ángulo $\theta$) con $\omega_1$ y $\alpha_1$. Se siguen exactamente las ecuaciones de tus notas.
+
+\section*{Geometría}
+De la geometría del mecanismo:
+\begin{equation}
+	\sin\beta \,=\, \frac{R\cos\theta - D}{K}, \qquad
+	\beta \,=\, \arcsin\!\left(\frac{R\cos\theta - D}{K}\right),
+\end{equation}
+tomando la rama que cumpla $\cos\beta>0$ para la configuración mostrada.
+
+\section*{Velocidades}
+La velocidad del punto $C$ se descompone como:
+\begin{equation}
+	\vec v_C \;=\; \vec v_B \;+\; \vec v_{C/B}
+\end{equation}
+donde:
+\begin{itemize}
+	\item $\vec v_B = \omega_1\,R$ ⦭ $\theta$
+	\item $\vec v_{C/B} = \omega_3\,K$ ⦪ $\beta$
+\end{itemize}
+
+Descomponiendo en $x$ y $y$ se obtiene:
+\begin{align}
+	\text{En }y:\quad v_C \;&=\; \omega_1\,R\cos\theta \; - \; \omega_3\,K\sin\beta, \\
+	\text{En }x:\quad 0 \;&=\; \omega_1\,R\sin\theta \; - \; \omega_3\,K\cos\beta.
+\end{align}
+De la segunda ecuación resulta directamente
+\begin{equation}
+	\boxed{\;\displaystyle \omega_3 \,=\, \frac{\omega_1\,R\sin\theta}{K\cos\beta}\;}
+\end{equation}
+
+\section*{Aceleraciones}
+La aceleración del punto $C$ se descompone como:
+\begin{equation}
+	\vec a_C \;=\; \vec a_B \;+\; \vec a_{C/B}
+\end{equation}
+donde cada término se compone de componentes normal y tangencial:
+\begin{align*}
+	\vec a_B &= (a_B)_n + (a_B)_t \\
+	&= \omega_1^2 R  ⦫ \theta  +  \alpha_1 R  ⦭\theta \\[1mm]
+	\vec a_{C/B} &= (a_{C/B})_n + (a_{C/B})_t \\
+	&= \omega_3^2 K ⦬ \beta +  \alpha_3 K ⦪\beta
+\end{align*}
+
+Descomponiendo en $x$ y $y$:
+\begin{align}
+	\text{En }y:\quad a_C \;&=\; -\,\omega_1^{2} R\sin\theta \; + \; \alpha_1 R\cos\theta \; + \; \omega_3^{2} K\cos\beta \; - \; \alpha_3 K\sin\beta, \\[2mm]
+	\text{En }x:\quad 0 \;&=\; \omega_1^{2} R\cos\theta \; + \; \alpha_1 R\sin\theta \; - \; \omega_3^{2} K\sin\beta \; - \; \alpha_3 K\cos\beta.
+\end{align}
+De la ecuación en $x$ se despeja $\alpha_3$ sin necesidad de conocer $a_C$:
+\begin{equation}
+	\boxed{\;\displaystyle
+	\alpha_3 \,=\, \frac{\omega_1^{2} R\cos\theta + \alpha_1 R\sin\theta - \omega_3^{2} K\sin\beta}{K\cos\beta}\;}
+\end{equation}
+Una vez conocida $\alpha_3$, la componente vertical de la aceleración del punto $C$ es
+\begin{equation}
+	\boxed{\;\displaystyle a_C \,=\, -\,\omega_1^{2} R\sin\theta + \alpha_1 R\cos\theta + \omega_3^{2} K\cos\beta - \alpha_3 K\sin\beta\;}
+\end{equation}
+
+\paragraph{Observación.} Si se desea una expresión totalmente en términos de $R, K, D, \theta, \omega_1, \alpha_1$, basta con sustituir $\beta$ desde la geometría y
+\(\omega_3 = \omega_1 R\sin\theta/(K\cos\beta)\) en la fórmula de $\alpha_3$.
+
+\end{document}

@@ -1,0 +1,71 @@
+% !TeX program = lualatex
+\documentclass{article}
+
+\usepackage[spanish]{babel}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{amsmath}
+
+% Fuentes
+\setmainfont{Latin Modern Roman}
+% Usa STIX Two Math para mejor cobertura de símbolos
+\setmathfont{STIXTwoMath-Regular.otf}[
+  Path = C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/,
+  BoldFont = STIXTwoMath-Regular.otf
+]
+
+% Soporte de caracteres Unicode especiales usados en el texto
+\usepackage{newunicodechar}
+\newcommand{\angulese}{\ensuremath{\symbol{"29A8}}} % ⦨
+\newunicodechar{⦨}{\angulese}
+\newcommand{\anglensw}{\ensuremath{\symbol{"29AB}}} % ⦫
+\newunicodechar{⦫}{\anglensw}
+\newcommand{\measuredangleright}{\ensuremath{\symbol{"29AD}}} % ⦭
+\newunicodechar{⦭}{\measuredangleright}
+% Símbolo solicitado: ⦮ (spherical angle up)
+\newcommand{\sphericalangleup}{\ensuremath{\symbol{"29AE}}} % ⦮
+\newunicodechar{⦮}{\sphericalangleup}
+
+\begin{document}
+
+\subsubsection{Análisis de aceleraciones}
+
+Tal como en el análisis de velocidades sabemos que la barra $O_2A$ tiene velocidad y aceleración angulares, y al no presentar traslación, aplicamos rotación respecto a eje fijo:
+\[
+  \vec a_a = (\alpha_2 \times \vec r) ,\; ⦭\, \Phi^\circ  + (\boldsymbol{\omega}_2 \times(\boldsymbol{\omega}_2 \times \vec r)) ,\; ⦫\, \Phi^\circ
+\] 
+Donde el primer y segundo termino representan la aceleracion tangencial y normal de a respectivamente. Ahora podemos reescribir la aceleracion de a como parte de $O_1B$, obtieniendo la siguiente relacion:
+\[
+  \vec a_a = \vec a'_a + \vec a_{a/f} + \vec a_{cor}
+\] 
+Donde:
+\begin{itemize}
+    \item \[
+  \vec a'_a =  (\alpha_1 \times \vec L) ,\; ⦫\, \theta^\circ  + (\boldsymbol{\omega}_1 \times(\boldsymbol{\omega}_1 \times \vec L)) ,\; ⦭\, \theta^\circ 
+\] 
+    \item \[
+  \vec a_{cor} =  (2\boldsymbol{\omega}_1 \times \vec V_{a/f}) ,\; ⦮\, \theta^\circ \] 
+    \item \[a_{a/f} =  \; ⦫\,\theta^\circ \]
+\end{itemize}
+Sabiendo esto proyectamos todos los vectores respecto a sus componentes rectangulares, obteniendo respectivamente para X e Y:
+\begin{align*}
+(a'_{a})_{t} \sin\theta + (a_{a/f}) \cos\theta 
+&= \omega_2^2 r \cos(\Phi) + \alpha_2 r \sin(\Phi) 
++ 2\omega_1 V_{a/f} \sin\theta - \omega_1^2 L \cos\theta \\[8pt]
+(a'_{a})_{t} \cos\theta - (a_{a/f}) \sin\theta 
+&= \alpha_2 r \cos(\Phi) - \omega_2^2 r \sin(\Phi)
++ 2\omega_1 V_{a/f} \cos\theta + \omega_1^2 L \sin\theta
+\end{align*}
+Solucionando el sistema para $\alpha_1$ y $a_{a/f}$:
+
+\begin{equation}
+\alpha_1 = \frac{\omega_2^2 r\sin(\theta-\Phi)+\alpha_2 r\cos(\theta-\Phi)+2\omega_1V_{a/f}}{L}
+\end{equation}
+
+\begin{equation}
+a_{a/f} = \omega_2^2 r\cos(\Phi-\theta) + {\alpha}_2 r \sin(\Phi-\theta) - \omega_1^2 L
+\end{equation}
+
+\end{document}
