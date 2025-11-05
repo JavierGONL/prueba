@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.10.24)  5 NOV 2025 16:09
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.10.24)  5 NOV 2025 16:31
  restricted system commands enabled.
 **"c:/Users/lunit/OneDrive - Universidad Nacional de Colombia/Poo/prueba/calcul
 os/calculos_unificados"
@@ -904,9 +904,7 @@ LaTeX Info: Redefining \% on input line 1.
 
 [6]
 
-[7]
-
-[8] (./calculos_unificados.aux
+[7] (./calculos_unificados.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -917,15 +915,15 @@ L3 programming layer <2025-09-02>
 )
 
 Here is how much of LuaTeX's memory you used:
- 10472 strings out of 476291
+ 10468 strings out of 476291
  100000,953878 words of node,token memory allocated
- 1145 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 18 sub_mlist, 1 glyph, 203 attribut
-e, 54 glue_spec, 103 attribute_list, 1 write nodes
-   avail lists: 1:1,2:1072,3:212,4:7,5:583,6:58,7:5842,8:66,9:1283,10:8,11:706
- 32612 multiletter control sequences out of 65536+600000
- 87 fonts using 38040039 bytes
- 86i,21n,93p,431b,331s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 1079 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 18 sub_mlist, 1 glyph, 181 attribut
+e, 54 glue_spec, 92 attribute_list, 1 write nodes
+   avail lists: 1:1,2:1030,3:234,4:7,5:552,6:56,7:5842,8:66,9:1080,10:8,11:706
+ 32608 multiletter control sequences out of 65536+600000
+ 87 fonts using 38040599 bytes
+ 86i,12n,93p,431b,331s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/st
 ixtwomath-regular.otf><//?/c:/users/lunit/appdata/local/programs/miktex/fonts/op
 entype/public/lm/lmroman10-regular.otf><C:/Users/lunit/AppData/Local/Programs/Mi
@@ -936,9 +934,9 @@ roman10-regular.otf><//?/c:/users/lunit/appdata/local/programs/miktex/fonts/open
 type/public/lm/lmroman10-bold.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/
 fonts/opentype/public/lm/lmroman12-bold.otf><C:/Users/lunit/AppData/Local/Progra
 ms/MiKTeX/fonts/opentype/public/lm/lmroman17-regular.otf>
-Output written on calculos_unificados.pdf (8 pages, 71852 bytes).
+Output written on calculos_unificados.pdf (7 pages, 68247 bytes).
 
-PDF statistics: 83 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

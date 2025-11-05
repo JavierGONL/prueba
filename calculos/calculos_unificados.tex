@@ -199,6 +199,8 @@ a_{a/f} = \omega_2^2 r\cos(\Phi-\theta) + {\alpha}_2 r \sin(\Phi-\theta) - \omeg
 
 Planteando el lazo vectorial para el mecanismo, se tiene:
 
+[diagrama del lazo]
+
 Al proyectar en los ejes $x$ y $y$:
 
 \begin{align*}
@@ -206,7 +208,7 @@ Al proyectar en los ejes $x$ y $y$:
     Y: y_c + K\cos\beta - R\sin\theta &= 0
 \end{align*}
 
-Elevando ambas ecuaciones al cuadrado y sumando:
+Elevando ambas ecuaciones al cuadrado y sumandolas:
 
 \begin{equation*}
     K^2 = {(R\cos\theta - D)}^{2} + {(R\sin\theta - y_c)}^{2}
@@ -225,11 +227,6 @@ Derivando ambos lados respecto al tiempo. Donde:
 
 \begin{align}
 \frac{d(K^2)}{dt} &= \frac{d}{dt}\left[(R\cos(\theta) - D)^2 + (R\sin(\theta) - y_c)^2\right]
-\end{align}
-
-Como $K$ es constante:
-\begin{align}
-0 &= \frac{d}{dt}\left[(R\cos(\theta) - D)^2 + (R\sin(\theta) - y_c)^2\right]
 \end{align}
 
 Aplicando la regla de la cadena:
@@ -303,27 +300,6 @@ D_{en} &= R\sin\theta - y_c.
 
 Nota: $\dot{\omega}_1 = \ddot{\theta} = \alpha_1$ es la aceleración angular.
 
-\subsection{Forma expandida de la aceleración}
-
-Expandiendo la expresión anterior:
-
-\begin{equation}
-\begin{aligned}
-\ddot{y}_c = &\; \frac{R\alpha_1(D\sin\theta - y_c\cos\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
-&\; - \frac{R\omega_1^2(D\cos\theta + y_c\sin\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
-&\; + \frac{R\omega_1\dot{y}_c[R\sin\theta\cos\theta - y_c\cos\theta - D\sin\theta + y_c\cos\theta]}{(R\sin\theta - y_c)^2}
-\end{aligned}
-\end{equation}
-
-Simplificando:
-\begin{equation}
-\begin{split}
-\ddot{y}_c = &\; \frac{R\alpha_1(D\sin\theta - y_c\cos\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
-&\; - \frac{R\omega_1^2(D\cos\theta + y_c\sin\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
-&\; + \frac{R\omega_1\dot{y}_c\big(R\sin\theta\cos\theta - D\sin\theta\big)}{(R\sin\theta - y_c)^2}
-\end{split}
-\end{equation}
-
 % ============================================================
 % SECCIÓN 4: CÁLCULO DE ω₃ Y α₃
 % ============================================================
@@ -351,8 +327,10 @@ donde:
 \begin{itemize}
 	\item $\vec v_B = \omega_1\,R$ ⦭ $\theta$
 	\item $\vec v_{C/B} = \omega_3\,K$ ⦪ $\beta$
-	\item $\vec v_C = \dot{y}_c$ (dirección vertical ↓)
+	\item $\vec v_C = \dot{y}_c$ ↓
 \end{itemize}
+
+[diagrama velocidades]
 
 \subsubsection{Proyección en eje horizontal}
 
@@ -378,17 +356,17 @@ La aceleración del punto $C$ se puede descomponer como:
 \end{equation}
 donde:
 \begin{itemize}
-	\item $\vec a_B = \vec a_B^{\,t} + \vec a_B^{\,n}$ con:
+	\item $\vec a_B = (\vec a_B)_t + (\vec a_B)_n$ con:
 	\begin{itemize}
-		\item $\vec a_B^{\,t} = \alpha_1\,R$ ⦭ $\theta$ (tangencial)
-		\item $\vec a_B^{\,n} = \omega_1^2\,R$ ⦫ $\theta$ (normal, hacia dentro)
+		\item $(\vec a_B)_t = \alpha_1 \cdot R$, ⦭ $\theta$
+		\item $(\vec a_B)_n= \omega_1^2 \cdot R$ ⦫ $\theta$
 	\end{itemize}
-	\item $\vec a_{C/B} = \vec a_{C/B}^{\,t} + \vec a_{C/B}^{\,n}$ con:
+	\item $\vec a_{C/B} = (\vec a_{C/B})_t + (\vec a_{C/B})_n$ con:
 	\begin{itemize}
-		\item $\vec a_{C/B}^{\,t} = \alpha_3\,K$ ⦪ $\beta$ (tangencial)
-		\item $\vec a_{C/B}^{\,n} = \omega_3^2\,K$ ⦯ $\beta$ (normal, hacia dentro)
+		\item $(\vec a_{C/B})_t = \alpha_3 \cdot K$ ⦪ $\beta$
+		\item $(\vec a_{C/B})_n = \omega_3^2 \cdot K$ ⦯ $\beta$
 	\end{itemize}
-	\item $\vec a_C = \ddot{y}_c$ (dirección vertical ↓)
+	\item $\vec a_C = \ddot{y}_c$ ↓ 
 \end{itemize}
 
 \subsubsection{Proyección en eje horizontal}
@@ -406,21 +384,6 @@ Despejando $\alpha_3$:
 	}
 \end{equation}
 
-\subsubsection{Proyección en eje vertical}
-
-Proyectando en el eje vertical:
-\begin{equation}
-	-\ddot{y}_c = -\omega_1^2 R\sin\theta + \alpha_1 R\cos\theta
-	              + \omega_3^2 K\cos\beta - \alpha_3 K\sin\beta
-\end{equation}
-
-Por lo tanto:
-\begin{equation}
-	\boxed{
-		a_C = -\omega_1^2 R\sin\theta + \alpha_1 R\cos\theta
-		      + \omega_3^2 K\cos\beta - \alpha_3 K\sin\beta
-	}
-\end{equation}
 
 % ============================================================
 % SECCIÓN 5: ANÁLISIS CINÉTICO
@@ -510,14 +473,14 @@ Por lo tanto:
 
 donde $\bar{a}_c = \bar{a}_c$
 
-\subsection{Notas adicionales}
-
-Las ecuaciones anteriores describen el sistema completo de fuerzas y momentos actuando sobre el mecanismo. Para resolver el sistema, se necesita:
-\begin{itemize}
-    \item Conocer las aceleraciones angulares $\alpha_1$, $\alpha_2$, $\alpha_3$
-    \item Determinar las fuerzas de reacción $A_x$, $A_y$, $B_x$, $B_y$, $C$
-    \item Calcular las reacciones en el punto de apoyo $O_1$
-    \item Usar las aceleraciones centroidales para evaluar los términos inerciales
-\end{itemize}
+%\subsection{Notas adicionales}
+%
+%Las ecuaciones anteriores describen el sistema completo de fuerzas y momentos actuando sobre el mecanismo. Para resolver el sistema, se necesita:
+%\begin{itemize}
+%    \item Conocer las aceleraciones angulares $\alpha_1$, $\alpha_2$, $\alpha_3$
+%    \item Determinar las fuerzas de reacción $A_x$, $A_y$, $B_x$, $B_y$, $C$
+%    \item Calcular las reacciones en el punto de apoyo $O_1$
+%    \item Usar las aceleraciones centroidales para evaluar los términos inerciales
+%\end{itemize}
 
 \end{document}

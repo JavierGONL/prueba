@@ -46,17 +46,17 @@ rho_pla = 1240  # kg/m³ (densidad del PLA)
 espesor = 0.005  # m (5mm)
 
 # Masas de las piezas (estimación para modelo impreso)
-m2 = rho_pla * (r * 0.02 * espesor)  # Masa de la barra O2-A (kg) ~0.010 kg
-m3 = rho_pla * (R * 0.02 * espesor)  # Masa de la barra O1-B (kg) ~0.012 kg
-m4 = rho_pla * (K * 0.03 * espesor)  # Masa de la barra BC (kg) ~0.047 kg
-m_martillo = 0.010  # Masa del martillo/herramienta en C (kg) ~50g
+m2 = rho_pla * (r * 0.01 * espesor)  # Masa de la barra O2-A (kg) ~0.010 kg
+m3 = rho_pla * (R * 0.04 * espesor)  # Masa de la barra O1-B (kg) ~0.040 kg
+m4 = rho_pla * (K * 0.01 * espesor)  # Masa de la barra BC (kg) ~0.010 kg
+m_martillo = 0.01  # Masa del martillo/herramienta en C (kg) ~0.010kg
 
 # Aceleración de la gravedad
 g = 9.81  # m/s²
 
 # Parámetros temporales
 t_final = 2 * np.pi / omega_2  # Tiempo para una revolución completa
-n_puntos = 1000
+n_puntos = 10000
 t = np.linspace(0, t_final, n_puntos)
 
 # ============================================================
