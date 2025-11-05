@@ -11,9 +11,12 @@
 \contentsline {subsection}{\numberline {3.2}Modelo de prototipo inicial}{4}{}%
 \contentsline {section}{\numberline {4}Modelos teóricos empleados}{5}{}%
 \contentsline {subsection}{\numberline {4.1}Modelo cinemático}{5}{}%
-\contentsline {subsection}{\numberline {4.2}Modelo cinetico}{5}{}%
-\contentsline {section}{\numberline {5}Fase de Diseño Detallado}{5}{}%
-\contentsline {section}{\numberline {6}Análisis de los resultados teóricos}{5}{}%
-\contentsline {section}{\numberline {7}Análisis sobre el funcionamiento del prototipo}{5}{}%
-\contentsline {section}{\numberline {8}Conclusiones y recomendaciones}{5}{}%
-\contentsline {section}{Referencias}{5}{}%
+\contentsline {subsection}{\numberline {4.2}Modelo cinemático}{5}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Relación entre $\mittheta $ y $\mitphi $}{5}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Análisis de velocidades}{6}{}%
+\contentsline {subsection}{\numberline {4.3}Modelo cinetico}{7}{}%
+\contentsline {section}{\numberline {5}Fase de Diseño Detallado}{7}{}%
+\contentsline {section}{\numberline {6}Análisis de los resultados teóricos}{7}{}%
+\contentsline {section}{\numberline {7}Análisis sobre el funcionamiento del prototipo}{7}{}%
+\contentsline {section}{\numberline {8}Conclusiones y recomendaciones}{7}{}%
+\contentsline {section}{Referencias}{7}{}%

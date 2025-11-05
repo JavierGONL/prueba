@@ -17,10 +17,10 @@ Push-Location $fileDir
 
 $filename = [System.IO.Path]::GetFileName($fileFull)
 
-# Si latexmk está disponible, usarlo (latexmk usará el engine configurado en .latexmkrc)
+# Si latexmk está disponible, usarlo forzando LuaLaTeX
 if (Get-Command latexmk -ErrorAction SilentlyContinue) {
-    Write-Host "Usando latexmk para compilar $filename (engine por defecto: lualatex)..."
-    & latexmk -pdf -interaction=nonstopmode -file-line-error $filename
+    Write-Host "Usando latexmk para compilar $filename con LuaLaTeX..."
+    & latexmk -lualatex -interaction=nonstopmode -file-line-error $filename
     $exit = $LASTEXITCODE
     Pop-Location
     exit $exit
@@ -54,8 +54,8 @@ if ($needBib) {
     }
 }
 
-& pdflatex -interaction=nonstopmode -synctex=1 $filename
-& pdflatex -interaction=nonstopmode -synctex=1 $filename
+& lualatex -interaction=nonstopmode -synctex=1 $filename
+& lualatex -interaction=nonstopmode -synctex=1 $filename
 
 Write-Host "Compilación completada. Revisa el PDF generado en la carpeta del .tex si no hubo errores."
 Pop-Location

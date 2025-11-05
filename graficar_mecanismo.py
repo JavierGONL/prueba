@@ -16,13 +16,14 @@ plt.rcParams['font.size'] = 10
 # ============================================================
 # Dimensiones geométricas (en metros)
 # Pivotes fijos:
-d = 0.12  # Distancia entre O1 y O2 (m)
+d = 0.05  # Distancia entre O1 y O2 (m)
+D = 0.15  # Distancia horizontal de O1 a C (m)
 
 # Barras:
-r = 0.08  # Longitud de la barra motriz O2-A (m)
-R = 0.20  # Longitud FIJA de la barra O1-B (m) ← LA BARRA ES RÍGIDA
-K = 0.10  # Longitud de la barra BC (m)
-D = 0.15  # Distancia horizontal de O1 a C (m)
+r = 0.09  # Longitud de la barra motriz O2-A (m)
+R = 0.20  # Longitud FIJA de la barra O1-B (m)
+K = 0.09  # Longitud de la barra BC (m)
+
 
 # Nota: 
 # - O1 y O2 son pivotes fijos, separados por distancia d

@@ -226,12 +226,12 @@ El mecanismo consiste en un sistema de barras articuladas accionado por un motor
 El proyecto se centra en el diseño y en la construcción de un mecanismo de retorno rápido basado en el mecanismo de Whitworth, modificado específicamente para funcionar como un martillo de forja. El objetivo principal es convertir el movimiento rotacional uniforme del motor eléctrico en un movimiento lineal alternativo con cinemática asimétrica, característica fundamental para que la fase de avance lento y controlado sea efectiva a la hora de transferir energía de impacto de forma eficiente. En la fase de retorno rápido, se busca reducir el tiempo muerto del ciclo, incrementando así la productividad del sistema.
 
 % Imagen comentada porque el archivo no existe
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.4\textwidth]{imagenes/mecanismo_prototipo.png}
-% \caption{Modelo esquemático del mecanismo de retorno rápido tipo Whitworth modificado.}
-% \label{fig:mecanismo_prototipo}
-% \end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.4\textwidth]{imagenes/mecanismo_prototipo.png}
+\caption{Modelo esquemático del mecanismo de retorno rápido tipo Whitworth modificado.}
+\label{fig:mecanismo_prototipo}
+\end{figure}
 
 \vspace{0.5em}
 
@@ -256,6 +256,90 @@ Cabe destacar que el modelado presentado se encuentra sujeto a posibles modifica
 
 \subsection{Modelo cinemático}
 
+\subsection{Modelo cinemático}
+
+\subsubsection{Relación entre $\theta$ y $\phi$}
+
+Inicialmente para el analisis cinemático es necesario encontrar expresiones que permitan describrir las distancias
+e inclinaciones de todas las partes del mecanismo que conforman el sistema en funcion de una unica variable, para este fin y por medio de un analisis geometrico es posible establecer la siguiente relacion fundamental entre los ángulos por medio del triángulo formado por las longitudes $r$, $d$ y $L$. De esta manera obtenemos:
+
+(ACA VA EL DIAGRAMA!!!!!)
+
+\begin{equation}
+L^2 = r^2 + d^2 - 2rd \cos(180^\circ - \phi)
+\end{equation}
+
+Por medio de la propiedad trigonometrica  $\cos(180^\circ - \Phi) = -\cos(\phi)$, reducimos la expresion a:
+
+\begin{equation}
+L = \sqrt{r^2 + d^2 + 2rd \cos(\phi)}
+\end{equation}
+
+Donde L representara la distancia desde el punto O hasta el punto A. Sabiendo esto y usando la ley de senos es posible obtener la siguiente expresion:
+
+\begin{equation}
+\frac{\sin(180^\circ - \Phi)}{L} = \frac{\sin(\Theta)}{r}
+\end{equation}
+
+Usando la propiedad trigonometrica $\sin(180-\phi) = sin(\phi) $ y despejando r del lado derecho de la ecuacion obtenemos:
+
+\begin{equation}
+\sin(\theta) = \frac{\sin(\phi) r}{L}
+\end{equation}
+
+
+Sustituyendo $L$ en la expresion obtenemos:
+
+\begin{equation}
+\boxed{
+\sin(\Theta) =
+\frac{r \sin(\Phi)}
+{\sqrt{r^2 + d^2 + 2rd \cos(\Phi)}}
+}
+\end{equation}
+
+De esta forma se establece una Relacion directa entre el angulo $\theta$ y $\phi$.
+
+\subsubsection{Análisis de velocidades}
+
+Con la geometria del sistema definimos la velocidad en el punto $a$ por medio de las restricciones cinematicas de cada una de las partes a las que pertenece.
+En primera instancia sabemos que el punto $a$ respecto la barra $O_2A$ tiene velocidad y aceleración angulares, mas no presenta traslacion. Por tanto se puede plantear la siguiente ecuacion de rotacion respecto a un eje fijo:
+\[
+  \vec V_a = \boldsymbol{\omega}_2 \times \vec r,\; ⦭\, \Phi^\circ
+\]
+De igual manera planteamos al punto $a$ respecto a la barra $O_1B$, en la cual al generar un movimiento relativo a un sistema en rotacion es posible obtener la siguiente ecuacion vectorial para $ \vec V_a $:
+\[
+  \vec V_a = \vec V'_a + \vec V_{a/f}
+\]
+
+donde $\vec V'_a$ representa la velocidad producto de la rotacion del sistema mientras que $\vec V_{a/f}$ representa la velocidad relativa de $a$ en el sistema.  
+
+(SIGUE EL DIAGRAMA GRANDE CON EL TRIANGULO DE VELOCIDADES) 
+
+Analizando el diagrama y por medio del teorema de $[INSERTAR TEOREMA]$ obtenemos:
+
+\begin{equation}
+    V_{a/f} = ( \omega_2\cdot r \cdot \sin(\phi - \theta))
+\end{equation}
+
+Usando $[TEOREMA 2]$ tambien obtenemos la siguiente expresion para la velocidad $V'_a$: 
+\begin{equation}
+    V_a' = \cos(\Phi -\Theta) \, V_a
+\end{equation}
+
+Finalmente a partir de esta ultima relacion y remplazando con sus valores producto de su rotacion respecto a un eje fijo obtenemos:
+
+\[
+    \omega_1 L = [\cos(\Phi -\Theta)]\, \omega_2 r
+\]
+
+Despejando L del lado izquierdo de la ecuacion obtenemos la siguiente expresion para la velocidad angular del eslabón ($ \omega_1 $):
+\begin{equation}
+    \boxed{
+    \omega_1 = \frac{\omega_2 r}{L} \, \cos(\Phi -\Theta)
+    }
+\end{equation}
+
 \subsection{Modelo cinetico}
 
 \section{Fase de Diseño Detallado}
@@ -271,14 +355,9 @@ Cabe destacar que el modelado presentado se encuentra sujeto a posibles modifica
 \addcontentsline{toc}{section}{Referencias}
 \begin{thebibliography}{99}
 
-\bibitem{hartenberg1964}
-J. Denavit y R. S. Hartenberg, Kinematic Synthesis of Linkages. McGraw-Hill, 1964.
 
-\bibitem{norton2013}
-R. L. Norton, Diseño de maquinaria, 5a ed. Pearson, 2013.
-
-\bibitem{meriam2012}
-J. L. Meriam y L. G. Kraige, Dinámica de ingeniería, 7a ed. Wiley, 2012.
+\bibitem{beer}
+Ferdinand P. Beer, E. Russell Johnston Jr., William E. Clausen, "Dinámica para ingeniería", McGraw-Hill, última edición disponible.
 
 \bibitem{hal-01715664}
 Autor desconocido, “Vector loop approach for mechanism analysis,” HAL Open Science, 2018. Disponible en: https://hal.science/hal-01715664/document
