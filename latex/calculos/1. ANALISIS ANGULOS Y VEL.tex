@@ -32,11 +32,8 @@
 
 \subsubsection{Relación entre $\theta$ y $\phi$}
 
-El análisis geométrico del mecanismo permite establecer la relación fundamental entre los ángulos.
-
-
-
-A partir del triángulo formado por las longitudes $r$, $d$ y $L$, se obtiene:
+Inicialmente para el analisis cinemático es necesario encontrar expresiones que permitan describrir las distancias
+e inclinaciones de todas las partes del mecanismo que conforman el sistema en funcion de una unica variable, para este fin y por medio de un analisis geometrico es posible establecer la siguiente relacion fundamental entre los ángulos por medio del triángulo formado por las longitudes $r$, $d$ y $L$. De esta manera obtenemos:
 
 (ACA VA EL DIAGRAMA!!!!!)
 
@@ -44,44 +41,45 @@ A partir del triángulo formado por las longitudes $r$, $d$ y $L$, se obtiene:
 L^2 = r^2 + d^2 - 2rd \cos(180^\circ - \phi)
 \end{equation}
 
-sabiendo que  $\cos(180^\circ - \Phi) = -\cos(\phi)$, se tiene:
+Por medio de la propiedad trigonometrica  $\cos(180^\circ - \Phi) = -\cos(\phi)$, reducimos la expresion a:
 
 \begin{equation}
 L = \sqrt{r^2 + d^2 + 2rd \cos(\phi)}
 \end{equation}
 
-Por la ley de senos:
+Donde L representara la distancia desde el punto O hasta el punto A. Sabiendo esto y usando la ley de senos es posible obtener la siguiente expresion:
 
 \begin{equation}
 \frac{\sin(180^\circ - \Phi)}{L} = \frac{\sin(\Theta)}{r}
 \end{equation}
 
-sabiendo que $\sin(180-\phi) = sin(\phi) $ y despejando:
+Usando la propiedad trigonometrica $\sin(180-\phi) = sin(\phi) $ y despejando r del lado derecho de la ecuacion obtenemos:
 
 \begin{equation}
-\sin(\theta) = \frac{\sin(\phi) L}{r}
+\sin(\theta) = \frac{\sin(\phi) r}{L}
 \end{equation}
 
 
-Sustituyendo la expresión de $L$:
+Sustituyendo $L$ en la expresion obtenemos:
 
 \begin{equation}
 \boxed{
 \sin(\Theta) =
-\frac{\sqrt{r^2 + d^2 + 2rd \cos(\Phi)} \sin(\Phi)}
-{r}
+\frac{r \sin(\Phi)}
+{\sqrt{r^2 + d^2 + 2rd \cos(\Phi)}}
 }
 \end{equation}
 
-obtenemos una Relacion entre $\theta$ y $\phi$.
+De esta forma se establece una Relacion directa entre el angulo $\theta$ y $\phi$.
 
 \subsubsection{Análisis de velocidades}
 
-Sabemos que la barra $O_2A$ tiene velocidad y aceleración angulares, y al no presentar traslación, aplicamos rotación respecto a eje fijo:
+Con la geometria del sistema definimos la velocidad en el punto $a$ por medio de las restricciones cinematicas de cada una de las partes a las que pertenece.
+En primera instancia sabemos que el punto $a$ respecto la barra $O_2A$ tiene velocidad y aceleración angulares, mas no presenta traslacion. Por tanto se puede plantear la siguiente ecuacion de rotacion respecto a un eje fijo:
 \[
   \vec V_a = \boldsymbol{\omega}_2 \times \vec r,\; ⦭\, \Phi^\circ
 \]
-Podemos escribir una descomposición relativa de $ \vec V_a $:
+De igual manera planteamos al punto $a$ respecto a la barra $O_1B$, en la cual al generar un movimiento relativo a un sistema en rotacion es posible obtener la siguiente ecuacion vectorial para $ \vec V_a $:
 \[
   \vec V_a = \vec V'_a + \vec V_{a/f}
 \]
@@ -94,23 +92,25 @@ Podemos escribir una descomposición relativa de $ \vec V_a $:
 % \label{fig:poligono_velocidades}
 % \end{figure}
 
-donde $\vec V'_a$ sigue la trayectoria del sistema de rotación y $\vec V_{a/f}$ es la velocidad relativa.
+donde $\vec V'_a$ representa la velocidad producto de la rotacion del sistema mientras que $\vec V_{a/f}$ representa la velocidad relativa de $a$ en el sistema.  (SIGUE EL DIAGRAMA GRANDE CON EL TRIANGULO DE VELOCIDADES) 
 
+Analizando el diagrama y por medio del teorema de [INSERTAR TEOREMA] obtenemos:
 \begin{equation}
     V_{a/f} = ( \omega_2\cdot r \cdot \sin(\phi - \theta))
 \end{equation}
 
-Además:
+Usando [TEOREMA 2] tambien obtenemos la siguiente expresion para la velocidad $V'_a$: 
 \begin{equation}
     V_a' = \cos(\Phi -\Theta) \, V_a
 \end{equation}
 
-De donde:
+Finalmente a partir de esta ultima relacion y remplazando con sus valores producto de su rotacion respecto a un eje fijo obtenemos:
+
 \[
     \omega_1 L = [\cos(\Phi -\Theta)]\, \omega_2 r
 \]
 
-Por tanto, la velocidad angular del eslabón es:
+Despejando L del lado izquierdo de la ecuacion obtenemos la siguiente expresion para la velocidad angular del eslabón ($ \omega_1 $):
 \begin{equation}
     \boxed{
     \omega_1 = \frac{\omega_2 r}{L} \, \cos(\Phi -\Theta)
