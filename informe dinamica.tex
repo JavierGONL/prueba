@@ -56,8 +56,8 @@
 \begin{titlepage}
     \centering
     
-    % Logo de la Universidad Nacional de Colombia (imagen no disponible)
-    % \includegraphics[width=4.5cm]{imagenes/escudo_unal.png}
+    % Logo de la Universidad Nacional de Colombia 
+    \includegraphics[width=4.5cm]{imagenes/escudo_unal.png}
     
     \vspace{1.5cm}
     
@@ -110,11 +110,22 @@ El rediseño propuesto introduce una variación estructural respecto al mecanism
 El mecanismo completo se inscribe en un volumen máximo de $60 \times 60 \times 15 \ \text{cm}$ y fue analizado mediante el método del lazo vectorial, considerando relaciones angulares, velocidades y aceleraciones instantáneas. Los resultados obtenidos muestran una correspondencia directa entre la velocidad angular de entrada y la aceleración lineal del martillo, validando el comportamiento asimétrico característico del retorno rápido. Este diseño demuestra una alternativa funcional, compacta y didáctica para el estudio de la conversión de movimiento rotacional en lineal alternativo, aplicable tanto en entornos académicos como en desarrollos de prototipos mecánicos ligeros.
 \end{abstract}
 
+\noindent\textbf{Palabras clave:} mecanismo de retorno rápido de Whitworth; martillo de impacto vertical; palanca ranurada; pasador deslizante; lazo vectorial; cinemática de mecanismos.
+
 \vspace{0.5cm}
 
+\newpage
 % ===== TABLA DE CONTENIDO =====
 \tableofcontents
 \newpage
+
+
+% ===== INTRODUCCIÓN =====
+\section{Introducción}
+
+\begin{justify}
+    (falta arreglarlo)
+\end{justify}
 
 % ===== FUNDAMENTACIÓN TEÓRICA =====
 \section{Fundamentación teórica}
@@ -154,9 +165,36 @@ Donde:
     \item $\vec{V}_{p/f}$ y $\vec{a}_{p/f}$ representan las variables cinematicas del cuerpo relativas al sistema, en nuestro caso al ser un pasador sigue la geometria de la barra ${r_b}$
     \item $\vec{a}_{cor}$ representa la aceleracion de coreolis, la cual debe ser igual a $2\vec{\Omega} \times \vec{V_{p/f}}$ y es propia del sistema en rotacion
 \end{itemize}
+
 \subsection{Método del lazo vectorial}
 
-Permite analizar mecanismos mediante ecuaciones vectoriales que forman circuitos cerrados. Se aplica derivando sucesivamente respecto al tiempo para obtener velocidades y aceleraciones.
+Este método analiza mecanismos a partir de ecuaciones vectoriales que cierran un circuito. Cada eslabón se modela como un vector de posición en un sistema de coordenadas global $XY$. Con las longitudes conocidas y los ángulos de entrada, se plantea el lazo de cierre para obtener relaciones geométricas entre las posiciones de los eslabones. Luego, dichas relaciones se derivan una y dos veces respecto al tiempo para obtener, respectivamente, las velocidades y las aceleraciones instantáneas[ref:https://hal.science/hal-01715664/document ].
+
+En la práctica, el procedimiento consiste en:
+
+\begin{itemize}
+    \item Plantear el cierre vectorial y su proyección en los ejes $x$ y $y$.
+    \item Resolver la geometría para las incógnitas instantáneas (p. ej., $\theta$, $\beta$, $y_c$).
+    \item Derivar una vez para obtener las ecuaciones de velocidad y una segunda vez para las de aceleración.
+\end{itemize}
+
+\subsection{Ecuaciones de movimiento de un cuerpo rigido}
+
+las ecuaciones de movimiento de un cuerpo rigido me relacionan los vectores de fuerza efectiva con las fuerzas de reaccion del mecanismo:
+
+\begin{itemize}
+    \item  $\sum \vec{F} = m \bar{a}$
+    \item  $\sum \vec{M_G} = \dot{H_G}$
+\end{itemize}
+
+Donde:
+\begin{itemize}
+    \item $\sum \vec{F}$ es la suma de todas las fuerzas externas aplicadas al cuerpo.
+    \item $\sum \vec{M_G}$ es la suma de los momentos respecto al centro de masa $G$.
+    \item $\dot{H_G}$ es la derivada temporal del momento angular respecto al centro de masa. 
+    \item $\dot{H_G} = \bar{I} \alpha$
+\end{itemize}
+Estas ecuaciones permiten analizar el movimiento de cuerpos rígidos sometidos a fuerzas y momentos, relacionando las fuerzas efectivas con las reacciones internas del mecanismo. Son la base para el estudio dinámico de sistemas mecánicos como el mecanismo de martillo presentado en este informe.
 
 % ===== FASE DE DISEÑO CONCEPTUAL =====
 \section{Fase de Diseño Conceptual}
@@ -218,233 +256,38 @@ Cabe destacar que el modelado presentado se encuentra sujeto a posibles modifica
 
 \subsection{Modelo cinemático}
 
-\subsubsection{Relación entre $\alpha$ y $\delta$}
+\subsection{Modelo cinetico}
 
-El análisis geométrico del mecanismo permite establecer la relación fundamental entre los ángulos.
+\section{Fase de Diseño Detallado}
 
-% Imagen comentada porque el archivo no existe
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.5\textwidth]{imagenes/diagrama_geometrico.png}
-% \caption{Diagrama geométrico del mecanismo}
-% \label{fig:diagrama_geometrico}
-% \end{figure}
+\section{Análisis de los resultados teóricos}
 
-A partir del triángulo formado por las longitudes $r$, $d$ y $L$, se obtiene:
+\section{Análisis sobre el funcionamiento del prototipo}
 
-% Imagen comentada porque el archivo no existe
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.15\textwidth]{imagenes/diagrama_triangulo.png}
-% \caption{Diagrama del triángulo formado por las longitudes $r$, $d$ y $L$.}
-% \label{fig:diagrama_triangulo}
-% \end{figure}
+\section{Conclusiones y recomendaciones}
 
-\begin{equation}
-L^2 = r^2 + d^2 - 2rd \cos(90^\circ + \delta)
-\end{equation}
+% // ===== REFERENCIAS =====
 
-Usando la identidad $\cos(90^\circ + \delta) = -\sin(\delta)$, se tiene:
+\addcontentsline{toc}{section}{Referencias}
+\begin{thebibliography}{99}
 
-\begin{equation}
-L = \sqrt{r^2 + d^2 + 2rd \sin(\delta)}
-\end{equation}
+\bibitem{hartenberg1964}
+J. Denavit y R. S. Hartenberg, Kinematic Synthesis of Linkages. McGraw-Hill, 1964.
 
-Por la ley de senos:
+\bibitem{norton2013}
+R. L. Norton, Diseño de maquinaria, 5a ed. Pearson, 2013.
 
-\begin{equation}
-\frac{L}{\sin(90^\circ + \delta)} = \frac{r}{\sin(90^\circ - \alpha)}
-\end{equation}
+\bibitem{meriam2012}
+J. L. Meriam y L. G. Kraige, Dinámica de ingeniería, 7a ed. Wiley, 2012.
 
-Como $\sin(90^\circ - \alpha) = \cos(\alpha)$ y $\sin(90^\circ + \delta) = \cos(\delta)$, resulta:
+\bibitem{hal-01715664}
+Autor desconocido, “Vector loop approach for mechanism analysis,” HAL Open Science, 2018. Disponible en: https://hal.science/hal-01715664/document
 
-\begin{equation}
-\frac{L}{\cos(\delta)} = \frac{r}{\cos(\alpha)}
-\end{equation}
+\bibitem{stix2}
+STIX Fonts Project, “STIX Two Math,” 2020. Disponible en: https://stixfonts.org
 
-De donde se obtiene la relación entre los ángulos:
+\end{thebibliography}
 
-\begin{equation}
-\boxed{\cos(\alpha) = \frac{r \cos(\delta)}{L}}
-\end{equation}
-
-Sustituyendo la expresión de $L$:
-
-\begin{equation}
-\boxed{
-\cos(\alpha) =
-\frac{r \cos(\delta)}
-{\sqrt{r^2 + d^2 + 2rd \sin(\delta)}}
-}
-\end{equation}
-
-\subsubsection{Análisis de velocidades}
-
-Sabemos que la barra $O_2A$ tiene velocidad y aceleración angulares, y al no presentar traslación, aplicamos rotación respecto a eje fijo:
-\[
-  \vec V_a = \boldsymbol{\omega}_2 \times \vec r,\; ⦭\, \delta^\circ
-\]
-Podemos escribir una descomposición relativa de $ \vec V_a $:
-\[
-  \vec V_a = \vec V'_a + \vec V_{a/f}
-\]
-
-% Imagen comentada porque el archivo no existe
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.27\textwidth]{imagenes/poligono_velocidades.png}
-% \caption{Polígono vectorial de velocidades.}
-% \label{fig:poligono_velocidades}
-% \end{figure}
-
-donde $\vec V'_a$ sigue la trayectoria del sistema de rotación y $\vec V_{a/f}$ es la velocidad relativa.
-
-\begin{equation}
-    V_{a/f} = (\sin\alpha \cos\delta + \sin\delta \cos\alpha) \, \omega_2 r
-\end{equation}
-
-Además:
-\begin{equation}
-    V_a' = \cos(\alpha - \delta) \, V_a
-\end{equation}
-
-De donde:
-\[
-    \omega_1 L = [\cos(\alpha)\cos(\delta) + \sin(\alpha)\sin(\delta)]\, \omega_2 r
-\]
-
-Por tanto, la velocidad angular del eslabón es:
-\begin{equation}
-    \boxed{
-    \omega_1 = \dot{\alpha} = \frac{\omega_2 r}{L} \, [\cos(\alpha)\cos(\delta) + \sin(\alpha)\sin(\delta)]
-    }
-\end{equation}
-
-\subsubsection{Lazo vectorial y velocidad del martillo}
-
-Planteando el lazo vectorial para el mecanismo, se tiene:
-
-\begin{equation}
-    \vec{R} + \vec{K} = \vec{D} + \vec{X}_E
-\end{equation}
-
-Al proyectar en los ejes $x$ y $y$:
-
-\begin{align*}
-    R\cos\alpha - X_E - K\cos\beta &= 0 \\
-    R\sin\alpha - K\sin\beta - D &= 0
-\end{align*}
-
-Elevando ambas ecuaciones al cuadrado y sumando:
-
-\begin{equation*}
-    K^2 = R^2 - 2R(X_E\cos\alpha + D\sin\alpha) + X_E^2 + D^2
-\end{equation*}
-
-Derivando $K^2$ respecto al tiempo \( t \), y sabiendo que $K$ es constante:
-
-\begin{equation*}
-    0 = -2R\frac{d}{dt}(X_E\cos\alpha + D\sin\alpha) + 2X_E\dot{X}_E
-\end{equation*}
-
-Desarrollando:
-
-\begin{equation*}
-    2X_E\dot{X}_E - 2R[\dot{X}_E\cos\alpha - X_E\dot{\alpha}\sin\alpha + D\dot{\alpha}\cos\alpha] = 0
-\end{equation*}
-
-Simplificando:
-
-\begin{equation*}
-    \boxed{
-    X_E\dot{X}_E = R[\dot{X}_E\cos\alpha - X_E\dot{\alpha}\sin\alpha + D\dot{\alpha}\cos\alpha]
-    }
-\end{equation*}
-
-Finalmente, la velocidad del punto \(E\):
-
-\begin{equation}
-    \boxed{
-    \dot{X}_E = 
-    \frac{R\dot{\alpha}[D\cos\alpha - X_E\sin\alpha]}{X_E - R\cos\alpha}
-    }
-\end{equation}
-
-\subsubsection{Análisis de aceleraciones}
-
-Tal como en el análisis de velocidades sabemos que la barra $O_2A$ tiene velocidad y aceleración angulares, y al no presentar traslación, aplicamos rotación respecto a eje fijo:
-\[
-  \vec a_a = (\alpha_2 \times \vec r) ,\; ⦭\, \delta^\circ  + (\boldsymbol{\omega}_2 \times(\boldsymbol{\omega}_2 \times \vec r)) ,\; ⦫\, \delta^\circ
-\] 
-Donde el primer y segundo termino representan la aceleracion tangencial y normal de a respectivamente. Ahora podemos reescribir la aceleracion de a como parte de $O_3B$, obtieniendo la siguiente relacion:
-\[
-  \vec a_a = \vec a'_a + \vec a_{a/f} + \vec a_{cor}
-\] 
-Donde:
-\begin{itemize}
-    \item \[
-  \vec a'_a =  (\alpha_1 \times \vec L) ,\; ⦭\, \alpha^\circ  + (\boldsymbol{\omega}_1 \times(\boldsymbol{\omega}_1 \times \vec L)) ,\; ⦫\, \alpha^\circ 
-\] 
-    \item \[
-  \vec a_{cor} =  (2\boldsymbol{\omega}_1 \times \vec V_{a/f}) ,\; ⦭\, \alpha^\circ \] 
-    \item \[a_{a/f} =  \; ⦨\,\alpha^\circ \]
-\end{itemize}
-Sabiendo esto proyectamos todos los vectores respecto a sus componentes rectangulares, obteniendo respectivamente para X e Y:
-\begin{align*}
-(a'_{a})_{t} \sin\alpha + (a_{a/f}) \cos\alpha 
-&= \omega_2^2 r \cos(\delta) + \alpha_2 R \sin(\delta) 
-- 2\omega_1 V_{a/f} \sin\alpha - \omega_1^2 L \cos\alpha \\[8pt]
-(a'_{a})_{t} \cos\alpha - (a_{a/f}) \sin\alpha 
-&= \alpha_2 R \cos(\delta) - \omega_2^2 R \sin(\delta)
-- 2\omega_1 V_{a/f} \cos\alpha + \omega_1^2 L \sin\alpha
-\end{align*}
-Solucionando el sistema para $\alpha_1$ y $a_{a/f}$:
-
-\begin{equation}
-\alpha_1 = \frac{\omega_2^2 r\sin(\alpha-\delta)+\alpha_2 R\cos(\alpha-\delta)-2\omega_1V_{a/f}}{L}
-\end{equation}
-
-\begin{equation}
-a_{a/f} = \omega_2^2 r\cos(\alpha-\delta) + {\alpha}_2R \sin(\delta-\alpha) - \omega_1^2 L
-\end{equation}
-\subsubsection{Aceleración del martillo mediante lazo vectorial}
-
-Volviendo a derivar la ecuación del lazo vectorial:
-
-\begin{equation}
-\ddot{X}_E = 
-R \; 
-\frac{
-\big[ \ddot{\alpha} A - \dot{\alpha}^2 B - \dot{\alpha} \dot{X}_E \sin\alpha \big] D_{en}
-- \dot{\alpha} A (\dot{X}_E + R \dot{\alpha} \sin\alpha)
-}{
-D_{en}^2
-}
-\end{equation}
-
-\noindent donde:
-\begin{align*}
-A &= D\cos\alpha - X_E\sin\alpha,\\
-B &= D\sin\alpha + X_E\cos\alpha,\\
-D_{en} &= X_E - R\cos\alpha.
-\end{align*}
-
-\subsection{Gráficas}
-
-usando ec.15 y ec.18 para graficar la velocidad y aceleracion del martillo con respecto al tiempo:
-
-% Imágenes comentadas porque los archivos no existen
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.7\textwidth]{imagenes/grafica_martillo_velocidad.png}
-% \caption{Velocidad del martillo $\dot{X}_E$ en función del tiempo}
-% \end{figure}
-
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.7\textwidth]{imagenes/grafica_martillo_aceleracion.png}
-% \caption{Aceleración del martillo $\ddot{X}_E$ en función del tiempo}
-% \end{figure}
-\end{figure}
+\end{document}
 
 \end{document}
