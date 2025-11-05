@@ -4,7 +4,7 @@
 \contentsline {subsubsection}{\numberline {1.1.1}Relación entre $\mittheta $ y $\mitphi $}{2}{}%
 \contentsline {subsubsection}{\numberline {1.1.2}Análisis de velocidades}{2}{}%
 \contentsline {subsubsection}{\numberline {1.1.3}Análisis de aceleraciones}{3}{}%
-\contentsline {section}{\numberline {2}Lazo vectorial para obtener velocidad y aceleración del martillo}{3}{}%
+\contentsline {section}{\numberline {2}Lazo vectorial para obtener velocidad y aceleración del martillo C}{3}{}%
 \contentsline {subsection}{\numberline {2.1}Derivación de la velocidad}{4}{}%
 \contentsline {subsection}{\numberline {2.2}Resultado para la velocidad}{4}{}%
 \contentsline {subsection}{\numberline {2.3}Aceleración mediante lazo vectorial}{5}{}%
