@@ -9,19 +9,24 @@
 \contentsline {subsection}{\numberline {2.2}Resultado para la velocidad}{4}{}%
 \contentsline {subsection}{\numberline {2.3}Aceleración mediante lazo vectorial}{5}{}%
 \contentsline {subsection}{\numberline {2.4}Forma expandida de la aceleración}{5}{}%
-\contentsline {section}{\numberline {3}Cálculo de $\mitomega _3$ y $\mitalpha _3$}{5}{}%
-\contentsline {subsection}{\numberline {3.1}Geometría}{5}{}%
-\contentsline {subsection}{\numberline {3.2}Velocidades}{5}{}%
-\contentsline {subsubsection}{\numberline {3.2.1}Descomposición vectorial}{5}{}%
-\contentsline {subsubsection}{\numberline {3.2.2}Proyección en eje horizontal}{6}{}%
-\contentsline {subsection}{\numberline {3.3}Aceleraciones}{6}{}%
-\contentsline {subsubsection}{\numberline {3.3.1}Descomposición vectorial}{6}{}%
-\contentsline {subsubsection}{\numberline {3.3.2}Proyección en eje horizontal}{6}{}%
-\contentsline {subsubsection}{\numberline {3.3.3}Proyección en eje vertical}{6}{}%
-\contentsline {section}{\numberline {4}Análisis Cinético}{6}{}%
-\contentsline {subsection}{\numberline {4.1}Ecuaciones de movimiento}{6}{}%
-\contentsline {subsection}{\numberline {4.2}Aceleraciones Centroidales}{7}{}%
-\contentsline {subsubsection}{\numberline {4.2.1}Eslabón $O_1-B$}{7}{}%
-\contentsline {subsubsection}{\numberline {4.2.2}Eslabón $O_2$}{7}{}%
-\contentsline {subsubsection}{\numberline {4.2.3}Eslabón $B-C$}{7}{}%
-\contentsline {subsection}{\numberline {4.3}Notas adicionales}{8}{}%
+\contentsline {section}{\numberline {3}Cálculo de $\mitbeta $ , $\mitomega _3$ , $\mitalpha _3$, $a_B$ y aceleraciones centroidales}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Inclinacion eslabón K}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Velocidades en el punto $B$}{5}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Ecuacion vectorial de velocidad ($\mitomega _3$)}{5}{}%
+\contentsline {subsection}{\numberline {3.3}Aceleraciones en el punto $B$}{6}{}%
+\contentsline {subsubsection}{\numberline {3.3.1}Ecuacion vectorial de aceleración ($\mitalpha _3$)}{6}{}%
+\contentsline {subsection}{\numberline {3.4}Aceleraciones Centroidales}{6}{}%
+\contentsline {subsubsection}{\numberline {3.4.1}Eslabón $O_1-B$}{7}{}%
+\contentsline {subsubsection}{\numberline {3.4.2}Eslabón $O_2-A$}{7}{}%
+\contentsline {subsubsection}{\numberline {3.4.3}Martillo $C$}{7}{}%
+\contentsline {subsubsection}{\numberline {3.4.4}Eslabón $B-C$}{7}{}%
+\contentsline {section}{\numberline {4}Momentos de inercia centroidales de los eslabones}{7}{}%
+\contentsline {paragraph}{Eslabón $O_1B$ (longitud $R$, ancho $b_R$, masa $m_R$).}{7}{}%
+\contentsline {paragraph}{Eslabón $O_2A$ (longitud $r$, ancho $b_r$, masa $m_r$).}{8}{}%
+\contentsline {paragraph}{Eslabón $BC$ (longitud $K$, ancho $b_K$, masa $m_K$).}{8}{}%
+\contentsline {section}{\numberline {5}Análisis Cinético}{8}{}%
+\contentsline {subsection}{\numberline {5.1}Ecuaciones de movimiento martillo C}{8}{}%
+\contentsline {subsection}{\numberline {5.2}Ecuaciones de movimiento del eslabon BC}{8}{}%
+\contentsline {subsection}{\numberline {5.3}Ecuaciones de movimiento eslabon O1-B}{8}{}%
+\contentsline {subsection}{\numberline {5.4}Ecuaciones de movimiento eslabon O2-A}{9}{}%
+\contentsline {section}{\numberline {6}Notas adicionales}{9}{}%

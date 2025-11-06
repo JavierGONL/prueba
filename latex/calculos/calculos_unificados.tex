@@ -327,73 +327,68 @@ Simplificando:
 % ============================================================
 % SECCIÓN 4: CÁLCULO DE ω₃ Y α₃
 % ============================================================
-\section{Cálculo de $\omega_3$ y $\alpha_3$}
+\section{Cálculo de $\beta$ , $\omega_3$ , $\alpha_3$, $a_B$ y aceleraciones centroidales}
 
-Este apartado resume cómo calcular primero la velocidad angular $\omega_3$ y luego la aceleración angular $\alpha_3$ del eslabón $K$ (ángulo $\beta$), a partir del giro de la manivela $R$ (ángulo $\theta$) con $\omega_1$ y $\alpha_1$.
+Antes de obtener las variables cineticas del mecanismo es necesario preparar el terreno por medio de algunas relaciones cinematicas adicionales las cuales no fueron necesarias con anterioridad para encontrar los puntos de inetres.
 
-\subsection{Geometría}
-
-De la geometría del mecanismo:
+\subsection{Inclinacion eslabón K}
+Para encontrar el valor del angulo $\beta$ el cual describe la inclinacion del eslabón respecto a la vertical se hace uso de la proyeccion en X desarrollada por medio del lazo vectorial, la cual al despejar $\beta$ nos permite obtener la siguiente expresion:
 \begin{equation}
 	\sin\beta = \frac{R\cos\theta - D}{K}, \qquad
 	\beta = \arcsin\left(\frac{R\cos\theta - D}{K}\right)
 \end{equation}
 
-\subsection{Velocidades}
+\subsection{Velocidades en el punto $B$}
 
-\subsubsection{Descomposición vectorial}
 
-La velocidad del punto $C$ se puede descomponer como:
+\subsubsection{Ecuacion vectorial de velocidad ($\omega_3$)}
+
+Usando movimiento del plano general podemos expresar la velocidad en el punto $C$ por medio de la siguiente expresion:
 \begin{equation}
 	\vec v_C = \vec v_B + \vec v_{C/B}
 \end{equation}
-donde:
+En la cual:
+
 \begin{itemize}
-	\item $\vec v_B = \omega_1\,R$ ⦭ $\theta$
-	\item $\vec v_{C/B} = \omega_3\,K$ ⦪ $\beta$
-	\item $\vec v_C = \dot{y}_c$ (dirección vertical ↓)
+	\item $\vec v_B = \omega_1\,R$ ⦭ $\theta$, representa la velocidad del punto $B$ y es producto a la rotacion del eslabón $O_1B$ 
+	\item $\vec v_{C/B} = \omega_3\,K$ ⦪ $\beta$, representa la velocidad relativa tangecial del punto $C$ respecto a $B$ y es producto de la rotacion del eslabón $BC$
+	\item $\vec v_C = \dot{y}_c$ (dirección vertical ↓), representa la velocidad del martillo, obtenida mediante el metodo de lazo vectorial
 \end{itemize}
-
-\subsubsection{Proyección en eje horizontal}
-
-Proyectando en el eje horizontal:
+Tomando en cuenta las inclinaciones proyectamos los vectores en el eje horizontal, obtienendo asi la siguiente relacion para $\omega_3$ y $\omega_1$:
 \begin{equation}
 	0 = -\omega_1\,R\,\sin\theta - \omega_3\,K\,\cos\beta
 \end{equation}
 
-Despejando $\omega_3$:
+Despejando $\omega_3$ de la ecuacion anterior obtenemos:
 \begin{equation}
 	\boxed{
 		\omega_3 = -\,\frac{\omega_1\,R\,\sin\theta}{K\,\cos\beta}
 	}
 \end{equation}
 
-\subsection{Aceleraciones}
+\subsection{Aceleraciones en el punto $B$}
 
-\subsubsection{Descomposición vectorial}
+\subsubsection{Ecuacion vectorial de aceleración ($\alpha_3$)}
 
-La aceleración del punto $C$ se puede descomponer como:
+De manera similar a en el caso de las velocidad se tiene un movimiento de plano general, el cual nos permite expresar la aceleracion en el punto $C$ por medio de la siguiente expresion:
 \begin{equation}
 	\vec a_C = \vec a_B + \vec a_{C/B}
 \end{equation}
-donde:
+En el cual:
 \begin{itemize}
-	\item $\vec a_B = \vec a_B^{\,t} + \vec a_B^{\,n}$ con:
+	\item $\vec a_B = (\vec a_B)_t + (\vec a_B)_n$:
 	\begin{itemize}
-		\item $\vec a_B^{\,t} = \alpha_1\,R$ ⦭ $\theta$ (tangencial)
-		\item $\vec a_B^{\,n} = \omega_1^2\,R$ ⦫ $\theta$ (normal, hacia dentro)
+		\item $(\vec a_B)_t = \alpha_1 \cdot R$, ⦭ $\theta$ , Representa la aceleracion tangecial del punto $B$ debido a la rotacion fija en $O_1$
+		\item $(\vec a_B)_n= \omega_1^2 \cdot R$ ⦫ $\theta$, Representa la aceleracion normal producto de la rotacion respecto a $O_1$. Apunta directamente hacia el eje de rotacion
 	\end{itemize}
-	\item $\vec a_{C/B} = \vec a_{C/B}^{\,t} + \vec a_{C/B}^{\,n}$ con:
+	\item $\vec a_{C/B} = (\vec a_{C/B})_t + (\vec a_{C/B})_n$ en donde:
 	\begin{itemize}
-		\item $\vec a_{C/B}^{\,t} = \alpha_3\,K$ ⦪ $\beta$ (tangencial)
-		\item $\vec a_{C/B}^{\,n} = \omega_3^2\,K$ ⦯ $\beta$ (normal, hacia dentro)
+		\item $(\vec a_{C/B})_t = \alpha_3 \cdot K$ ⦪ $\beta$ Representa la aceleracion tangecial relativa del punto $C$ respecto a $B$, es producto de la rotacion del eslabon $BC$
+		\item $(\vec a_{C/B})_n = \omega_3^2 \cdot K$ ⦯ $\beta$ Representa la aceleracion normal relativa del punto $C$ respecto a $B$, apunta directamente hacia el eje de rotacion del eslabon $BC$
 	\end{itemize}
-	\item $\vec a_C = \ddot{y}_c$ (dirección vertical ↓)
+	\item $\vec a_C = \ddot{y}_c$ ↓ Representa la aceleracion del martillo, obtenida mediante el metodo de lazo vectorial
 \end{itemize}
-
-\subsubsection{Proyección en eje horizontal}
-
-Proyectando en el eje horizontal:
+Con esta ecuacion y por medio de las proyecciones en el eje horizontal de cada vector encontramos la siguiente relacion que describe a $\alpha_3$ en funcion de $\alpha_1$ y $\omega_1$:
 \begin{equation}
 	0 = -\alpha_1 R\sin\theta + \omega_1^2 R\cos\theta
 	    + \alpha_3 K\cos\beta - \omega_3^2 K\sin\beta
@@ -405,36 +400,94 @@ Despejando $\alpha_3$:
 		\alpha_3 = \frac{\omega_1^2 R\cos\theta + \alpha_1 R\sin\theta - \omega_3^2 K\sin\beta}{K\cos\beta}
 	}
 \end{equation}
+\subsection{Aceleraciones Centroidales}
+Debido a que el analisis cinetico hace uso de las aceleraciones centroidales de los cuerpos rigidos es necesario definir la aceleracion centroidal de cada una de las partes del mecanismo, es importante aclarar que el centroide debido a que todos los cuerpos estan equilibrados se encuentra en el mismo centro geometrico:
+\subsubsection{Eslabón $O_1-B$}
+El eslabon $O_1-B$ tiene una longitud $R$ y su centroide se encuentra a una distancia $R/2$ del punto $O_1$, por tanto su aceleracion centroidal puede definirse como:
+\begin{align}
+\bar{a}_{O_1} &= \alpha_1 \frac{R}{2} ,\;⦭ \, \theta^\circ \quad + \omega_1^2 \frac{R}{2} ,\; ⦫\, \theta^\circ \\
+\bar{a}_{O_{1x}} &= -\left(\alpha_1 \frac{R}{2} \sin\theta + \omega_1^2 \frac{R}{2} \cos\theta\right) \\
+\bar{a}_{O_{1y}} &= \alpha_1 \frac{R}{2} \cos\theta - \omega_1^2 \frac{R}{2} \sin\theta
+\end{align}
 
-\subsubsection{Proyección en eje vertical}
+\subsubsection{Eslabón $O_2-A$}
+El eslabon $O_2-A$ tiene una longitud $r$ y su centroide se encuentra a una distancia $r/2$ del punto $O_2$, por tanto su aceleracion centroidal puede definirse como:
+\begin{align}
+\bar{a}_{O_2} &= \alpha_2 \frac{r}{2} ,\; ⦭\, \theta^\circ \quad + \omega_2^2 \frac{r}{2} ,\; ⦫\, \theta^\circ \\
+\bar{a}_{O_{2x}} &= -\left(\alpha_2 \frac{r}{2} \sin\theta + \omega_2^2 \frac{r}{2} \cos\theta\right) \\
+\bar{a}_{O_{2y}} &= \alpha_2 \frac{r}{2} \cos\theta - \omega_2^2 \frac{r}{2} \sin\theta
+\end{align}
+\subsubsection{Martillo $C$}
+Para el martillo $C$ es necesario tomar en cuenta que se encuentra unicamente en traslacion, por lo tanto su aceleracion centroidal es igual a la aceleracion del punto $C$ obtenida por medio del lazo vectorial:
+\begin{align}
+\bar{a}_C &= {y}_c
+\end{align}
 
-Proyectando en el eje vertical:
+\subsubsection{Eslabón $B-C$}
+El eslabon $B-C$ tiene una longitud $K$ y su centroide se encuentra a una distancia $K/2$ del punto $B$, por tanto y tomando en cuenta que presenta movimiento de plano general su aceleracion centroidal puede definirse como:
+\begin{align}
+\bar{a}_{BC} &= a_c + \alpha_3 \frac{K}{2} ,\; ⦩\, \beta^\circ \quad + \omega_3^2 \frac{K}{2} ,\; ⦯\, \beta^\circ \\
+\bar{a}_{BC,x} &= -\frac{K}{2}(\alpha_3 \cos\beta + \omega_3^2 \sin\beta) \\
+\bar{a}_{BC,y} &= -a_c + \frac{K}{2}(\alpha_3 \sin\beta - \omega_3^2 \cos\beta)
+\end{align}
+\section{Momentos de inercia centroidales de los eslabones}
+
+En el análisis cinético se requieren los momentos de inercia de los eslabones en el plano del mecanismo (eje $z$ saliendo del plano). Puesto que los eslabones se fabrican como prismas rectangulares (longitud $L$ y ancho en el plano $b$), el momento de inercia respecto al centroide $G$ alrededor del eje $z$ es:
+
 \begin{equation}
-	-\ddot{y}_c = -\omega_1^2 R\sin\theta + \alpha_1 R\cos\theta
-	              + \omega_3^2 K\cos\beta - \alpha_3 K\sin\beta
+\boxed{\; I_G = \frac{1}{12}\, m\, (L^2 + b^2) \;}
 \end{equation}
 
-Por lo tanto:
-\begin{equation}
-	\boxed{
-		a_C = -\omega_1^2 R\sin\theta + \alpha_1 R\cos\theta
-		      + \omega_3^2 K\cos\beta - \alpha_3 K\sin\beta
-	}
-\end{equation}
+Aplicando a cada eslabón del mecanismo:
+
+\paragraph{Eslabón $O_1B$ (longitud $R$, ancho $b_R$, masa $m_R$).}
+Momento de inercia centroidal y respecto al pivote $O_1$:
+
+\begin{align}
+\bar{I}_{o_1} &= \boxed{\tfrac{1}{12}\, m_R\, (R^2 + b_R^2 - R'^2 - b_R'^2) }
+\end{align}
+
+\noindent Donde: $R$ es la longitud total de la barra $O_1B$, $b_R$ su ancho en el plano; $R'$ es la longitud de la ranura a lo largo de la barra y $b_R'$ el ancho de esa ranura; $m_R$ es la masa efectiva del eslabón (masa de la barra menos el material retirado por la ranura).
+
+\paragraph{Eslabón $O_2A$ (longitud $r$, ancho $b_r$, masa $m_r$).}
+Momento de inercia centroidal y respecto al pivote $O_2$:
+
+\begin{align}
+\bar{I}_{r} &= \boxed{\tfrac{1}{12}\, m_r\, (r^2 + b_r^2) }
+\end{align}
+
+\paragraph{Eslabón $BC$ (longitud $K$, ancho $b_K$, masa $m_K$).}
+Cuando el balance de momentos se toma alrededor del centroide del eslabón $BC$, como en la ecuación $Z$-$BC$ del informe, se requiere el momento de inercia centroidal:
+\begin{align}
+\bar{I}_{K} &= \boxed{\tfrac{1}{12}\, m_K\, (K^2 + b_K^2) }
+\end{align}
 
 % ============================================================
 % SECCIÓN 5: ANÁLISIS CINÉTICO
 % ============================================================
 \section{Análisis Cinético}
-
-\subsection{Ecuaciones de movimiento}
-
+Ya con las variables cinematicas adecuadas desarrollaremos el diagrama de cuerpo libre de cada una de las partes, de tal manera que obtengamos un sistema de ecuaciones que permitan conocer las fuerzas que interceden en el mecanismo.
+\subsection{Ecuaciones de movimiento martillo C}
+En el martillo C solo puede moverse verticalmente, ademas de que esta solo se mueve en traslacion y por tanto su aceleracion angular es 0.
 \begin{enumerate}
+    \item X - C:
+    \begin{equation}
+        C_x + N = 0 \quad \Rightarrow \quad
+        C_x = -N
+    \end{equation}
+    \item Z - C:
+    \begin{equation}
+        -xC_x-yf_r = 0 \quad \Rightarrow \quad N(x-Y(\mu_K)) = 0
+    \end{equation}
+    esta relacion debido a que todos los demas valores no pueden ser 0 nos indica que $N = C_x = 0$
     \item Y - C:
     \begin{equation}
         W_c - C = m_c \bar{a}_c \quad \Rightarrow \quad C = m_c (g - \bar{a_c})
     \end{equation}
-
+\end{enumerate}
+\subsection{Ecuaciones de movimiento del eslabon BC}
+El eslabon BC presenta movimiento de plano general y por tanto tiene aceleracion angular diferente de 0 y aceleracion lineal tanto vertical como horizontal.
+\begin{enumerate}
     \item X - BC:
     \begin{equation}
         B_x = m_{BC} \cdot (\bar{a}_{BC})_x
@@ -449,7 +502,10 @@ Por lo tanto:
     \begin{equation}
         \frac{K}{2}(B_y \sin\beta - B_x \cos\beta + C\sin(\beta)) = \bar{I_{BC}} \cdot \alpha_3
     \end{equation}
-
+\end{enumerate}
+\subsection{Ecuaciones de movimiento eslabon O1-B}
+El eslabon O1-B no presenta restriccion en la direccion x e y, ademas que su aceleracion angular es diferente de 0.
+\begin{enumerate}
     \item X - $O_1$:
     \begin{equation}
         O_{1x} + A_x - B_x = m_{o_1}(\bar{a}_{o_1})_x \quad \Rightarrow \quad O_{1x} + A_x = m_{o_1}(\bar{a}_{o_1})_x + B_x
@@ -457,67 +513,39 @@ Por lo tanto:
 
     \item Y - $O_1$:
     \begin{equation}
-        O_{1y} + A_y - B_y = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad (O_1)_y + A_y = m_{o_1}(\bar{a}_{o_1})_y + B_y
+        O_{1y} + A_y - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A_y = m_{o_1}(g + \bar{a}_{o_1})_y + B_y
     \end{equation}
 
     \item Z - $O_1$:
     \begin{equation}
-        \left(\frac{R}{2} - L\right)(A_x \sin\theta - A_y \cos\theta) - \frac{R}{2}(B_y \cos\theta + A\cos\theta - B_x \sin\theta - A_x \sin\theta) = \bar{I_{o_1}} \cdot \alpha_1
+        \left(\frac{R}{2} - L\right)(A_x \sin\theta - A_y \cos\theta) - \frac{R}{2}(B_y \cos\theta + O_{1y} \cos\theta - B_x \sin\theta - O_{1x} \sin\theta) = \bar{I_{o_1}} \cdot \alpha_1
     \end{equation}
-
+\end{enumerate}
+\subsection{Ecuaciones de movimiento eslabon O2-A}
+La barra O2-A no presenta restriccion en la direccion x e y, ademas que su aceleracion angular es diferente de 0 y se le es impreso un par por parte del motor ($\tau$).
+\begin{enumerate}
     \item X - $O_2$:
     \begin{equation}
-        (O_2)_x - A_x = m_r(\bar{a}_{o_2})_x
+        O_{2x} - A_x = m_r(\bar{a}_{o_2})_x
     \end{equation}
 
     \item Y - $O_2$:
     \begin{equation}
-        (O_2)_y - A_y - W_r= m_r(\bar{a}_{o_2})_y
+        O_{2y} - A_y - W_r= m_r(\bar{a}_{o_2})_y \quad \Rightarrow \quad O_{2y} - A_y = m_r((\bar{a}_{o_2})_y +g)
     \end{equation}
 
     \item Z - $O_2$:
         \begin{equation}
-            \frac{r}{2}\cdot{(A_x\sin\phi + (o_2)_x\sin\phi - A_y \cos\phi - (o_2)_y \cos\phi)} =  \bar{I_{o_2}} \cdot \alpha_2
+            \frac{r}{2}\cdot{(A_x\sin\phi + O_{2x}\sin\phi - A_y \cos\phi - O_{2y} \cos\phi)} =  \bar{I_{o_2}} \cdot \alpha_2 + \tau
         \end{equation}
 
 \end{enumerate}
 
-\subsection{Aceleraciones Centroidales}
-
-\subsubsection{Eslabón $O_1-B$}
-
-\begin{align}
-\bar{a}_{O_1} &= \alpha_1 \frac{R}{2} ,\;⦭ \, \theta^\circ \quad + \omega_1^2 \frac{R}{2} ,\; ⦫\, \theta^\circ \\
-\bar{a}_{O_{1x}} &= -\left(\alpha_1 \frac{R}{2} \sin\theta + \omega_1^2 \frac{R}{2} \cos\theta\right) \\
-\bar{a}_{O_{1y}} &= \alpha_1 \frac{R}{2} \cos\theta - \omega_1^2 \frac{R}{2} \sin\theta
-\end{align}
-
-\subsubsection{Eslabón $O_2$}
-
-\begin{align}
-\bar{a}_{O_2} &= \alpha_1 \frac{r}{2} ,\; ⦭\, \theta^\circ \quad + \omega_1^2 \frac{r}{2} ,\; ⦫\, \theta^\circ \\
-\bar{a}_{O_{2x}} &= -\left(\alpha_2 \frac{r}{2} \sin\theta + \omega_2^2 \frac{r}{2} \cos\theta\right) \\
-\bar{a}_{O_{2y}} &= \alpha_2 \frac{r}{2} \cos\theta - \omega_2^2 \frac{r}{2} \sin\theta
-\end{align}
-
-\subsubsection{Eslabón $B-C$}
-
-\begin{align}
-\bar{a}_{BC} &= a_c + \alpha_3 \frac{K}{2} ,\; ⦩\, \beta^\circ \quad + \omega_3^2 \frac{K}{2} ,\; ⦯\, \beta^\circ \\
-\bar{a}_{BC,x} &= -\frac{K}{2}(\alpha_3 \cos\beta + \omega_3^2 \sin\beta) \\
-\bar{a}_{BC,y} &= -a_c + \frac{K}{2}(\alpha_3 \sin\beta - \omega_3^2 \cos\beta)
-\end{align}
-
-donde $\bar{a}_c = \bar{a}_c$
-
-\subsection{Notas adicionales}
-
-Las ecuaciones anteriores describen el sistema completo de fuerzas y momentos actuando sobre el mecanismo. Para resolver el sistema, se necesita:
+\section{Notas adicionales}
+Para poder resolver el sistema de ecuaciones planteado y obtener las reacciones en el mecanismo es obligatorio conocer las variables cinematicas planteadas a lo largo del analisis del mecanismo, entre las cuales resaltan:
 \begin{itemize}
-    \item Conocer las aceleraciones angulares $\alpha_1$, $\alpha_2$, $\alpha_3$
-    \item Determinar las fuerzas de reacción $A_x$, $A_y$, $B_x$, $B_y$, $C$
-    \item Calcular las reacciones en el punto de apoyo $O_1$
-    \item Usar las aceleraciones centroidales para evaluar los términos inerciales
+    \item Las aceleraciones angulares $\alpha_1$, $\alpha_2$, $\alpha_3$
+    \item Las aceleraciones centroidales $\bar{a}_{o_1}$, $\bar{a}_{o_2}$, $\bar{a}_{BC}$ y $\bar{a}_C$
 \end{itemize}
 
 \end{document}
