@@ -254,9 +254,7 @@ Cabe destacar que el modelado presentado se encuentra sujeto a posibles modifica
 % ===== MODELOS TEÓRICOS =====
 \section{Modelos teóricos empleados}
 
-\subsection{Modelo cinemático}
-
-\subsection{Modelo cinemático}
+\section{Modelo cinemático}
 
 \subsubsection{Relación entre $\theta$ y $\phi$}
 
@@ -300,7 +298,7 @@ Sustituyendo $L$ en la expresion obtenemos:
 
 De esta forma se establece una Relacion directa entre el angulo $\theta$ y $\phi$.
 
-\subsubsection{Análisis de velocidades}
+\subsection{Análisis de velocidades}
 
 Con la geometria del sistema definimos la velocidad en el punto $a$ por medio de las restricciones cinematicas de cada una de las partes a las que pertenece.
 En primera instancia sabemos que el punto $a$ respecto la barra $O_2A$ tiene velocidad y aceleración angulares, mas no presenta traslacion. Por tanto se puede plantear la siguiente ecuacion de rotacion respecto a un eje fijo:
@@ -312,17 +310,22 @@ De igual manera planteamos al punto $a$ respecto a la barra $O_1B$, en la cual a
   \vec V_a = \vec V'_a + \vec V_{a/f}
 \]
 
-donde $\vec V'_a$ representa la velocidad producto de la rotacion del sistema mientras que $\vec V_{a/f}$ representa la velocidad relativa de $a$ en el sistema.  
+% Imagen comentada porque el archivo no existe
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=0.27\textwidth]{imagenes/poligono_velocidades.png}
+% \caption{Polígono vectorial de velocidades.}
+% \label{fig:poligono_velocidades}
+% \end{figure}
 
-(SIGUE EL DIAGRAMA GRANDE CON EL TRIANGULO DE VELOCIDADES) 
+donde $\vec V'_a$ representa la velocidad producto de la rotacion del sistema mientras que $\vec V_{a/f}$ representa la velocidad relativa de $a$ en el sistema.  (SIGUE EL DIAGRAMA GRANDE CON EL TRIANGULO DE VELOCIDADES) 
 
-Analizando el diagrama y por medio del teorema de $[INSERTAR TEOREMA]$ obtenemos:
-
+Analizando el diagrama y por medio del teorema de [INSERTAR TEOREMA] obtenemos:
 \begin{equation}
     V_{a/f} = ( \omega_2\cdot r \cdot \sin(\phi - \theta))
 \end{equation}
 
-Usando $[TEOREMA 2]$ tambien obtenemos la siguiente expresion para la velocidad $V'_a$: 
+Usando [TEOREMA 2] tambien obtenemos la siguiente expresion para la velocidad $V'_a$: 
 \begin{equation}
     V_a' = \cos(\Phi -\Theta) \, V_a
 \end{equation}
@@ -340,7 +343,484 @@ Despejando L del lado izquierdo de la ecuacion obtenemos la siguiente expresion 
     }
 \end{equation}
 
-\subsection{Modelo cinetico}
+
+% ============================================================
+% SECCIÓN 2: ANÁLISIS DE ACELERACIONES
+% ============================================================
+\subsection{Análisis de aceleraciones}
+
+De manera similar a en el analisis de velocidades tomamos a $a$ respecto a la barra $O_2A$ tiene velocidad y aceleración angular y no presenta traslación, debido a esto aplicamos nuevamente rotación respecto a eje fijo y obtenemos la siguiente expresion vectorial:
+\[
+  \vec a_a = (\alpha_2 \times \vec r) ,\; ⦭\, \Phi^\circ  + (\boldsymbol{\omega}_2 \times(\boldsymbol{\omega}_2 \times \vec r)) ,\; ⦫\, \Phi^\circ
+\] 
+Donde el primer termino representa la aceleracion tangencial de $a$ mientras el segundo representa su aceleracion normal.
+Hecho esto ahora consideramos a como parte de la barra $O_1B$, obteniendo la sigueinte relacion:
+\[
+  \vec a_a = \vec a'_a + \vec a_{a/f} + \vec a_{cor}
+\] 
+Donde:
+
+\begin{itemize}
+    \item \[
+  \vec a'_a =  (\alpha_1 \times \vec L) ,\; ⦫\, \theta^\circ  + (\boldsymbol{\omega}_1 \times(\boldsymbol{\omega}_1 \times \vec L)) ,\; ⦭\, \theta^\circ 
+\] 
+$\vec a'_a$ representa  la aceleracion producto de la rotacion del sistema
+    \item \[
+  \vec a_{cor} =  (2\boldsymbol{\omega}_1 \times \vec V_{a/f}) ,\; ⦮\, \theta^\circ \] 
+$\vec a_{cor}$ representa la aceleracion de coriolis, un termino adicional que surge en sistemas no inerciales de este tipo
+    \item \[a_{a/f} =  \; ⦫\,\theta^\circ \]
+$a_{a/f}$ representa la aceleracion del punto $a$ relativo al sistema en rotacion
+\end{itemize}
+Igualando ambas ecuaciones vectoriales para encontrar las incognitas requeridas proyectamos todos los vectores respecto a sus componentes rectangulares, obteniendo las siguientes ecuaciones para X e Y:
+\begin{align*}
+(a'_{a})_{t} \sin\theta + (a_{a/f}) \cos\theta 
+&= \omega_2^2 r \cos(\Phi) + \alpha_2 r \sin(\Phi) 
++ 2\omega_1 V_{a/f} \sin\theta - \omega_1^2 L \cos\theta \\[8pt]
+(a'_{a})_{t} \cos\theta - (a_{a/f}) \sin\theta 
+&= \alpha_2 r \cos(\Phi) - \omega_2^2 r \sin(\Phi)
++ 2\omega_1 V_{a/f} \cos\theta + \omega_1^2 L \sin\theta
+\end{align*}
+Solucionando el sistema para $\alpha_1$ y $a_{a/f}$:
+
+\begin{equation}
+\alpha_1 = \frac{\omega_2^2 r\sin(\theta-\Phi)+\alpha_2 r\cos(\theta-\Phi)+2\omega_1V_{a/f}}{L}
+\end{equation}
+
+\begin{equation}
+a_{a/f} = \omega_2^2 r\cos(\Phi-\theta) + {\alpha}_2 r \sin(\Phi-\theta) - \omega_1^2 L
+\end{equation}
+
+% ============================================================
+% SECCIÓN 3: LAZO VECTORIAL PARA OBTENER VEL Y ACEL DEL MARTILLO
+% ============================================================
+\subsection{Lazo vectorial para obtener velocidad y aceleración del martillo C}
+
+Planteando el lazo vectorial para el mecanismo, se tiene:
+
+Al proyectar en los ejes $x$ y $y$:
+
+\begin{align*}
+    X: D - R\cos\theta + K\sin\beta &= 0 \\
+    Y: y_c + K\cos\beta - R\sin\theta &= 0
+\end{align*}
+
+Elevando ambas ecuaciones al cuadrado y sumando:
+
+\begin{equation*}
+    K^2 = {(R\cos\theta - D)}^{2} + {(R\sin\theta - y_c)}^{2}
+\end{equation*}
+
+\subsubsection{Derivación de la velocidad}
+
+Derivando ambos lados respecto al tiempo. Donde:
+\begin{itemize}
+    \item $K$ es constante
+    \item $\frac{d\theta}{dt} = \omega_1$
+    \item $y_c$ es variable
+    \item $R$ es constante
+    \item $D$ es constante
+\end{itemize}
+
+\begin{align}
+\frac{d(K^2)}{dt} &= \frac{d}{dt}\left[(R\cos(\theta) - D)^2 + (R\sin(\theta) - y_c)^2\right]
+\end{align}
+
+Como $K$ es constante:
+\begin{align}
+0 &= \frac{d}{dt}\left[(R\cos(\theta) - D)^2 + (R\sin(\theta) - y_c)^2\right]
+\end{align}
+
+Aplicando la regla de la cadena:
+\begin{align}
+0 &= 2(R\cos(\theta) - D)\frac{d}{dt}(R\cos(\theta) - D) + 2(R\sin(\theta) - y_c)\frac{d}{dt}(R\sin(\theta) - y_c)
+\end{align}
+
+Calculando las derivadas internas:
+\begin{align}
+\frac{d}{dt}(R\cos(\theta) - D) &= -R\sin(\theta)\frac{d\theta}{dt} = -R\sin(\theta)\omega_1 \\
+\frac{d}{dt}(R\sin(\theta) - y_c) &= R\cos(\theta)\frac{d\theta}{dt} - \dot{y}_c = R\cos(\theta)\omega_1 - \dot{y}_c
+\end{align}
+
+Sustituyendo:
+\begin{align}
+0 &= 2(R\cos(\theta) - D)(-R\sin(\theta)\omega_1) + 2(R\sin(\theta) - y_c)(R\cos(\theta)\omega_1 - \dot{y}_c)
+\end{align}
+
+Dividiendo entre 2:
+\begin{align}
+0 &= -(R\cos(\theta) - D)R\sin(\theta)\omega_1 + (R\sin(\theta) - y_c)(R\cos(\theta)\omega_1 - \dot{y}_c)
+\end{align}
+
+Expandiendo:
+\begin{align}
+0 &= -R^2\cos(\theta)\sin(\theta)\omega_1 + DR\sin(\theta)\omega_1 \nonumber \\
+  &\quad + R^2\sin(\theta)\cos(\theta)\omega_1 - R\sin(\theta)\dot{y}_c \nonumber \\
+  &\quad - y_cR\cos(\theta)\omega_1 + y_c\dot{y}_c
+\end{align}
+
+Los términos $R^2\cos(\theta)\sin(\theta)\omega_1$ se cancelan, quedando:
+\begin{align}
+0 &= DR\sin(\theta)\omega_1 - R\sin(\theta)\dot{y}_c - y_cR\cos(\theta)\omega_1 + y_c\dot{y}_c
+\end{align}
+
+Reorganizando:
+\begin{align}
+\dot{y}_c(R\sin(\theta) - y_c) &= R\omega_1(D\sin(\theta) - y_c\cos(\theta))
+\end{align}
+
+\subsubsection{Resultado para la velocidad}
+
+Dividiendo ambos lados por $(R\sin(\theta) - y_c)$:
+\begin{align}
+\boxed{\dot{y}_c = \frac{R\omega_1(D\sin(\theta) - y_c\cos(\theta))}{R\sin(\theta) - y_c}}
+\end{align}
+
+Esta expresión es válida siempre que $R\sin(\theta) \neq y_c$ (es decir, que el denominador no sea cero).
+
+\subsubsection{Aceleración mediante lazo vectorial}
+
+Derivando nuevamente la ecuación de velocidad para obtener la aceleración:
+
+\begin{equation}
+\ddot{y}_c = 
+R \; 
+\frac{
+\big[ \dot{\omega}_1 A - \omega_1^2 B - \omega_1 \dot{y}_c \cos\theta \big] D_{en}
+- \omega_1 A (\dot{y}_c + R \omega_1 \cos\theta)
+}{
+D_{en}^2
+}
+\end{equation}
+
+\noindent donde:
+\begin{align*}
+A &= D\sin\theta - y_c\cos\theta,\\
+B &= D\cos\theta + y_c\sin\theta,\\
+D_{en} &= R\sin\theta - y_c.
+\end{align*}
+
+Nota: $\dot{\omega}_1 = \ddot{\theta} = \alpha_1$ es la aceleración angular.
+
+\subsubsection{Forma expandida de la aceleración}
+
+Expandiendo la expresión anterior:
+
+\begin{equation}
+\begin{aligned}
+\ddot{y}_c = &\; \frac{R\alpha_1(D\sin\theta - y_c\cos\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
+&\; - \frac{R\omega_1^2(D\cos\theta + y_c\sin\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
+&\; + \frac{R\omega_1\dot{y}_c[R\sin\theta\cos\theta - y_c\cos\theta - D\sin\theta + y_c\cos\theta]}{(R\sin\theta - y_c)^2}
+\end{aligned}
+\end{equation}
+
+Simplificando:
+\begin{equation}
+\begin{split}
+\ddot{y}_c = &\; \frac{R\alpha_1(D\sin\theta - y_c\cos\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
+&\; - \frac{R\omega_1^2(D\cos\theta + y_c\sin\theta)(R\sin\theta - y_c)}{(R\sin\theta - y_c)^2} \\
+&\; + \frac{R\omega_1\dot{y}_c\big(R\sin\theta\cos\theta - D\sin\theta\big)}{(R\sin\theta - y_c)^2}
+\end{split}
+\end{equation}
+
+% ============================================================
+% SECCIÓN 4: CÁLCULO DE ω₃ Y α₃
+% ============================================================
+\subsection{Cálculo de $\beta$ , $\omega_3$ , $\alpha_3$, $a_B$}
+
+Antes de obtener las variables cineticas del mecanismo es necesario preparar el terreno por medio de algunas relaciones cinematicas adicionales las cuales no fueron necesarias con anterioridad para encontrar los puntos de inetres.
+
+\subsubsection{Inclinacion eslabón K}
+Para encontrar el valor del angulo $\beta$ el cual describe la inclinacion del eslabón respecto a la vertical se hace uso de la proyeccion en X desarrollada por medio del lazo vectorial, la cual al despejar $\beta$ nos permite obtener la siguiente expresion:
+\begin{equation}
+	\sin\beta = \frac{R\cos\theta - D}{K}, \qquad
+	\beta = \arcsin\left(\frac{R\cos\theta - D}{K}\right)
+\end{equation}
+
+\subsubsection{Ecuacion vectorial de velocidad en el punto $B$}
+
+Usando movimiento del plano general podemos expresar la velocidad en el punto $C$ por medio de la siguiente expresion:
+\begin{equation}
+	\vec v_C = \vec v_B + \vec v_{C/B}
+\end{equation}
+En la cual:
+
+\begin{itemize}
+	\item $\vec v_B = \omega_1\,R$ ⦭ $\theta$, representa la velocidad del punto $B$ y es producto a la rotacion del eslabón $O_1B$ 
+	\item $\vec v_{C/B} = \omega_3\,K$ ⦪ $\beta$, representa la velocidad relativa tangecial del punto $C$ respecto a $B$ y es producto de la rotacion del eslabón $BC$
+	\item $\vec v_C = \dot{y}_c$ (dirección vertical ↓), representa la velocidad del martillo, obtenida mediante el metodo de lazo vectorial
+\end{itemize}
+Tomando en cuenta las inclinaciones proyectamos los vectores en el eje horizontal, obtienendo asi la siguiente relacion para $\omega_3$ y $\omega_1$:
+\begin{equation}
+	0 = -\omega_1\,R\,\sin\theta - \omega_3\,K\,\cos\beta
+\end{equation}
+
+Despejando $\omega_3$ de la ecuacion anterior obtenemos:
+\begin{equation}
+	\boxed{
+		\omega_3 = -\,\frac{\omega_1\,R\,\sin\theta}{K\,\cos\beta}
+	}
+\end{equation}
+
+
+\subsubsection{Ecuacion vectorial de aceleración en el punto $B$}
+
+De manera similar a en el caso de las velocidad se tiene un movimiento de plano general, el cual nos permite expresar la aceleracion en el punto $C$ por medio de la siguiente expresion:
+\begin{equation}
+	\vec a_C = \vec a_B + \vec a_{C/B}
+\end{equation}
+En el cual:
+\begin{itemize}
+	\item $\vec a_B = (\vec a_B)_t + (\vec a_B)_n$:
+	\begin{itemize}
+		\item $(\vec a_B)_t = \alpha_1 \cdot R$, ⦭ $\theta$ , Representa la aceleracion tangecial del punto $B$ debido a la rotacion fija en $O_1$
+		\item $(\vec a_B)_n= \omega_1^2 \cdot R$ ⦫ $\theta$, Representa la aceleracion normal producto de la rotacion respecto a $O_1$. Apunta directamente hacia el eje de rotacion
+	\end{itemize}
+	\item $\vec a_{C/B} = (\vec a_{C/B})_t + (\vec a_{C/B})_n$ en donde:
+	\begin{itemize}
+		\item $(\vec a_{C/B})_t = \alpha_3 \cdot K$ ⦪ $\beta$ Representa la aceleracion tangecial relativa del punto $C$ respecto a $B$, es producto de la rotacion del eslabon $BC$
+		\item $(\vec a_{C/B})_n = \omega_3^2 \cdot K$ ⦯ $\beta$ Representa la aceleracion normal relativa del punto $C$ respecto a $B$, apunta directamente hacia el eje de rotacion del eslabon $BC$
+	\end{itemize}
+	\item $\vec a_C = \ddot{y}_c$ ↓ Representa la aceleracion del martillo, obtenida mediante el metodo de lazo vectorial
+\end{itemize}
+Con esta ecuacion y por medio de las proyecciones en el eje horizontal de cada vector encontramos la siguiente relacion que describe a $\alpha_3$ en funcion de $\alpha_1$ y $\omega_1$:
+\begin{equation}
+	0 = -\alpha_1 R\sin\theta + \omega_1^2 R\cos\theta
+	    + \alpha_3 K\cos\beta - \omega_3^2 K\sin\beta
+\end{equation}
+
+Despejando $\alpha_3$:
+\begin{equation}
+	\boxed{
+		\alpha_3 = \frac{\omega_1^2 R\cos\theta + \alpha_1 R\sin\theta - \omega_3^2 K\sin\beta}{K\cos\beta}
+	}
+\end{equation}
+\subsection{Aceleraciones Centroidales}
+Debido a que el analisis cinetico hace uso de las aceleraciones centroidales de los cuerpos rigidos es necesario definir la aceleracion centroidal de cada una de las partes del mecanismo, es importante aclarar que el centroide debido a que todos los cuerpos estan equilibrados se encuentra en el mismo centro geometrico:
+\subsubsection{Eslabón $O_1-B$}
+El eslabon $O_1-B$ tiene una longitud $R$ y su centroide se encuentra a una distancia $R/2$ del punto $O_1$, por tanto su aceleracion centroidal puede definirse como:
+\begin{align}
+\bar{a}_{O_1} &= \alpha_1 \frac{R}{2} ,\;⦭ \, \theta^\circ \quad + \omega_1^2 \frac{R}{2} ,\; ⦫\, \theta^\circ \\
+\bar{a}_{O_{1x}} &= -\left(\alpha_1 \frac{R}{2} \sin\theta + \omega_1^2 \frac{R}{2} \cos\theta\right) \\
+\bar{a}_{O_{1y}} &= \alpha_1 \frac{R}{2} \cos\theta - \omega_1^2 \frac{R}{2} \sin\theta
+\end{align}
+
+\subsubsection{Eslabón $O_2-A$}
+El eslabon $O_2-A$ tiene una longitud $r$ y su centroide se encuentra a una distancia $r/2$ del punto $O_2$, por tanto su aceleracion centroidal puede definirse como:
+\begin{align}
+\bar{a}_{O_2} &= \alpha_2 \frac{r}{2} ,\; ⦭\, \theta^\circ \quad + \omega_2^2 \frac{r}{2} ,\; ⦫\, \theta^\circ \\
+\bar{a}_{O_{2x}} &= -\left(\alpha_2 \frac{r}{2} \sin\theta + \omega_2^2 \frac{r}{2} \cos\theta\right) \\
+\bar{a}_{O_{2y}} &= \alpha_2 \frac{r}{2} \cos\theta - \omega_2^2 \frac{r}{2} \sin\theta
+\end{align}
+\subsubsection{Martillo $C$}
+Para el martillo $C$ es necesario tomar en cuenta que se encuentra unicamente en traslacion, por lo tanto su aceleracion centroidal es igual a la aceleracion del punto $C$ obtenida por medio del lazo vectorial:
+\begin{align}
+\bar{a}_C &= {y}_c
+\end{align}
+
+\subsubsection{Eslabón $B-C$}
+El eslabon $B-C$ tiene una longitud $K$ y su centroide se encuentra a una distancia $K/2$ del punto $B$, por tanto y tomando en cuenta que presenta movimiento de plano general su aceleracion centroidal puede definirse como:
+\begin{align}
+\bar{a}_{BC} &= a_c + \alpha_3 \frac{K}{2} ,\; ⦩\, \beta^\circ \quad + \omega_3^2 \frac{K}{2} ,\; ⦯\, \beta^\circ \\
+\bar{a}_{BC,x} &= -\frac{K}{2}(\alpha_3 \cos\beta + \omega_3^2 \sin\beta) \\
+\bar{a}_{BC,y} &= -a_c + \frac{K}{2}(\alpha_3 \sin\beta - \omega_3^2 \cos\beta)
+\end{align}
+\subsection{Momentos de inercia centroidales de los eslabones}
+
+En el análisis cinético se requieren los momentos de inercia de los eslabones en el plano del mecanismo (eje $z$ saliendo del plano). Puesto que los eslabones se fabrican como prismas rectangulares (longitud $L$ y ancho en el plano $b$), el momento de inercia respecto al centroide $G$ alrededor del eje $z$ es:
+
+\begin{equation}
+\boxed{\; I_G = \frac{1}{12}\, m\, (L^2 + b^2) \;}
+\end{equation}
+
+Aplicando a cada eslabón del mecanismo:
+
+\paragraph{Eslabón $O_1B$ (longitud $R$, ancho $b_R$, masa $m_R$).}
+Momento de inercia centroidal y respecto al pivote $O_1$:
+
+\begin{align}
+\bar{I}_{o_1} &= \boxed{\tfrac{1}{12}\, m_R\, (R^2 + b_R^2 - R'^2 - b_R'^2) }
+\end{align}
+
+\noindent Donde: $R$ es la longitud total de la barra $O_1B$, $b_R$ su ancho en el plano; $R'$ es la longitud de la ranura a lo largo de la barra y $b_R'$ el ancho de esa ranura; $m_R$ es la masa efectiva del eslabón (masa de la barra menos el material retirado por la ranura).
+
+\paragraph{Eslabón $O_2A$ (longitud $r$, ancho $b_r$, masa $m_r$).}
+Momento de inercia centroidal y respecto al pivote $O_2$:
+
+\begin{align}
+\bar{I}_{r} &= \boxed{\tfrac{1}{12}\, m_r\, (r^2 + b_r^2) }
+\end{align}
+
+\paragraph{Eslabón $BC$ (longitud $K$, ancho $b_K$, masa $m_K$).}
+Cuando el balance de momentos se toma alrededor del centroide del eslabón $BC$, como en la ecuación $Z$-$BC$ del informe, se requiere el momento de inercia centroidal:
+\begin{align}
+\bar{I}_{K} &= \boxed{\tfrac{1}{12}\, m_K\, (K^2 + b_K^2) }
+\end{align}
+
+% ============================================================
+% SECCIÓN 5: ANÁLISIS CINÉTICO
+% ============================================================
+\section{Análisis Cinético}
+Ya con las variables cinematicas adecuadas desarrollaremos el diagrama de cuerpo libre de cada una de las partes, de tal manera que obtengamos un sistema de ecuaciones que permitan conocer las fuerzas que interceden en el mecanismo.
+\subsection{Ecuaciones de movimiento martillo C}
+En el martillo C solo puede moverse verticalmente, ademas de que esta solo se mueve en traslacion y por tanto su aceleracion angular es 0.
+\begin{enumerate}
+    \item X - C:
+    \begin{equation}
+        C_x + N = 0 \quad \Rightarrow \quad
+        C_x = -N
+    \end{equation}
+    \item Z - C:
+    \begin{equation}
+        -xC_x-yf_r = 0 \quad \Rightarrow \quad N(x-Y(\mu_K)) = 0
+    \end{equation}
+    esta relacion debido a que todos los demas valores no pueden ser 0 nos indica que $N = C_x = 0$
+    \item Y - C:
+    \begin{equation}
+        W_c - C = m_c \bar{a}_c \quad \Rightarrow \quad C = m_c (g - \bar{a_c})
+    \end{equation}
+\end{enumerate}
+\subsection{Ecuaciones de movimiento del eslabon BC}
+El eslabon BC presenta movimiento de plano general y por tanto tiene aceleracion angular diferente de 0 y aceleracion lineal tanto vertical como horizontal.
+\begin{enumerate}
+    \item X - BC:
+    \begin{equation}
+        B_x = m_{BC} \cdot (\bar{a}_{BC})_x
+    \end{equation}
+
+    \item Y - BC:
+    \begin{equation}
+        B_y - W_R - C = m_{BC} \cdot (\bar{a}_{BC})_y \quad \Rightarrow \quad B_y = m_{BC}(g + (\bar{a}_{BC})_y) + C
+    \end{equation}
+
+    \item Z - BC:
+    \begin{equation}
+        \frac{K}{2}(B_y \sin\beta - B_x \cos\beta + C\sin(\beta)) = \bar{I_{BC}} \cdot \alpha_3
+    \end{equation}
+\end{enumerate}
+\subsection{Ecuaciones de movimiento eslabon O1-B}
+El eslabon O1-B no presenta restriccion en la direccion x e y, ademas que su aceleracion angular es diferente de 0.
+\begin{enumerate}
+    \item X - $O_1$:
+    \begin{equation}
+        O_{1x} + A_x - B_x = m_{o_1}(\bar{a}_{o_1})_x \quad \Rightarrow \quad O_{1x} + A_x = m_{o_1}(\bar{a}_{o_1})_x + B_x
+    \end{equation}
+
+    \item Y - $O_1$:
+    \begin{equation}
+        O_{1y} + A_y - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A_y = m_{o_1}(g + \bar{a}_{o_1})_y + B_y
+    \end{equation}
+
+    \item Z - $O_1$:
+    \begin{equation}
+        \left(\frac{R}{2} - L\right)(A_x \sin\theta - A_y \cos\theta) - \frac{R}{2}(B_y \cos\theta + O_{1y} \cos\theta - B_x \sin\theta - O_{1x} \sin\theta) = \bar{I_{o_1}} \cdot \alpha_1
+    \end{equation}
+\end{enumerate}
+\subsection{Ecuaciones de movimiento eslabon O2-A}
+La barra O2-A no presenta restriccion en la direccion x e y, ademas que su aceleracion angular es diferente de 0 y se le es impreso un par por parte del motor ($\tau$).
+\begin{enumerate}
+    \item X - $O_2$:
+    \begin{equation}
+        O_{2x} - A_x = m_r(\bar{a}_{o_2})_x
+    \end{equation}
+
+    \item Y - $O_2$:
+    \begin{equation}
+        O_{2y} - A_y - W_r= m_r(\bar{a}_{o_2})_y \quad \Rightarrow \quad O_{2y} - A_y = m_r((\bar{a}_{o_2})_y +g)
+    \end{equation}
+
+    \item Z - $O_2$:
+        \begin{equation}
+            \frac{r}{2}\cdot{(A_x\sin\phi + O_{2x}\sin\phi - A_y \cos\phi - O_{2y} \cos\phi)} =  \bar{I_{o_2}} \cdot \alpha_2 + \tau
+        \end{equation}
+
+\end{enumerate}
+
+\section{Notas adicionales}
+Para poder resolver el sistema de ecuaciones planteado y obtener las reacciones en el mecanismo es obligatorio conocer las variables cinematicas planteadas a lo largo del analisis del mecanismo, entre las cuales resaltan:
+\begin{itemize}
+    \item Las aceleraciones angulares $\alpha_1$, $\alpha_2$, $\alpha_3$
+    \item Las aceleraciones centroidales $\bar{a}_{o_1}$, $\bar{a}_{o_2}$, $\bar{a}_{BC}$ y $\bar{a}_C$
+\end{itemize}
+
+
+% ============================================================
+% SECCIÓN 6: CÁLCULO INVERSO DE ω₂ CON φ Y C DADOS
+% ============================================================
+\subsection{Cálculo de $\omega_2$ dado $\phi$ y $C$}
+
+Este apartado establece un procedimiento para calcular la velocidad angular de entrada $\omega_2$ cuando se conoce:
+
+\begin{itemize}
+    \item El ángulo de entrada instantáneo $\phi$ (fijado),
+    \item La fuerza de contacto en el martillo $C$ (signo positivo hacia arriba),
+    \item La geometría $(r, d, R, K, D)$ y la masa efectiva del martillo $m_c$.
+\end{itemize}
+
+\subsubsection{Contratos y variables}
+
+- Entrada: $\phi$ fijo, $C$, $r, d, R, K, D$, $m_c$, con $\alpha_2 = 0$ (motor a velocidad constante).
+
+- Salida: $\omega_2$ tal que la aceleración vertical del martillo
+    $\ddot y_c(\omega_2)$ satisfaga la ecuación de equilibrio instantáneo
+    $\boxed{\; C = m_c( g - \ddot y_c )\;}$.
+
+- Intermedias: $L(\phi)$, $\theta(\phi)$, $\beta(\theta)$, $y_c(\theta,\beta)$, $\omega_1(\omega_2)$,
+    $V_{a/f}(\omega_2)$, $\alpha_1(\omega_2)$, $\dot y_c(\omega_1,\theta,y_c)$ y $\ddot y_c$ por lazo vectorial.
+
+\subsubsection{Pasos del procedimiento}
+
+\begin{enumerate}
+    \item Aceleracióndel martillo a partir de $C$:
+    \begin{equation}
+    \boxed{\; \ddot y_c = g - \frac{C}{m_c} \;}
+    \end{equation}
+
+    \item Cinemática instantánea con $\phi$ fijo:
+    \begin{align}
+    L(\phi) &= \sqrt{r^2 + d^2 + 2rd\cos\phi}, \\
+    \sin\theta(\phi) &= \frac{r\sin\phi}{L(\phi)}, \quad \theta = \arcsin\!\left(\tfrac{r\sin\phi}{L}\right), \\
+    \beta(\theta) &= \arcsin\!\left(\tfrac{R\cos\theta - D}{K}\right), \\
+    y_c(\theta,\beta) &= R\sin\theta - K\cos\beta.
+    \end{align}
+
+    \item Velocidades y aceleraciones angulares en función de $\omega_2$:
+    \begin{align}
+    \omega_1(\omega_2) &= \frac{\omega_2\,r}{L}\cos(\phi - \theta), \\
+    V_{a/f}(\omega_2) &= \omega_2\, r\, \sin(\phi - \theta), \\
+    \alpha_1(\omega_2) &= \frac{\omega_2^2 r\, \sin(\theta-\phi) + 2\,\omega_1 V_{a/f}}{L} \quad (\text{con } \alpha_2=0).
+    \end{align}
+
+    \item Velocidad y aceleración vertical del martillo (lazo vectorial):
+    \begin{align}
+    \dot y_c &= \frac{R\,\omega_1\,(D\sin\theta - y_c\cos\theta)}{R\sin\theta - y_c}, \\
+    \ddot y_c &= R \, \frac{\big[ \alpha_1 A - \omega_1^2 B - \omega_1 \dot y_c \cos\theta \big] D_{en}
+    - \omega_1 A (\dot y_c + R \omega_1 \cos\theta)}{D_{en}^2},
+    \end{align}
+    con
+    \(A = D\sin\theta - y_c\cos\theta\), \(B = D\cos\theta + y_c\sin\theta\) y \(D_{en} = R\sin\theta - y_c\).
+
+\end{enumerate}
+
+\subsubsection{Caso particular: $\phi = 270^\circ$ }
+
+Para $\phi = 270^\circ $ el punto mas bajo y el que en teoria  se hace contacto con la plastilina, se simplifica:
+
+\begin{align}
+\cos\phi &= 0, \qquad \sin\phi = -1, \\
+L &= \sqrt{r^2 + d^2}, \\
+\sin\theta &= -\,\frac{r}{\sqrt{r^2 + d^2}}, \quad \theta = -\arcsin\!\left(\tfrac{r}{\sqrt{r^2+d^2}}\right), \\
+\cos(\phi-\theta) &= \cos\!\left(\tfrac{3\pi}{2}-\theta\right) = \sin\theta, \\
+\sin(\phi-\theta) &= \sin\!\left(\tfrac{3\pi}{2}-\theta\right) = -\cos\theta.
+\end{align}
+Por tanto,
+\begin{align}
+\omega_1 &= \frac{\omega_2 r}{L}\, \sin\theta, \\
+V_{a/f} &= -\,\omega_2 r\, \cos\theta, \\
+\alpha_1 &= \frac{\omega_2^2 r\, \cos\theta + 2\,\omega_1 V_{a/f}}{L}.
+\end{align}
+Con $\theta$ fijo por la geometría, se evalúan $\beta$, $y_c$, $\dot y_c$ y $\ddot y_c$ y se resuelve $f(\omega_2)=0$.
+
+
 
 \section{Fase de Diseño Detallado}
 
@@ -350,7 +830,7 @@ Despejando L del lado izquierdo de la ecuacion obtenemos la siguiente expresion 
 
 \section{Conclusiones y recomendaciones}
 
-% // ===== REFERENCIAS =====
+% ===== REFERENCIAS =====
 
 \addcontentsline{toc}{section}{Referencias}
 \begin{thebibliography}{99}

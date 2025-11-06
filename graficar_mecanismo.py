@@ -16,13 +16,13 @@ plt.rcParams['font.size'] = 10
 # ============================================================
 # Dimensiones geométricas (en metros)
 # Pivotes fijos:
-d = 0.05  # Distancia entre O1 y O2 (m)
-D = 0.15  # Distancia horizontal de O1 a C (m)
+d = 0.11  # Distancia entre O1 y O2 (m)
+D = (0.2 - 0.058 + 0.015)  # Distancia horizontal de O1 a C (m)
 
 # Barras:
-r = 0.09  # Longitud de la barra motriz O2-A (m)
-R = 0.20  # Longitud FIJA de la barra O1-B (m)
-K = 0.09  # Longitud de la barra BC (m)
+r = 0.07  # Longitud de la barra motriz O2-A (m)
+R = 0.18  # Longitud FIJA de la barra O1-B (m)
+K = 0.07  # Longitud de la barra BC (m)
 
 
 # Nota: 
@@ -37,7 +37,7 @@ K = 0.09  # Longitud de la barra BC (m)
 # - C: martillo, conectado a B mediante barra BC
 
 # Parámetros del motor
-omega_2 = 4.0  # Velocidad angular del motor (rad/s) - constante
+omega_2 = 47.0  # Velocidad angular del motor (rad/s) - constante
 alpha_2 = 0.0   # Aceleración angular del motor (rad/s²) - constante
 
 # Parámetros de masa (modelo pequeño impreso en PLA)
@@ -57,7 +57,7 @@ g = 9.81  # m/s²
 
 # Parámetros temporales
 t_final = 2 * np.pi / omega_2  # Tiempo para una revolución completa
-n_puntos = 10000
+n_puntos = 1000
 t = np.linspace(0, t_final, n_puntos)
 
 # ============================================================
@@ -78,7 +78,7 @@ def calcular_L(phi, r, d):
 def calcular_theta_desde_phi(phi, r, d):
     """
     Calcula theta (ángulo de O1B) desde phi (ángulo de O2A)
-    Ecuación del documento: sin(θ) = [sqrt(r² + d² + 2rd*cos(φ)) * sin(φ)] / r
+    Ecuación del documento: sin(θ) = (r * sin(φ)) / L, con L = sqrt(r² + d² + 2rd*cos(φ))
     """
     L = calcular_L(phi, r, d)
     sin_theta = (r * np.sin(phi)) / L
@@ -166,13 +166,10 @@ def calcular_alpha_3(theta, omega_1, alpha_1, omega_3, R, K, beta):
 
 def calcular_a_c_lazo_vectorial(theta, omega_1, alpha_1, R, D, y_c, dot_y_c):
     """
-    Aceleración vertical del martillo usando el método del lazo vectorial
-    Ecuación del documento: 
-    ÿ_c = R * [α₁*A*D_en - ω₁²*B*D_en - ω₁*ẏ_c*(R*sin(θ)*cos(θ) - D*sin(θ))] / D_en²
-    donde:
-    A = D*sin(θ) - y_c*cos(θ)
-    B = D*cos(θ) + y_c*sin(θ)
-    D_en = R*sin(θ) - y_c
+    Aceleración vertical del martillo usando el método del lazo vectorial.
+    Fórmula (calculos_unificados):
+    ÿ_c = R * { [ α₁ A − ω₁² B − ω₁ ẏ_c cosθ ] D_en − ω₁ A ( ẏ_c + R ω₁ cosθ ) } / D_en²
+    con A = D sinθ − y_c cosθ, B = D cosθ + y_c sinθ, D_en = R sinθ − y_c.
     """
     A = D * np.sin(theta) - y_c * np.cos(theta)
     B = D * np.cos(theta) + y_c * np.sin(theta)
@@ -185,9 +182,10 @@ def calcular_a_c_lazo_vectorial(theta, omega_1, alpha_1, R, D, y_c, dot_y_c):
         print(f"  Índices: {indices_problema[:5]}... (primeros 5)")
         print(f"  Esto significa que el martillo alcanza el límite de su carrera")
     
-    numerador = (alpha_1 * A * D_en - 
-                 omega_1**2 * B * D_en - 
-                 omega_1 * dot_y_c * (R * np.sin(theta) * np.cos(theta) - D * np.sin(theta)))
+    numerador = (
+        (alpha_1 * A - omega_1**2 * B - omega_1 * dot_y_c * np.cos(theta)) * D_en
+        - omega_1 * A * (dot_y_c + R * omega_1 * np.cos(theta))
+    )
     
     # Evitar división por cero
     with np.errstate(divide='ignore', invalid='ignore'):
@@ -224,6 +222,21 @@ a_c = calcular_a_c_lazo_vectorial(theta, omega_1, alpha_1, R, D, y_c, dot_y_c)
 alpha_3 = calcular_alpha_3(theta, omega_1, alpha_1, omega_3, R, K, beta)
 
 print("Cálculos completados. Generando gráficas...")
+
+# ============================================================
+# FUERZAS (BÁSICO: MARTILLO Y ARTICULACIÓN B)
+# ============================================================
+# Fuerza de contacto en el martillo (signo positivo hacia arriba)
+# C(t) = m_c (g - a_c)
+C_t = m_martillo * (g - a_c)
+
+# Aceleración del centroide del eslabón BC (según informe)
+a_BC_x = - (K/2.0) * (alpha_3 * np.cos(beta) + (omega_3**2) * np.sin(beta))
+a_BC_y = - a_c + (K/2.0) * (alpha_3 * np.sin(beta) - (omega_3**2) * np.cos(beta))
+
+# Fuerzas en la articulación B del eslabón BC
+B_x = m4 * a_BC_x
+B_y = m4 * (g + a_BC_y) + C_t
 
 # ============================================================
 # GENERACIÓN DE GRÁFICAS
@@ -433,17 +446,58 @@ print(f"  ω₁ máx = {np.max(omega_1):.2f} rad/s")
 print(f"  ω₁ mín = {np.min(omega_1):.2f} rad/s")
 print(f"  ω₃ máx = {np.max(omega_3):.2f} rad/s")
 print(f"  ω₃ mín = {np.min(omega_3):.2f} rad/s")
+print(f"\nFuerzas (convención: + hacia arriba en C, +X a la derecha):")
+print(f"  C(t) máx = {np.max(C_t):.2f} N")
+print(f"  C(t) mín = {np.min(C_t):.2f} N")
+print(f"  B_x máx = {np.max(B_x):.2f} N")
+print(f"  B_x mín = {np.min(B_x):.2f} N")
+print(f"  B_y máx = {np.max(B_y):.2f} N")
+print(f"  B_y mín = {np.min(B_y):.2f} N")
 print("="*60 + "\n")
+
+# ============================================================
+# GENERACIÓN DE GRÁFICAS DE FUERZAS
+# ============================================================
+fig4 = plt.figure(figsize=(14, 8))
+gs4 = GridSpec(2, 2, figure=fig4, hspace=0.3, wspace=0.3)
+
+# Fuerza C(t)
+axF1 = fig4.add_subplot(gs4[0, 0])
+axF1.plot(t, C_t, 'b-', linewidth=2)
+axF1.set_xlabel('Tiempo (s)')
+axF1.set_ylabel('C (N)')
+axF1.set_title('Fuerza de contacto en el martillo C(t)')
+axF1.grid(True, alpha=0.3)
+
+# Bx(t)
+axF2 = fig4.add_subplot(gs4[0, 1])
+axF2.plot(t, B_x, 'r-', linewidth=2)
+axF2.set_xlabel('Tiempo (s)')
+axF2.set_ylabel('B_x (N)')
+axF2.set_title('Fuerza en la articulación B - componente X')
+axF2.grid(True, alpha=0.3)
+
+# By(t)
+axF3 = fig4.add_subplot(gs4[1, 0])
+axF3.plot(t, B_y, 'g-', linewidth=2)
+axF3.set_xlabel('Tiempo (s)')
+axF3.set_ylabel('B_y (N)')
+axF3.set_title('Fuerza en la articulación B - componente Y')
+axF3.grid(True, alpha=0.3)
+
+plt.suptitle('Fuerzas en el tiempo: C, Bx, By', fontsize=14, fontweight='bold')
 
 # Guardar figuras
 print("Guardando gráficas...")
 fig1.savefig('graficas_angulos_posicion.png', dpi=300, bbox_inches='tight')
 fig2.savefig('graficas_velocidades.png', dpi=300, bbox_inches='tight')
 fig3.savefig('graficas_aceleraciones.png', dpi=300, bbox_inches='tight')
+fig4.savefig('graficas_fuerzas.png', dpi=300, bbox_inches='tight')
 print("Gráficas guardadas exitosamente!")
 print(f"  - graficas_angulos_posicion.png")
 print(f"  - graficas_velocidades.png")
 print(f"  - graficas_aceleraciones.png")
+print(f"  - graficas_fuerzas.png")
 
 # plt.show()  # Comentado para ejecución no interactiva
 print("\nProceso completado. Las gráficas están listas para usar.")

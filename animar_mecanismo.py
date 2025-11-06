@@ -13,13 +13,13 @@ import matplotlib.patches as mpatches
 # PARÁMETROS DEL MECANISMO
 # ============================================================
 # Pivotes fijos:
-d = 0.10  # Distancia entre O1 y O2 (m)
+d = 0.08  # Distancia entre O1 y O2 (m)
 
 # Barras:
 r = 0.05  # Longitud de la barra motriz O2-A (m)
-R = 0.20  # Longitud FIJA de la barra O1-B (m) ← LA BARRA ES RÍGIDA
-K = 0.10  # Longitud de la barra BC (m)
-D = 0.15  # Distancia horizontal de O1 a C (m)
+R = 0.18  # Longitud FIJA de la barra O1-B (m) ← LA BARRA ES RÍGIDA
+K = 0.07  # Longitud de la barra BC (m)
+D = 0.14  # Distancia horizontal de O1 a C (m)
 
 # Nota: 
 # - Barra O1-B: longitud R (FIJA), gira con ángulo θ
@@ -27,7 +27,7 @@ D = 0.15  # Distancia horizontal de O1 a C (m)
 # - L: distancia VARIABLE de O1 hasta A (calculada, varía de ~40mm a ~200mm)
 # - B: extremo de la barra O1-B, a distancia R de O1
 
-omega_2 = 200.0  # Velocidad angular del motor (rad/s)
+omega_2 = 58.0  # Velocidad angular del motor (rad/s)
 
 # Posiciones de los pivotes fijos
 O1 = np.array([0, 0])
@@ -83,7 +83,7 @@ def calcular_beta_desde_theta(theta):
 # CONFIGURACIÓN DE LA ANIMACIÓN
 # ============================================================
 
-n_frames = 200
+n_frames = 100
 t_final = 2 * np.pi / omega_2
 t_vals = np.linspace(0, t_final, n_frames)
 
