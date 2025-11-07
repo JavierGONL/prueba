@@ -55,10 +55,9 @@
 % SECCIÓN 1: ANÁLISIS DE ÁNGULOS Y VELOCIDADES
 % ============================================================
  
-\section{calculos organizados}
-\subsection{Modelo cinemático}
+\section{Modelo cinemático}
 
-\subsubsection{Relación entre $\theta$ y $\phi$}
+\subsection{Relación entre $\theta$ y $\phi$}
 
 Inicialmente para el analisis cinemático es necesario encontrar expresiones que permitan describrir las distancias
 e inclinaciones de todas las partes del mecanismo que conforman el sistema en funcion de una unica variable, para este fin y por medio de un analisis geometrico es posible establecer la siguiente relacion fundamental entre los ángulos por medio del triángulo formado por las longitudes $r$, $d$ y $L$. De esta manera obtenemos:
@@ -405,9 +404,9 @@ Debido a que el analisis cinetico hace uso de las aceleraciones centroidales de 
 \subsubsection{Eslabón $O_1-B$}
 El eslabon $O_1-B$ tiene una longitud $R$ y su centroide se encuentra a una distancia $R/2$ del punto $O_1$, por tanto su aceleracion centroidal puede definirse como:
 \begin{align}
-\bar{a}_{O_1} &= \alpha_1 \frac{R}{2} ,\;⦭ \, \theta^\circ \quad + \omega_1^2 \frac{R}{2} ,\; ⦫\, \theta^\circ \\
-\bar{a}_{O_{1x}} &= -\left(\alpha_1 \frac{R}{2} \sin\theta + \omega_1^2 \frac{R}{2} \cos\theta\right) \\
-\bar{a}_{O_{1y}} &= \alpha_1 \frac{R}{2} \cos\theta - \omega_1^2 \frac{R}{2} \sin\theta
+\bar{a}_{O_1} &= \alpha_1 \lambda ,\;⦭ \, \theta^\circ \quad + \omega_1^2 \lambda ,\; ⦫\, \theta^\circ \\
+\bar{a}_{O_{1x}} &= -\left(\alpha_1 \lambda \sin\theta + \omega_1^2 \lambda \cos\theta\right) \\
+\bar{a}_{O_{1y}} &= \alpha_1 \lambda \cos\theta - \omega_1^2 \lambda \sin\theta
 \end{align}
 
 \subsubsection{Eslabón $O_2-A$}
@@ -441,13 +440,18 @@ En el análisis cinético se requieren los momentos de inercia de los eslabones 
 Aplicando a cada eslabón del mecanismo:
 
 \paragraph{Eslabón $O_1B$ (longitud $R$, ancho $b_R$, masa $m_R$).}
-Momento de inercia centroidal y respecto al pivote $O_1$:
+Momento de inercia centroidal y respecto al centro de area sin la ranura $O_1$:
+
 
 \begin{align}
-\bar{I}_{o_1} &= \boxed{\tfrac{1}{12}\, m_R\, (R^2 + b_R^2 - R'^2 - b_R'^2) }
+{I}_{o_1} &= \boxed{\tfrac{1}{12}\, m_R\, (R^2 + b_R^2 - R'^2 - b_R'^2) }
 \end{align}
 
-\noindent Donde: $R$ es la longitud total de la barra $O_1B$, $b_R$ su ancho en el plano; $R'$ es la longitud de la ranura a lo largo de la barra y $b_R'$ el ancho de esa ranura; $m_R$ es la masa efectiva del eslabón (masa de la barra menos el material retirado por la ranura).
+Con este valor es posible encontrar el momento de inercia centroidal de masa usando el teorema de ejes paralelos
+\begin{align}
+\bar{I}_{o_1} &= \boxed{ {I}_{o_1} - m(\delta)^2 }
+\end{align}
+\noindent Donde: $R$ es la longitud total de la barra $O_1B$, $\delta$ es la distancia del centro geometrico sin ranura al centro de masa, $b_R$ su ancho en el plano; $R'$ es la longitud de la ranura a lo largo de la barra y $b_R'$ el ancho de esa ranura; $m_R$ es la masa efectiva del eslabón (masa de la barra menos el material retirado por la ranura).
 
 \paragraph{Eslabón $O_2A$ (longitud $r$, ancho $b_r$, masa $m_r$).}
 Momento de inercia centroidal y respecto al pivote $O_2$:
@@ -504,21 +508,21 @@ El eslabon BC presenta movimiento de plano general y por tanto tiene aceleracion
     \end{equation}
 \end{enumerate}
 \subsection{Ecuaciones de movimiento eslabon O1-B}
-El eslabon O1-B no presenta restriccion en la direccion x e y, ademas que su aceleracion angular es diferente de 0.
+El eslabon O1-B no presenta restriccion en la direccion x e y, ademas que su aceleracion angular es diferente de 0. Es importante resaltar que el punto a debido a ser la reaccion de la ranura se sabe que es normal a la barra O1-B y $\lambda$ representa la distancia de o1 al centroide
 \begin{enumerate}
     \item X - $O_1$:
     \begin{equation}
-        O_{1x} + A_x - B_x = m_{o_1}(\bar{a}_{o_1})_x \quad \Rightarrow \quad O_{1x} + A_x = m_{o_1}(\bar{a}_{o_1})_x + B_x
+        O_{1x} - A\sin\theta - B_x = m_{o_1}(\bar{a}_{o_1})_x \quad \Rightarrow \quad O_{1x} - A\sin\theta = m_{o_1}(\bar{a}_{o_1})_x + B_x
     \end{equation}
 
     \item Y - $O_1$:
     \begin{equation}
-        O_{1y} + A_y - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A_y = m_{o_1}(g + \bar{a}_{o_1})_y + B_y
+        O_{1y} + A\cos\theta - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A\cos\theta = m_{o_1}(g + \bar{a}_{o_1}_{y})+ B_y
     \end{equation}
 
     \item Z - $O_1$:
     \begin{equation}
-        \left(\frac{R}{2} - L\right)(A_x \sin\theta - A_y \cos\theta) - \frac{R}{2}(B_y \cos\theta + O_{1y} \cos\theta - B_x \sin\theta - O_{1x} \sin\theta) = \bar{I_{o_1}} \cdot \alpha_1
+        \left(L - \lambda\right)A + \lambda(-B_y \cos\theta  + B_x \sin\theta - O_{1y} \cos\theta + O_{1x} \sin\theta) = \bar{I_{o_1}} \cdot \alpha_1  
     \end{equation}
 \end{enumerate}
 \subsection{Ecuaciones de movimiento eslabon O2-A}
@@ -526,18 +530,18 @@ La barra O2-A no presenta restriccion en la direccion x e y, ademas que su acele
 \begin{enumerate}
     \item X - $O_2$:
     \begin{equation}
-        O_{2x} - A_x = m_r(\bar{a}_{o_2})_x
+        O_{2x} + A\sin\phi = m_r(\bar{a}_{o_2})_x
     \end{equation}
 
     \item Y - $O_2$:
     \begin{equation}
-        O_{2y} - A_y - W_r= m_r(\bar{a}_{o_2})_y \quad \Rightarrow \quad O_{2y} - A_y = m_r((\bar{a}_{o_2})_y +g)
+        O_{2y} - A\cos\phi - W_r= m_r(\bar{a}_{o_2})_y \quad \Rightarrow \quad O_{2y} - A\cos\phi = m_r((\bar{a}_{o_2})_y +g)
     \end{equation}
 
     \item Z - $O_2$:
-        \begin{equation}
-            \frac{r}{2}\cdot{(A_x\sin\phi + O_{2x}\sin\phi - A_y \cos\phi - O_{2y} \cos\phi)} =  \bar{I_{o_2}} \cdot \alpha_2 + \tau
-        \end{equation}
+    \begin{equation}
+        \tau - \frac{r}{2}\cos({\phi - \theta}) + \frac{r}{2}(-O_{2y}\cos\phi + O_{2x}\sin\phi) = \bar{I_{o_2}} \cdot \alpha_2
+    \end{equation}
 
 \end{enumerate}
 
