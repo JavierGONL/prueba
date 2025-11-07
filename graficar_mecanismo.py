@@ -6,6 +6,7 @@ Genera gráficas de ángulos, velocidades y aceleraciones en función del tiempo
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
+import os
 
 # Configuración de matplotlib para español
 plt.rcParams['axes.formatter.use_locale'] = True
@@ -17,28 +18,22 @@ plt.rcParams['font.size'] = 10
 # Dimensiones geométricas (en metros)
 # Pivotes fijos:
 d = 0.11  # Distancia entre O1 y O2 (m)
-D = (0.2 - 0.058 + 0.015)  # Distancia horizontal de O1 a C (m)
+# δ (delta) solicitado: 6.65 mm => 0.00665 m
+D = 0.00665  # Distancia horizontal de O1 a C (m)
 
 # Barras:
 r = 0.07  # Longitud de la barra motriz O2-A (m)
-R = 0.18  # Longitud FIJA de la barra O1-B (m)
+R = 0.2  # Longitud FIJA de la barra O1-B (m)
 K = 0.07  # Longitud de la barra BC (m)
 
+# Anchos (en el plano) usados para masas e inercias (consistentes con estimaciones de masa)
+b_R = 0.02  # ancho de la barra O1-B (m)
+b_r = 0.02  # ancho de la barra O2-A (m)
 
-# Nota: 
-# - O1 y O2 son pivotes fijos, separados por distancia d
-# - Barra O2-A: longitud r, gira con ángulo φ alrededor de O2
-# - Barra O1-B: longitud R (FIJA), gira con ángulo θ alrededor de O1
-# - Punto A: es donde se UNEN las barras O2-A y O1-B (pasador deslizante)
-# - L: distancia VARIABLE de O1 hasta el punto A (0 < L ≤ R)
-# - A está en O2-A: a distancia r de O2
-# - A está en O1-B: a distancia L de O1 (desliza sobre la barra)
-# - B: extremo de la barra O1-B, a distancia R de O1
-# - C: martillo, conectado a B mediante barra BC
 
 # Parámetros del motor
-omega_2 = 3 # Velocidad angular del motor (rad/s) - constante
-alpha_2 = 1.0   # Aceleración angular del motor (rad/s²) - constante
+omega_2 = 4 # Velocidad angular del motor (rad/s) - constante
+alpha_2 = 0   # Aceleración angular del motor (rad/s²) - constante
 
 # Parámetros de masa (modelo pequeño impreso en PLA)
 # Densidad del PLA: ~1.24 g/cm³
@@ -195,8 +190,65 @@ def calcular_a_c_lazo_vectorial(theta, omega_1, alpha_1, R, D, y_c, dot_y_c):
     return a_c
 
 # ============================================================
+# BÚSQUEDA DEL D ÓPTIMO (opcional)
+# ============================================================
+def evaluar_configuracion_D(D_cand, t_eval):
+    """Evalúa singularidades y carrera para un valor de D dado.
+    Retorna dict con: safe (bool), min_cosb, min_den, stroke.
+    """
+    phi_e = calcular_phi(t_eval, omega_2)
+    theta_e = calcular_theta_desde_phi(phi_e, r, d)
+    beta_e = calcular_beta(theta_e, R, D_cand, K)
+    y_e = calcular_y_c(theta_e, R, beta_e, K)
+    # Para métricas de estabilidad
+    cosb = np.cos(beta_e)
+    Den = R * np.sin(theta_e) - y_e
+    min_cosb = np.min(np.abs(cosb))
+    min_den = np.min(np.abs(Den))
+    stroke = np.max(y_e) - np.min(y_e)
+    return {
+        'safe': True,
+        'min_cosb': float(min_cosb),
+        'min_den': float(min_den),
+        'stroke': float(stroke),
+    }
+
+def buscar_D_optimo(D_min=0.05, D_max=0.18, n_samples=60, eps_cosb=5e-2, eps_den=1e-3):
+    """Barre D en [D_min, D_max] para maximizar la carrera evitando singularidades.
+    Criterio de viabilidad: min|cosβ| >= eps_cosb y min|R sinθ - y_c| >= eps_den.
+    Devuelve (D_opt, info_dict) o (None, None) si no hay candidato viable.
+    """
+    t_eval = np.linspace(0, t_final, 360)  # muestreo grueso para optimización
+    Ds = np.linspace(D_min, D_max, n_samples)
+    candidatos = []
+    for D_c in Ds:
+        info = evaluar_configuracion_D(D_c, t_eval)
+        if info['min_cosb'] >= eps_cosb and info['min_den'] >= eps_den:
+            candidatos.append((D_c, info))
+    if not candidatos:
+        return None, None
+    # Maximizar carrera; desempatar por mayor min_cosb y min_den
+    candidatos.sort(key=lambda x: (x[1]['stroke'], x[1]['min_cosb'], x[1]['min_den']), reverse=True)
+    return candidatos[0][0], candidatos[0][1]
+
+# ============================================================
 # CÁLCULOS PRINCIPALES
 # ============================================================
+# Opcional: buscar D óptimo antes de calcular todo
+realizar_optimizacion_D = True
+if realizar_optimizacion_D:
+    print("Buscando D óptimo (evitando singularidades y maximizando carrera)...")
+    D_opt, info_opt = buscar_D_optimo(D_min=0.05, D_max=0.18, n_samples=60, eps_cosb=5e-2, eps_den=1e-3)
+    if D_opt is None:
+        # Relajar umbrales si no se encontró candidato
+        print("  No se encontró D con umbrales estrictos; relajando criterios...")
+        D_opt, info_opt = buscar_D_optimo(D_min=0.05, D_max=0.18, n_samples=60, eps_cosb=1e-2, eps_den=5e-4)
+    if D_opt is not None:
+        print(f"  D recomendado: {D_opt:.5f} m  |  carrera≈{info_opt['stroke']:.4f} m, min|cosβ|≈{info_opt['min_cosb']:.3f}, min|Den|≈{info_opt['min_den']:.4f}")
+        D = D_opt
+    else:
+        print("  No se pudo determinar un D seguro; se usará el valor actual.")
+
 print("Calculando variables cinemáticas del mecanismo...")
 
 # Ángulos
@@ -231,6 +283,22 @@ print("Cálculos completados. Generando gráficas...")
 C_t = m_martillo * (g - a_c)
 
 # Aceleración del centroide del eslabón BC 
+"""
+Centroide del eslabón BC ubicado a K/2 desde B hacia C.
+Vector r_BG (de B a G): r_BG = (-(K/2) sinβ, -(K/2) cosβ)
+Aceleración de B: a_B = R*[ -α1 sinθ - ω1^2 cosθ,  α1 cosθ - ω1^2 sinθ]
+Cin emática rígida: a_G = a_B + α3×r_BG - ω3^2 r_BG, con α3×r = α3[-r_y, r_x]
+"""
+r_BG_x = -(K/2.0) * np.sin(beta)
+r_BG_y = -(K/2.0) * np.cos(beta)
+
+# Aceleración del punto B
+a_Bx = -R * (alpha_1 * np.sin(theta) + (omega_1**2) * np.cos(theta))
+a_By =  R * (alpha_1 * np.cos(theta) - (omega_1**2) * np.sin(theta))
+
+# Aceleración del centroide G de BC
+a_BC_x = a_Bx + (-alpha_3 * r_BG_y) - (omega_3**2) * r_BG_x
+a_BC_y = a_By + ( alpha_3 * r_BG_x) - (omega_3**2) * r_BG_y
 
 
 # Fuerzas en la articulación B del eslabón BC
@@ -238,170 +306,118 @@ B_x = m4 * a_BC_x
 B_y = m4 * (g + a_BC_y) + C_t
 
 # ============================================================
-# GENERACIÓN DE GRÁFICAS
+# REACCIONES EN O1, FUERZA EN A Y PAR DEL MOTOR τ(t)
+#   Según calculos_unificados: sistema lineal en (O1x, O1y, A)
+#   y fórmula cerrada para τ: τ = I_O2*α2 + r*A*cos(φ-θ) + (r/2)*m2*g*cosφ
 # ============================================================
 
-# Figura 1: Ángulos
-fig1 = plt.figure(figsize=(14, 10))
-gs1 = GridSpec(3, 2, figure=fig1, hspace=0.3, wspace=0.3)
+# Aceleración centroidal del eslabón O1-B (a una distancia λ desde O1)
+lam = 0.1093458  # Parámetro λ proporcionado (m)
+a_o1x = -lam * (alpha_1 * np.sin(theta) + (omega_1**2) * np.cos(theta))
+a_o1y =  lam * (alpha_1 * np.cos(theta) - (omega_1**2) * np.sin(theta))
 
-# Phi vs tiempo
-ax1 = fig1.add_subplot(gs1[0, 0])
-ax1.plot(t, np.degrees(phi), 'b-', linewidth=2)
-ax1.set_xlabel('Tiempo (s)')
-ax1.set_ylabel('φ (grados)')
-ax1.set_title('Ángulo de la barra motriz O₂A')
-ax1.grid(True, alpha=0.3)
+# Inercias (aprox. prisma rectangular en el plano, eje z)
+Ibar_o1 = (1.0/12.0) * m3 * (R**2 + b_R**2)  # respecto al centroide de O1-B
+Ibar_o2 = (1.0/12.0) * m2 * (r**2 + b_r**2)  # respecto al centroide de O2-A
+I_O2 = Ibar_o2 + m2 * (r/2.0)**2            # respecto a O2 (teorema ejes paralelos)
 
-# Theta vs tiempo
-ax2 = fig1.add_subplot(gs1[0, 1])
-ax2.plot(t, np.degrees(theta), 'r-', linewidth=2)
-ax2.set_xlabel('Tiempo (s)')
-ax2.set_ylabel('θ (grados)')
-ax2.set_title('Ángulo de la barra O₁B')
-ax2.grid(True, alpha=0.3)
+# Parámetro lambda (distancia de O1 al centroide de O1-B)
+# Ya fijado arriba como valor solicitado
 
-# Beta vs tiempo y L vs tiempo (doble eje Y)
-ax3 = fig1.add_subplot(gs1[1, 0])
-ax3.plot(t, np.degrees(beta), 'g-', linewidth=2, label='β')
-ax3.set_xlabel('Tiempo (s)')
-ax3.set_ylabel('β (grados)', color='g')
-ax3.set_title('Ángulo β y distancia L (O₁ a A)')
-ax3.tick_params(axis='y', labelcolor='g')
-ax3.grid(True, alpha=0.3)
+# Resolver el sistema 3x3 por instante para O1x, O1y, A
+O1x = np.zeros_like(t)
+O1y = np.zeros_like(t)
+A_reac = np.zeros_like(t)
 
-# L vs tiempo (distancia de O1 al punto de unión A)
-ax3b = ax3.twinx()
-ax3b.plot(t, L_variable * 1000, 'orange', linewidth=2, alpha=0.8, label='L')
-ax3b.set_ylabel('L: O₁→A (mm)', color='orange')
-ax3b.tick_params(axis='y', labelcolor='orange')
-ax3b.axhline(y=R*1000, color='red', linestyle=':', alpha=0.5, label=f'R={R*1000:.0f}mm')
+for i in range(len(t)):
+    th = theta[i]
+    L_i = L_variable[i]
+    # Matriz de coeficientes para [O1x, O1y, A]
+    M = np.array([
+        [1.0, 0.0, -np.sin(th)],
+        [0.0, 1.0,  np.cos(th)],
+        [lam*np.sin(th), -lam*np.cos(th), (L_i - lam)]
+    ])
+    # Término independiente
+    rhs1 = m3 * a_o1x[i] + B_x[i]
+    rhs2 = m3 * (a_o1y[i] + g) + B_y[i]
+    rhs3 = Ibar_o1 * alpha_1[i] - lam * (B_x[i]*np.sin(th) - B_y[i]*np.cos(th))
+    bvec = np.array([rhs1, rhs2, rhs3])
 
-# Posición del martillo vs tiempo
-ax4 = fig1.add_subplot(gs1[1, 1])
-ax4.plot(t, y_c * 1000, 'm-', linewidth=2)  # Convertir a mm
-ax4.set_xlabel('Tiempo (s)')
-ax4.set_ylabel('y_c (mm)')
-ax4.set_title('Posición vertical del martillo')
-ax4.grid(True, alpha=0.3)
+    try:
+        sol = np.linalg.solve(M, bvec)
+    except np.linalg.LinAlgError:
+        # En casos degenerados (singularidad), usar solución de mínimos cuadrados
+        sol, *_ = np.linalg.lstsq(M, bvec, rcond=None)
 
-# L vs Phi (muestra cómo varía L con el ángulo de entrada)
-ax5 = fig1.add_subplot(gs1[2, 0])
-ax5.plot(np.degrees(phi), L_variable * 1000, 'orange', linewidth=2)
-ax5.set_xlabel('φ (grados)')
-ax5.set_ylabel('L: O₁→A (mm)')
-ax5.set_title('Distancia L (O₁ al punto A) vs φ')
-ax5.axhline(y=R*1000, color='red', linestyle='--', alpha=0.5, label=f'R={R*1000:.0f}mm (máx)')
-ax5.grid(True, alpha=0.3)
-ax5.legend()
+    O1x[i], O1y[i], A_reac[i] = sol
 
-# Beta vs Theta
-ax6 = fig1.add_subplot(gs1[2, 1])
-ax6.plot(np.degrees(theta), np.degrees(beta), 'orange', linewidth=2)
-ax6.set_xlabel('θ (grados)')
-ax6.set_ylabel('β (grados)')
-ax6.set_title('Relación β vs θ')
-ax6.grid(True, alpha=0.3)
+# Par del motor τ(t)
+tau = I_O2 * alpha_2 + r * A_reac * np.cos(phi - theta) + (r/2.0) * m2 * g * np.cos(phi)
 
-plt.suptitle('Análisis de Ángulos y Posición del Mecanismo', fontsize=14, fontweight='bold')
+# ============================================================
+# GENERACIÓN DE GRÁFICAS (una figura por curva)
+# ============================================================
 
-# Figura 2: Velocidades
-fig2 = plt.figure(figsize=(14, 10))
-gs2 = GridSpec(3, 2, figure=fig2, hspace=0.3, wspace=0.3)
+SALIDAS_DIR = os.path.join(os.path.dirname(__file__), 'salidas')
+os.makedirs(SALIDAS_DIR, exist_ok=True)
 
-# Omega_1 vs tiempo
-ax7 = fig2.add_subplot(gs2[0, 0])
-ax7.plot(t, omega_1, 'b-', linewidth=2)
-ax7.set_xlabel('Tiempo (s)')
-ax7.set_ylabel('ω₁ (rad/s)')
-ax7.set_title('Velocidad angular de O₁B')
-ax7.grid(True, alpha=0.3)
-ax7.axhline(y=0, color='k', linestyle='--', alpha=0.5)
+def guardar_fig(x, y, xlabel, ylabel, titulo, nombre, color='b-', convertir_mm=False):
+    """Guarda una figura individual dentro de la carpeta 'salidas'.
+    nombre: nombre base del archivo (se guarda en SALIDAS_DIR).
+    Si convertir_mm=True multiplica y por 1000 para mostrar en mm.
+    """
+    fig = plt.figure(figsize=(6,4))
+    y_plot = y * 1000.0 if convertir_mm else y
+    plt.plot(x, y_plot, color, linewidth=2)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(titulo)
+    plt.grid(True, alpha=0.3)
+    ruta = os.path.join(SALIDAS_DIR, nombre)
+    fig.savefig(ruta, dpi=300, bbox_inches='tight')
+    plt.close(fig)
 
-# Omega_3 vs tiempo
-ax8 = fig2.add_subplot(gs2[0, 1])
-ax8.plot(t, omega_3, 'r-', linewidth=2)
-ax8.set_xlabel('Tiempo (s)')
-ax8.set_ylabel('ω₃ (rad/s)')
-ax8.set_title('Velocidad angular del eslabón BC')
-ax8.grid(True, alpha=0.3)
-ax8.axhline(y=0, color='k', linestyle='--', alpha=0.5)
+# Ángulos y posición
+guardar_fig(t, phi, 'Tiempo (s)', 'φ (rad)', 'Ángulo φ vs tiempo', 'phi_vs_t.png')
+guardar_fig(t, theta, 'Tiempo (s)', 'θ (rad)', 'Ángulo θ vs tiempo', 'theta_vs_t.png', color='r-')
+guardar_fig(t, beta, 'Tiempo (s)', 'β (rad)', 'Ángulo β vs tiempo', 'beta_vs_t.png', color='g-')
+guardar_fig(t, L_variable, 'Tiempo (s)', 'L (m)', 'Distancia L vs tiempo', 'L_vs_t.png', color='orange')
+guardar_fig(t, y_c, 'Tiempo (s)', 'y_c (m)', 'Posición vertical martillo vs tiempo', 'yc_vs_t.png', color='m-')
+guardar_fig(phi, L_variable, 'φ (rad)', 'L (m)', 'L vs φ', 'L_vs_phi.png', color='orange')
+guardar_fig(theta, beta, 'θ (rad)', 'β (rad)', 'β vs θ', 'beta_vs_theta.png', color='orange')
 
-# Velocidad del martillo vs tiempo
-ax9 = fig2.add_subplot(gs2[1, 0])
-ax9.plot(t, dot_y_c * 1000, 'g-', linewidth=2)  # Convertir a mm/s
-ax9.set_xlabel('Tiempo (s)')
-ax9.set_ylabel('ẏ_c (mm/s)')
-ax9.set_title('Velocidad vertical del martillo')
-ax9.grid(True, alpha=0.3)
-ax9.axhline(y=0, color='k', linestyle='--', alpha=0.5)
+# Velocidades
+guardar_fig(t, omega_1, 'Tiempo (s)', 'ω₁ (rad/s)', 'Velocidad angular ω₁', 'omega1_vs_t.png')
+guardar_fig(t, omega_3, 'Tiempo (s)', 'ω₃ (rad/s)', 'Velocidad angular ω₃', 'omega3_vs_t.png', color='r-')
+guardar_fig(t, dot_y_c, 'Tiempo (s)', 'ẏ_c (m/s)', 'Velocidad vertical martillo', 'dot_yc_vs_t.png', color='g-')
+guardar_fig(t, V_af, 'Tiempo (s)', 'V_{a/f} (m/s)', 'Velocidad relativa a/f', 'Vaf_vs_t.png', color='m-')
+# Comparación velocidades angulares
+fig_cmp_vel = plt.figure(figsize=(6,4))
+plt.plot(t, omega_1, 'b-', linewidth=2, label='ω₁')
+plt.plot(t, omega_3, 'r-', linewidth=2, label='ω₃')
+plt.plot(t, np.ones_like(t)*omega_2, 'k--', linewidth=2, label='ω₂')
+plt.xlabel('Tiempo (s)'); plt.ylabel('ω (rad/s)'); plt.title('Comparación velocidades angulares (SI)'); plt.grid(True, alpha=0.3); plt.legend()
+fig_cmp_vel.savefig(os.path.join(SALIDAS_DIR, 'comparacion_velocidades_angulares.png'), dpi=300, bbox_inches='tight'); plt.close(fig_cmp_vel)
 
-# V_af vs tiempo
-ax10 = fig2.add_subplot(gs2[1, 1])
-ax10.plot(t, V_af * 1000, 'm-', linewidth=2)  # Convertir a mm/s
-ax10.set_xlabel('Tiempo (s)')
-ax10.set_ylabel('V_{a/f} (mm/s)')
-ax10.set_title('Velocidad relativa a/f')
-ax10.grid(True, alpha=0.3)
-ax10.axhline(y=0, color='k', linestyle='--', alpha=0.5)
+# Aceleraciones
+guardar_fig(t, alpha_1, 'Tiempo (s)', 'α₁ (rad/s²)', 'Aceleración angular α₁', 'alpha1_vs_t.png')
+guardar_fig(t, alpha_3, 'Tiempo (s)', 'α₃ (rad/s²)', 'Aceleración angular α₃', 'alpha3_vs_t.png', color='r-')
+guardar_fig(t, a_c, 'Tiempo (s)', 'a_c (m/s²)', 'Aceleración vertical martillo', 'ac_vs_t.png', color='g-')
+fig_cmp_acc = plt.figure(figsize=(6,4))
+plt.plot(t, alpha_1, 'b-', linewidth=2, label='α₁')
+plt.plot(t, alpha_3, 'r-', linewidth=2, label='α₃')
+plt.xlabel('Tiempo (s)'); plt.ylabel('α (rad/s²)'); plt.title('Comparación aceleraciones angulares (SI)'); plt.grid(True, alpha=0.3); plt.legend()
+fig_cmp_acc.savefig(os.path.join(SALIDAS_DIR, 'comparacion_aceleraciones_angulares.png'), dpi=300, bbox_inches='tight'); plt.close(fig_cmp_acc)
 
-# Comparación de velocidades angulares
-ax11 = fig2.add_subplot(gs2[2, :])
-ax11.plot(t, omega_1, 'b-', linewidth=2, label='ω₁ (O₁B)')
-ax11.plot(t, omega_3, 'r-', linewidth=2, label='ω₃ (BC)')
-ax11.plot(t, np.ones_like(t) * omega_2, 'k--', linewidth=2, label='ω₂ (motor)')
-ax11.set_xlabel('Tiempo (s)')
-ax11.set_ylabel('Velocidad angular (rad/s)')
-ax11.set_title('Comparación de velocidades angulares')
-ax11.legend()
-ax11.grid(True, alpha=0.3)
-ax11.axhline(y=0, color='k', linestyle='--', alpha=0.5)
-
-plt.suptitle('Análisis de Velocidades del Mecanismo', fontsize=14, fontweight='bold')
-
-# Figura 3: Aceleraciones
-fig3 = plt.figure(figsize=(14, 10))
-gs3 = GridSpec(2, 2, figure=fig3, hspace=0.3, wspace=0.3)
-
-# Alpha_1 vs tiempo
-ax12 = fig3.add_subplot(gs3[0, 0])
-ax12.plot(t, alpha_1, 'b-', linewidth=2)
-ax12.set_xlabel('Tiempo (s)')
-ax12.set_ylabel('α₁ (rad/s²)')
-ax12.set_title('Aceleración angular de O₁B')
-ax12.grid(True, alpha=0.3)
-ax12.axhline(y=0, color='k', linestyle='--', alpha=0.5)
-
-# Alpha_3 vs tiempo
-ax13 = fig3.add_subplot(gs3[0, 1])
-ax13.plot(t, alpha_3, 'r-', linewidth=2)
-ax13.set_xlabel('Tiempo (s)')
-ax13.set_ylabel('α₃ (rad/s²)')
-ax13.set_title('Aceleración angular del eslabón BC')
-ax13.grid(True, alpha=0.3)
-ax13.axhline(y=0, color='k', linestyle='--', alpha=0.5)
-
-# Aceleración del martillo vs tiempo
-ax14 = fig3.add_subplot(gs3[1, 0])
-ax14.plot(t, a_c, 'g-', linewidth=2)
-ax14.set_xlabel('Tiempo (s)')
-ax14.set_ylabel('a_c (m/s²)')
-ax14.set_title('Aceleración vertical del martillo')
-ax14.grid(True, alpha=0.3)
-ax14.axhline(y=0, color='k', linestyle='--', alpha=0.5)
-
-# Comparación de aceleraciones angulares
-ax15 = fig3.add_subplot(gs3[1, 1])
-ax15.plot(t, alpha_1, 'b-', linewidth=2, label='α₁ (O₁B)')
-ax15.plot(t, alpha_3, 'r-', linewidth=2, label='α₃ (BC)')
-ax15.set_xlabel('Tiempo (s)')
-ax15.set_ylabel('Aceleración angular (rad/s²)')
-ax15.set_title('Comparación de aceleraciones angulares')
-ax15.legend()
-ax15.grid(True, alpha=0.3)
-ax15.axhline(y=0, color='k', linestyle='--', alpha=0.5)
-
-plt.suptitle('Análisis de Aceleraciones del Mecanismo', fontsize=14, fontweight='bold')
+# Fuerzas y reacciones
+guardar_fig(t, C_t, 'Tiempo (s)', 'C (N)', 'Fuerza en martillo C(t)', 'C_vs_t.png')
+guardar_fig(t, B_x, 'Tiempo (s)', 'B_x (N)', 'Fuerza en B - X', 'Bx_vs_t.png', color='r-')
+guardar_fig(t, B_y, 'Tiempo (s)', 'B_y (N)', 'Fuerza en B - Y', 'By_vs_t.png', color='g-')
+guardar_fig(t, O1x, 'Tiempo (s)', 'O1x (N)', 'Reacción O1x', 'O1x_vs_t.png', color='tab:purple')
+guardar_fig(t, O1y, 'Tiempo (s)', 'O1y (N)', 'Reacción O1y', 'O1y_vs_t.png', color='tab:brown')
+guardar_fig(t, A_reac, 'Tiempo (s)', 'A (N)', 'Fuerza normal ranura A', 'A_vs_t.png', color='tab:olive')
+guardar_fig(t, tau, 'Tiempo (s)', 'τ (N·m)', 'Par del motor τ(t)', 'tau_vs_t.png', color='k-')
 
 # ============================================================
 # ESTADÍSTICAS
@@ -452,51 +468,21 @@ print(f"  B_x máx = {np.max(B_x):.2f} N")
 print(f"  B_x mín = {np.min(B_x):.2f} N")
 print(f"  B_y máx = {np.max(B_y):.2f} N")
 print(f"  B_y mín = {np.min(B_y):.2f} N")
+print(f"\nReacciones y par del motor:")
+print(f"  O1x máx = {np.max(O1x):.2f} N, mín = {np.min(O1x):.2f} N")
+print(f"  O1y máx = {np.max(O1y):.2f} N, mín = {np.min(O1y):.2f} N")
+print(f"  A (normal en ranura) máx = {np.max(A_reac):.2f} N, mín = {np.min(A_reac):.2f} N")
+print(f"  τ(t) máx = {np.max(tau):.2f} N·m, mín = {np.min(tau):.2f} N·m")
 print("="*60 + "\n")
 
-# ============================================================
-# GENERACIÓN DE GRÁFICAS DE FUERZAS
-# ============================================================
-fig4 = plt.figure(figsize=(14, 8))
-gs4 = GridSpec(2, 2, figure=fig4, hspace=0.3, wspace=0.3)
-
-# Fuerza C(t)
-axF1 = fig4.add_subplot(gs4[0, 0])
-axF1.plot(t, C_t, 'b-', linewidth=2)
-axF1.set_xlabel('Tiempo (s)')
-axF1.set_ylabel('C (N)')
-axF1.set_title('Fuerza de contacto en el martillo C(t)')
-axF1.grid(True, alpha=0.3)
-
-# Bx(t)
-axF2 = fig4.add_subplot(gs4[0, 1])
-axF2.plot(t, B_x, 'r-', linewidth=2)
-axF2.set_xlabel('Tiempo (s)')
-axF2.set_ylabel('B_x (N)')
-axF2.set_title('Fuerza en la articulación B - componente X')
-axF2.grid(True, alpha=0.3)
-
-# By(t)
-axF3 = fig4.add_subplot(gs4[1, 0])
-axF3.plot(t, B_y, 'g-', linewidth=2)
-axF3.set_xlabel('Tiempo (s)')
-axF3.set_ylabel('B_y (N)')
-axF3.set_title('Fuerza en la articulación B - componente Y')
-axF3.grid(True, alpha=0.3)
-
-plt.suptitle('Fuerzas en el tiempo: C, Bx, By', fontsize=14, fontweight='bold')
-
-# Guardar figuras
-print("Guardando gráficas...")
-fig1.savefig('graficas_angulos_posicion.png', dpi=300, bbox_inches='tight')
-fig2.savefig('graficas_velocidades.png', dpi=300, bbox_inches='tight')
-fig3.savefig('graficas_aceleraciones.png', dpi=300, bbox_inches='tight')
-fig4.savefig('graficas_fuerzas.png', dpi=300, bbox_inches='tight')
-print("Gráficas guardadas exitosamente!")
-print(f"  - graficas_angulos_posicion.png")
-print(f"  - graficas_velocidades.png")
-print(f"  - graficas_aceleraciones.png")
-print(f"  - graficas_fuerzas.png")
-
-# plt.show()  # Comentado para ejecución no interactiva
-print("\nProceso completado. Las gráficas están listas para usar.")
+# Listado de archivos generados
+graficos = [
+ 'phi_vs_t.png','theta_vs_t.png','beta_vs_t.png','L_vs_t.png','yc_vs_t.png','L_vs_phi.png','beta_vs_theta.png',
+ 'omega1_vs_t.png','omega3_vs_t.png','dot_yc_vs_t.png','Vaf_vs_t.png','comparacion_velocidades_angulares.png',
+ 'alpha1_vs_t.png','alpha3_vs_t.png','ac_vs_t.png','comparacion_aceleraciones_angulares.png',
+ 'C_vs_t.png','Bx_vs_t.png','By_vs_t.png','O1x_vs_t.png','O1y_vs_t.png','A_vs_t.png','tau_vs_t.png'
+]
+print('Gráficas individuales guardadas en carpeta \'salidas\':')
+for gname in graficos:
+    print(f'  - {os.path.join("salidas", gname)}')
+print("\nProceso completado. Las gráficas individuales están listas para usar dentro de 'salidas/'.")

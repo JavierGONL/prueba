@@ -252,11 +252,19 @@ Cabe destacar que el modelado presentado se encuentra sujeto a posibles modifica
 \end{justify}
 
 % ===== MODELOS TEÓRICOS =====
-\section{Modelos teóricos empleados}
+\section{modelo cinemático}
 
-\section{Modelo cinemático}
+\subsection*{Parámetros geométricos y operativos (SI)}
+\addcontentsline{toc}{subsection}{Parámetros geométricos y operativos (SI)}
+Los valores usados en el análisis corresponden al diseño actual del prototipo y se expresan en unidades SI:
+\begin{align*}
+ r &= 0.070\;\text{m} & d &= 0.110\;\text{m} & R &= 0.200\;\text{m}\\
+ K &= 0.070\;\text{m} & D &= 0.17 \;\text{m} & \lambda &= 0.1093458\;\text{m} & \delta = 0,00665\\
+ g &= 9.81\;\text{m/s}^2 & \omega_2 &= 4.00\;\text{rad/s} & \alpha_2 &= 0.00\;\text{rad/s}^2
+\end{align*}
+Se asume motor de velocidad angular constante ($\alpha_2=0$) y todos los ángulos en radianes. El valor de $\lambda$ corresponde a la distancia del pivote $O_1$ al centroide del eslabón $O_1B$.
 
-\subsubsection{Relación entre $\theta$ y $\phi$}
+\subsection{Relación geométrica entre $\theta$ y $\phi$}
 
 Inicialmente para el analisis cinemático es necesario encontrar expresiones que permitan describrir las distancias
 e inclinaciones de todas las partes del mecanismo que conforman el sistema en funcion de una unica variable, para este fin y por medio de un analisis geometrico es posible establecer la siguiente relacion fundamental entre los ángulos por medio del triángulo formado por las longitudes $r$, $d$ y $L$. De esta manera obtenemos:
@@ -298,7 +306,7 @@ Sustituyendo $L$ en la expresion obtenemos:
 
 De esta forma se establece una Relacion directa entre el angulo $\theta$ y $\phi$.
 
-\subsection{Análisis de velocidades}
+\subsection{Velocidades angulares y relativas}
 
 Con la geometria del sistema definimos la velocidad en el punto $a$ por medio de las restricciones cinematicas de cada una de las partes a las que pertenece.
 En primera instancia sabemos que el punto $a$ respecto la barra $O_2A$ tiene velocidad y aceleración angulares, mas no presenta traslacion. Por tanto se puede plantear la siguiente ecuacion de rotacion respecto a un eje fijo:
@@ -347,7 +355,7 @@ Despejando L del lado izquierdo de la ecuacion obtenemos la siguiente expresion 
 % ============================================================
 % SECCIÓN 2: ANÁLISIS DE ACELERACIONES
 % ============================================================
-\subsection{Análisis de aceleraciones}
+\subsection{Aceleraciones angulares y relativas}
 
 De manera similar a en el analisis de velocidades tomamos a $a$ respecto a la barra $O_2A$ tiene velocidad y aceleración angular y no presenta traslación, debido a esto aplicamos nuevamente rotación respecto a eje fijo y obtenemos la siguiente expresion vectorial:
 \[
@@ -393,7 +401,7 @@ a_{a/f} = \omega_2^2 r\cos(\Phi-\theta) + {\alpha}_2 r \sin(\Phi-\theta) - \omeg
 % ============================================================
 % SECCIÓN 3: LAZO VECTORIAL PARA OBTENER VEL Y ACEL DEL MARTILLO
 % ============================================================
-\subsection{Lazo vectorial para obtener velocidad y aceleración del martillo C}
+\subsection{Lazo vectorial del martillo: posición, velocidad y aceleración}
 
 Planteando el lazo vectorial para el mecanismo, se tiene:
 
@@ -525,7 +533,8 @@ Simplificando:
 % ============================================================
 % SECCIÓN 4: CÁLCULO DE ω₃ Y α₃
 % ============================================================
-\subsection{Cálculo de $\beta$ , $\omega_3$ , $\alpha_3$, $a_B$}
+\section{Cinemática del eslabón $BC$}
+\subsection{Ángulo $\beta$ del eslabón $K$}
 
 Antes de obtener las variables cineticas del mecanismo es necesario preparar el terreno por medio de algunas relaciones cinematicas adicionales las cuales no fueron necesarias con anterioridad para encontrar los puntos de inetres.
 
@@ -594,36 +603,32 @@ Despejando $\alpha_3$:
 		\alpha_3 = \frac{\omega_1^2 R\cos\theta + \alpha_1 R\sin\theta - \omega_3^2 K\sin\beta}{K\cos\beta}
 	}
 \end{equation}
-\subsection{Aceleraciones Centroidales}
-Debido a que el analisis cinetico hace uso de las aceleraciones centroidales de los cuerpos rigidos es necesario definir la aceleracion centroidal de cada una de las partes del mecanismo, es importante aclarar que el centroide debido a que todos los cuerpos estan equilibrados se encuentra en el mismo centro geometrico:
-\subsubsection{Eslabón $O_1-B$}
-El eslabon $O_1-B$ tiene una longitud $R$ y su centroide se encuentra a una distancia $R/2$ del punto $O_1$, por tanto su aceleracion centroidal puede definirse como:
+\section{Aceleraciones centroidales}
+Para el análisis cinético se requieren las aceleraciones de los centroides. Se asume cada eslabón como cuerpo rígido homogéneo (centroide en su centro geométrico salvo correcciones de masa).
+\subsection{Eslabón $O_1B$}
+Centroide a distancia $\lambda$ de $O_1$. Aceleraciones tangencial y normal:
 \begin{align}
-\bar{a}_{O_1} &= \alpha_1 \frac{R}{2} ,\;⦭ \, \theta^\circ \quad + \omega_1^2 \frac{R}{2} ,\; ⦫\, \theta^\circ \\
-\bar{a}_{O_{1x}} &= -\left(\alpha_1 \frac{R}{2} \sin\theta + \omega_1^2 \frac{R}{2} \cos\theta\right) \\
-\bar{a}_{O_{1y}} &= \alpha_1 \frac{R}{2} \cos\theta - \omega_1^2 \frac{R}{2} \sin\theta
+\bar{a}_{O_{1x}} &= -\big(\alpha_1 \lambda \sin\theta + \omega_1^2 \lambda \cos\theta\big)\\
+\bar{a}_{O_{1y}} &= \alpha_1 \lambda \cos\theta - \omega_1^2 \lambda \sin\theta
+\end{align}
+\subsection{Eslabón $O_2A$}
+Centroide a $r/2$ de $O_2$:
+\begin{align}
+\bar{a}_{O_{2x}} &= -\big(\alpha_2 \tfrac{r}{2} \sin\phi + \omega_2^2 \tfrac{r}{2} \cos\phi\big)\\
+\bar{a}_{O_{2y}} &= \alpha_2 \tfrac{r}{2} \cos\phi - \omega_2^2 \tfrac{r}{2} \sin\phi
+\end{align}
+\subsection{Martillo $C$}
+Traslación pura vertical:
+\begin{align}
+\bar{a}_C &= \ddot{y}_c
+\end{align}
+\subsection{Eslabón $BC$}
+Centroide a $K/2$ de $B$ con movimiento plano general:
+\begin{align}
+\bar{a}_{BC,x} &= -\frac{K}{2}\big(\alpha_3 \cos\beta + \omega_3^2 \sin\beta\big)\\
+\bar{a}_{BC,y} &= -\ddot{y}_c + \frac{K}{2}\big(\alpha_3 \sin\beta - \omega_3^2 \cos\beta\big)
 \end{align}
 
-\subsubsection{Eslabón $O_2-A$}
-El eslabon $O_2-A$ tiene una longitud $r$ y su centroide se encuentra a una distancia $r/2$ del punto $O_2$, por tanto su aceleracion centroidal puede definirse como:
-\begin{align}
-\bar{a}_{O_2} &= \alpha_2 \frac{r}{2} ,\; ⦭\, \theta^\circ \quad + \omega_2^2 \frac{r}{2} ,\; ⦫\, \theta^\circ \\
-\bar{a}_{O_{2x}} &= -\left(\alpha_2 \frac{r}{2} \sin\theta + \omega_2^2 \frac{r}{2} \cos\theta\right) \\
-\bar{a}_{O_{2y}} &= \alpha_2 \frac{r}{2} \cos\theta - \omega_2^2 \frac{r}{2} \sin\theta
-\end{align}
-\subsubsection{Martillo $C$}
-Para el martillo $C$ es necesario tomar en cuenta que se encuentra unicamente en traslacion, por lo tanto su aceleracion centroidal es igual a la aceleracion del punto $C$ obtenida por medio del lazo vectorial:
-\begin{align}
-\bar{a}_C &= {y}_c
-\end{align}
-
-\subsubsection{Eslabón $B-C$}
-El eslabon $B-C$ tiene una longitud $K$ y su centroide se encuentra a una distancia $K/2$ del punto $B$, por tanto y tomando en cuenta que presenta movimiento de plano general su aceleracion centroidal puede definirse como:
-\begin{align}
-\bar{a}_{BC} &= a_c + \alpha_3 \frac{K}{2} ,\; ⦩\, \beta^\circ \quad + \omega_3^2 \frac{K}{2} ,\; ⦯\, \beta^\circ \\
-\bar{a}_{BC,x} &= -\frac{K}{2}(\alpha_3 \cos\beta + \omega_3^2 \sin\beta) \\
-\bar{a}_{BC,y} &= -a_c + \frac{K}{2}(\alpha_3 \sin\beta - \omega_3^2 \cos\beta)
-\end{align}
 \subsection{Momentos de inercia centroidales de los eslabones}
 
 En el análisis cinético se requieren los momentos de inercia de los eslabones en el plano del mecanismo (eje $z$ saliendo del plano). Puesto que los eslabones se fabrican como prismas rectangulares (longitud $L$ y ancho en el plano $b$), el momento de inercia respecto al centroide $G$ alrededor del eje $z$ es:
@@ -635,11 +640,19 @@ En el análisis cinético se requieren los momentos de inercia de los eslabones 
 Aplicando a cada eslabón del mecanismo:
 
 \paragraph{Eslabón $O_1B$ (longitud $R$, ancho $b_R$, masa $m_R$).}
-Momento de inercia centroidal y respecto al pivote $O_1$:
+Momento de inercia centroidal y respecto al centro de area sin la ranura $O_1$:
+
 
 \begin{align}
-\bar{I}_{o_1} &= \boxed{\tfrac{1}{12}\, m_R\, (R^2 + b_R^2 - R'^2 - b_R'^2) }
+{I}_{o_1} &= \boxed{\tfrac{1}{12}\, m_R\, (R^2 + b_R^2 - R'^2 - b_R'^2) }
 \end{align}
+
+Con este valor es posible encontrar el momento de inercia centroidal de masa usando el teorema de ejes paralelos
+\begin{align}
+\bar{I}_{o_1} &= \boxed{ {I}_{o_1} - m(\delta)^2 }
+\end{align}
+\noindent Donde: $R$ es la longitud total de la barra $O_1B$, $\delta$ es la distancia del centro geometrico sin ranura al centro de masa, $b_R$ su ancho en el plano; $R'$ es la longitud de la ranura a lo largo de la barra y $b_R'$ el ancho de esa ranura; $m_R$ es la masa efectiva del eslabón (masa de la barra menos el material retirado por la ranura).
+
 
 \noindent Donde: $R$ es la longitud total de la barra $O_1B$, $b_R$ su ancho en el plano; $R'$ es la longitud de la ranura a lo largo de la barra y $b_R'$ el ancho de esa ranura; $m_R$ es la masa efectiva del eslabón (masa de la barra menos el material retirado por la ranura).
 
@@ -659,8 +672,11 @@ Cuando el balance de momentos se toma alrededor del centroide del eslabón $BC$,
 % ============================================================
 % SECCIÓN 5: ANÁLISIS CINÉTICO
 % ============================================================
-\section{Análisis Cinético}
-Ya con las variables cinematicas adecuadas desarrollaremos el diagrama de cuerpo libre de cada una de las partes, de tal manera que obtengamos un sistema de ecuaciones que permitan conocer las fuerzas que interceden en el mecanismo.
+\subsection{Momentos de inercia}
+Para barras prismáticas de longitud $L$ y ancho en el plano $b$ el momento de inercia centroidal (eje $z$ perpendicular al plano) es $I_G=\tfrac{1}{12}m(L^2+b^2)$. Se aplican correcciones por ranura en $O_1B$ usando diferencia de áreas y teorema de ejes paralelos.
+
+\section{Análisis cinético}
+Con las variables cinemáticas se plantean ecuaciones de cuerpo rígido para cada eslabón (direcciones $X$, $Y$ y momentos alrededor de pivotes o centroides). Se emplean las fuerzas: reacciones $O_{1x}$, $O_{1y}$, $O_{2x}$, $O_{2y}$, fuerza de pasador $A$, reacciones en $B$ ($B_x,B_y$), fuerza vertical en martillo $C$ y par motor $\tau$.
 \subsection{Ecuaciones de movimiento martillo C}
 En el martillo C solo puede moverse verticalmente, ademas de que esta solo se mueve en traslacion y por tanto su aceleracion angular es 0.
 \begin{enumerate}
@@ -698,21 +714,21 @@ El eslabon BC presenta movimiento de plano general y por tanto tiene aceleracion
     \end{equation}
 \end{enumerate}
 \subsection{Ecuaciones de movimiento eslabon O1-B}
-El eslabon O1-B no presenta restriccion en la direccion x e y, ademas que su aceleracion angular es diferente de 0.
+El eslabon O1-B no presenta restriccion en la direccion x e y, ademas que su aceleracion angular es diferente de 0. Es importante resaltar que el punto a debido a ser la reaccion de la ranura se sabe que es normal a la barra O1-B y $\lambda$ representa la distancia de o1 al centroide
 \begin{enumerate}
     \item X - $O_1$:
     \begin{equation}
-        O_{1x} + A_x - B_x = m_{o_1}(\bar{a}_{o_1})_x \quad \Rightarrow \quad O_{1x} + A_x = m_{o_1}(\bar{a}_{o_1})_x + B_x
+        O_{1x} - A\sin\theta - B_x = m_{o_1}(\bar{a}_{o_1})_x \quad \Rightarrow \quad O_{1x} - A\sin\theta = m_{o_1}(\bar{a}_{o_1})_x + B_x
     \end{equation}
 
     \item Y - $O_1$:
     \begin{equation}
-        O_{1y} + A_y - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A_y = m_{o_1}(g + \bar{a}_{o_1})_y + B_y
+        O_{1y} + A\cos\theta - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A\cos\theta = m_{o_1}(g + \bar{a}_{o_1}_{y})+ B_y
     \end{equation}
 
     \item Z - $O_1$:
     \begin{equation}
-        \left(\frac{R}{2} - L\right)(A_x \sin\theta - A_y \cos\theta) - \frac{R}{2}(B_y \cos\theta + O_{1y} \cos\theta - B_x \sin\theta - O_{1x} \sin\theta) = \bar{I_{o_1}} \cdot \alpha_1
+        \left(L - \lambda\right)A + \lambda(-B_y \cos\theta  + B_x \sin\theta - O_{1y} \cos\theta + O_{1x} \sin\theta) = \bar{I_{o_1}} \cdot \alpha_1  
     \end{equation}
 \end{enumerate}
 \subsection{Ecuaciones de movimiento eslabon O2-A}
@@ -720,27 +736,41 @@ La barra O2-A no presenta restriccion en la direccion x e y, ademas que su acele
 \begin{enumerate}
     \item X - $O_2$:
     \begin{equation}
-        O_{2x} - A_x = m_r(\bar{a}_{o_2})_x
+        O_{2x} + A\sin\phi = m_r(\bar{a}_{o_2})_x
     \end{equation}
 
     \item Y - $O_2$:
     \begin{equation}
-        O_{2y} - A_y - W_r= m_r(\bar{a}_{o_2})_y \quad \Rightarrow \quad O_{2y} - A_y = m_r((\bar{a}_{o_2})_y +g)
+        O_{2y} - A\cos\phi - W_r= m_r(\bar{a}_{o_2})_y \quad \Rightarrow \quad O_{2y} - A\cos\phi = m_r((\bar{a}_{o_2})_y +g)
     \end{equation}
 
     \item Z - $O_2$:
-        \begin{equation}
-            \frac{r}{2}\cdot{(A_x\sin\phi + O_{2x}\sin\phi - A_y \cos\phi - O_{2y} \cos\phi)} =  \bar{I_{o_2}} \cdot \alpha_2 + \tau
-        \end{equation}
+    \begin{equation}
+        \tau - \frac{r}{2}\cos({\phi - \theta}) + \frac{r}{2}(-O_{2y}\cos\phi + O_{2x}\sin\phi) = \bar{I_{o_2}} \cdot \alpha_2
+    \end{equation}
 
 \end{enumerate}
 
-\section{Notas adicionales}
-Para poder resolver el sistema de ecuaciones planteado y obtener las reacciones en el mecanismo es obligatorio conocer las variables cinematicas planteadas a lo largo del analisis del mecanismo, entre las cuales resaltan:
-\begin{itemize}
-    \item Las aceleraciones angulares $\alpha_1$, $\alpha_2$, $\alpha_3$
-    \item Las aceleraciones centroidales $\bar{a}_{o_1}$, $\bar{a}_{o_2}$, $\bar{a}_{BC}$ y $\bar{a}_C$
-\end{itemize}
+\subsection{Sistema reducido para resolución secuencial}
+Dada una fuerza requerida $C$ en el martillo se procede: (i) calcular $B_x,B_y$ usando las aceleraciones centroidales de $BC$; (ii) resolver $O_{1x},O_{1y},A$ mediante el sistema lineal:
+\begin{align*}
+O_{1x} - A\sin\theta &= m_{o1}\,\bar a_{O_{1x}} + B_x,\\
+O_{1y} + A\cos\theta &= m_{o1}(\bar a_{O_{1y}} + g) + B_y,\\
+\lambda\sin\theta\,O_{1x} - \lambda\cos\theta\,O_{1y} + (L-\lambda)A &= \bar I_{o1}\,\alpha_1 - \lambda(B_x\sin\theta - B_y\cos\theta).
+\end{align*}
+Finalmente el par motor instantáneo:
+\begin{align*}
+	au &= \bar I_{o2}\,\alpha_2 + r A \cos(\phi-\theta) + \frac{r}{2}m_{o2} g \cos\phi.
+\end{align*}
+
+\subsection{Potencia y eficiencia}
+La potencia de entrada y salida se estiman como:
+\begin{align*}
+P_{in} &= \tau\,\omega_2, & P_{out} &= C\,\dot{y}_c, & \eta &= \frac{P_{out}}{P_{in}}\times 100\%.
+\end{align*}
+
+\section{Notas finales}
+La resolución numérica se implementa en Python generando curvas de $\theta(t)$, $\omega_1(t)$, $\dot y_c(t)$, $\ddot y_c(t)$, $\beta(t)$, $\omega_3(t)$, $\alpha_3(t)$, fuerzas y par $\tau(t)$, además de una búsqueda del parámetro $D$ que maximiza la carrera evitando singularidades (denominadores cercanos a cero en la expresión de $\dot y_c$). Esto garantiza un régimen estable y aprovechamiento máximo del desplazamiento del martillo.
 \section{Fase de Diseño Detallado}
 
 \section{Análisis de los resultados teóricos}

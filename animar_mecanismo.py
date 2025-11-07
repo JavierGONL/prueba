@@ -12,14 +12,14 @@ import matplotlib.patches as mpatches
 # ============================================================
 # PARÁMETROS DEL MECANISMO
 # ============================================================
-# Pivotes fijos:
-d = 0.08  # Distancia entre O1 y O2 (m)
+# Pivotes fijos (unificados con graficar_mecanismo.py):
+d = 0.11   # Distancia entre O1 y O2 (m)
 
-# Barras:
-r = 0.05  # Longitud de la barra motriz O2-A (m)
-R = 0.18  # Longitud FIJA de la barra O1-B (m) ← LA BARRA ES RÍGIDA
-K = 0.07  # Longitud de la barra BC (m)
-D = 0.14  # Distancia horizontal de O1 a C (m)
+# Barras (unificadas):
+r = 0.07   # Longitud barra motriz O2-A (m)
+R = 0.20   # Longitud FIJA barra O1-B (m)
+K = 0.07   # Longitud barra BC (m)
+D = 0.00665  # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
 
 # Nota: 
 # - Barra O1-B: longitud R (FIJA), gira con ángulo θ
@@ -27,7 +27,18 @@ D = 0.14  # Distancia horizontal de O1 a C (m)
 # - L: distancia VARIABLE de O1 hasta A (calculada, varía de ~40mm a ~200mm)
 # - B: extremo de la barra O1-B, a distancia R de O1
 
-omega_2 = 58.0  # Velocidad angular del motor (rad/s)
+omega_2 = 4.0  # Velocidad angular del motor (rad/s)
+
+# Activar búsqueda opcional de D óptimo para evitar beta singular (cosβ≈0)
+optimizar_D = True
+eps_cosb = 5e-2
+eps_den = 1e-3
+
+# Parámetros de duración/visualización
+fps = 60            # Cuadros por segundo del GIF/preview
+n_ciclos = 15       # Número de ciclos completos a animar
+guardar_gif = True  # Guardar GIF en disco
+mostrar_en_vivo = False  # Mostrar animación en una ventana interactiva
 
 # Posiciones de los pivotes fijos
 O1 = np.array([0, 0])
@@ -52,10 +63,7 @@ def calcular_posicion_A(phi):
     return O2 + r * np.array([np.cos(phi), np.sin(phi)])
 
 def calcular_theta_desde_phi(phi, r, d):
-    """
-    Calcula theta (ángulo de O1-B) desde phi
-    Ecuación: sin(θ) = [L * sin(φ)] / r
-    """
+    """Calcula θ desde φ usando sin(θ) = (r·sinφ)/L."""
     L = calcular_L(phi, r, d)
     sin_theta = (r * np.sin(phi)) / L
     sin_theta = np.clip(sin_theta, -1, 1)
@@ -73,19 +81,59 @@ def calcular_posicion_C(theta, beta):
     B = calcular_posicion_B(theta)
     return B + K * np.array([-np.sin(beta), -np.cos(beta)])
 
-def calcular_beta_desde_theta(theta):
-    """Calcula beta desde theta"""
-    sin_beta = (R * np.cos(theta) - D) / K
-    sin_beta = np.clip(sin_beta, -1, 1)
-    return np.arcsin(sin_beta)
+def calcular_beta_desde_theta(theta, D_local):
+    """Calcula β desde θ: sinβ = (R cosθ - D)/K con clipping y aviso si saturado."""
+    raw = (R * np.cos(theta) - D_local) / K
+    clipped = np.clip(raw, -1, 1)
+    beta = np.arcsin(clipped)
+    if np.any(np.abs(raw) > 1):
+        # Aviso una sola vez si hay saturación
+        print("[AVISO] β saturada por geometría: |(R cosθ - D)/K| > 1 en algunos puntos.")
+    return beta
+
+def evaluar_D(D_cand, n_samples=360):
+    """Evalúa métricas de singularidad para un D candidato."""
+    t_eval = np.linspace(0, 2*np.pi/omega_2, n_samples)
+    phi_eval = omega_2 * t_eval
+    theta_eval = calcular_theta_desde_phi(phi_eval, r, d)
+    beta_eval = calcular_beta_desde_theta(theta_eval, D_cand)
+    cosb = np.cos(beta_eval)
+    y_c_eval = R * np.sin(theta_eval) - K * np.cos(beta_eval)
+    Den = R * np.sin(theta_eval) - y_c_eval  # mismo denominador que en lazo
+    return {
+        'D': D_cand,
+        'min_cosb': float(np.min(np.abs(cosb))),
+        'min_den': float(np.min(np.abs(Den))),
+        'stroke': float(np.max(y_c_eval) - np.min(y_c_eval))
+    }
+
+if optimizar_D:
+    print("Buscando D óptimo para animación (evitar cosβ≈0 y maximizar carrera)...")
+    Ds = np.linspace(0.05, 0.18, 50)
+    informes = [evaluar_D(Dc) for Dc in Ds]
+    viables = [inf for inf in informes if inf['min_cosb'] >= eps_cosb and inf['min_den'] >= eps_den]
+    if viables:
+        viables.sort(key=lambda x: (x['stroke'], x['min_cosb'], x['min_den']), reverse=True)
+        mejor = viables[0]
+        D = mejor['D']
+        print(f"  D elegido = {D:.5f} m | carrera≈{mejor['stroke']:.4f} m, min|cosβ|≈{mejor['min_cosb']:.3f}, min|Den|≈{mejor['min_den']:.4f}")
+    else:
+        print("  No se encontró D que cumpla criterios; se mantiene valor original.")
 
 # ============================================================
 # CONFIGURACIÓN DE LA ANIMACIÓN
 # ============================================================
 
-n_frames = 100
-t_final = 2 * np.pi / omega_2
-t_vals = np.linspace(0, t_final, n_frames)
+# Duración física total (seg) según número de ciclos
+periodo = 2 * np.pi / omega_2
+duracion_s = n_ciclos * periodo
+
+# Total de cuadros y vector de tiempo
+n_frames = int(fps * duracion_s)
+if n_frames < 2:
+    n_frames = 2
+    fps = max(1, fps)
+t_vals = np.linspace(0, duracion_s, n_frames)
 
 # Pre-calcular todas las posiciones
 phi_vals = omega_2 * t_vals
@@ -95,7 +143,7 @@ theta_vals = np.array([calcular_theta_desde_phi(phi, r, d) for phi in phi_vals])
 A_positions = np.array([calcular_posicion_A(phi) for phi in phi_vals])
 L_vals = np.array([calcular_L(phi, r, d) for phi in phi_vals])
 
-beta_vals = np.array([calcular_beta_desde_theta(theta) for theta in theta_vals])
+beta_vals = np.array([calcular_beta_desde_theta(theta, D) for theta in theta_vals])
 
 # Calcular posiciones (A_positions ya calculado arriba)
 B_positions = np.array([calcular_posicion_B(theta) for theta in theta_vals])
@@ -263,20 +311,24 @@ def update(frame):
 print("Creando animación del mecanismo...")
 print(f"Generando {n_frames} frames...")
 
-anim = FuncAnimation(fig, update, frames=n_frames, init_func=init, 
-                     interval=50, blit=True, repeat=True)
+anim = FuncAnimation(
+    fig, update, frames=n_frames, init_func=init,
+    interval=1000.0 / fps, blit=True, repeat=True
+)
 
 # Guardar como GIF
-print("Guardando animación como GIF (esto puede tomar unos minutos)...")
-writer = PillowWriter(fps=20)
-anim.save('animacion_mecanismo.gif', writer=writer, dpi=100)
+if guardar_gif:
+    print("Guardando animación como GIF (esto puede tomar unos minutos)...")
+    writer = PillowWriter(fps=fps)
+    anim.save('animacion_mecanismo.gif', writer=writer, dpi=100)
+    print("Animación guardada como: animacion_mecanismo.gif")
 
-print("Animación guardada como: animacion_mecanismo.gif")
-print(f"Duración: {t_final:.2f} segundos")
-print(f"FPS: 20")
+print(f"Duración física: {duracion_s:.2f} s  |  Ciclos: {n_ciclos}")
+print(f"FPS: {fps}")
 print(f"Total frames: {n_frames}")
 
 plt.tight_layout()
-# plt.show()
+if mostrar_en_vivo:
+    plt.show()
 
-print("\nAnimación completada exitosamente!")
+print("\nAnimación completada!")
