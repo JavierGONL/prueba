@@ -37,8 +37,8 @@ K = 0.07  # Longitud de la barra BC (m)
 # - C: martillo, conectado a B mediante barra BC
 
 # Parámetros del motor
-omega_2 = 47.0  # Velocidad angular del motor (rad/s) - constante
-alpha_2 = 0.0   # Aceleración angular del motor (rad/s²) - constante
+omega_2 = 3 # Velocidad angular del motor (rad/s) - constante
+alpha_2 = 1.0   # Aceleración angular del motor (rad/s²) - constante
 
 # Parámetros de masa (modelo pequeño impreso en PLA)
 # Densidad del PLA: ~1.24 g/cm³
@@ -230,9 +230,8 @@ print("Cálculos completados. Generando gráficas...")
 # C(t) = m_c (g - a_c)
 C_t = m_martillo * (g - a_c)
 
-# Aceleración del centroide del eslabón BC (según informe)
-a_BC_x = - (K/2.0) * (alpha_3 * np.cos(beta) + (omega_3**2) * np.sin(beta))
-a_BC_y = - a_c + (K/2.0) * (alpha_3 * np.sin(beta) - (omega_3**2) * np.cos(beta))
+# Aceleración del centroide del eslabón BC 
+
 
 # Fuerzas en la articulación B del eslabón BC
 B_x = m4 * a_BC_x
