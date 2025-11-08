@@ -33,6 +33,6 @@
 \contentsline {subsection}{\numberline {7.3}Potencia y eficiencia}{12}{}%
 \contentsline {section}{\numberline {8}Fase de Diseño Detallado}{13}{}%
 \contentsline {section}{\numberline {9}Análisis de los resultados teóricos}{13}{}%
-\contentsline {section}{\numberline {10}Análisis sobre el funcionamiento del prototipo}{15}{}%
-\contentsline {section}{\numberline {11}Conclusiones y recomendaciones}{15}{}%
-\contentsline {section}{Referencias}{15}{}%
+\contentsline {section}{\numberline {10}Análisis sobre el funcionamiento del prototipo}{14}{}%
+\contentsline {section}{\numberline {11}Conclusiones y recomendaciones}{14}{}%
+\contentsline {section}{Referencias}{14}{}%
