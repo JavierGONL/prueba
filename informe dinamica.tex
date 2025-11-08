@@ -688,17 +688,39 @@ La barra O2-A no presenta restriccion en la direccion x e y, ademas que su acele
 
 \end{enumerate}
 
-\subsection{Sistema reducido para resolución secuencial}
-Dada una fuerza requerida $C$ en el martillo se procede: (i) calcular $B_x,B_y$ usando las aceleraciones centroidales de $BC$; (ii) resolver $O_{1x},O_{1y},A$ mediante el sistema lineal:
-\begin{align*}
-O_{1x} - A\sin\theta &= m_{o1}\,\bar a_{O_{1x}} + B_x,\\
-O_{1y} + A\cos\theta &= m_{o1}(\bar a_{O_{1y}} + g) + B_y,\\
-\lambda\sin\theta\,O_{1x} - \lambda\cos\theta\,O_{1y} + (L-\lambda)A &= \bar I_{o1}\,\alpha_1 - \lambda(B_x\sin\theta - B_y\cos\theta).
-\end{align*}
-Finalmente el par motor instantáneo:
-\begin{align*}
-	au &= \bar I_{o2}\,\alpha_2 + r A \cos(\phi-\theta) + \frac{r}{2}m_{o2} g \cos\phi.
-\end{align*}
+\subsection{Sistema reducido para resolución del sistema cinético}
+Dadas las 12 ecuaciones presenadas es posible reducir el sistema a 4 ecuaciones mediante remplazar $O_2x$ y $O_2y$ y resolver las ecuaciones que tienen solucion directa:
+\begin{center}
+\[
+C = m_c \bigl(g - \bar{a}_c\bigr)
+\]
+\[
+B_x = m_{BC}\,(\bar{a}_{BC})_x
+\]
+\[
+B_y = m_{BC}\bigl(g + (\bar{a}_{BC})_y\bigr) + C
+\]
+\[
+O_{2x} = m_r\,\bar{a}_{o_2x} - A\sin\theta
+\]
+\[
+O_{2y} = m_r\bigl(\bar{a}_{o_2y} + g\bigr) + A\cos\theta
+\]
+\[
+O_{1x} - A\sin\theta = m_{o1}\,\bar a_{O_{1x}} + B_x
+\]
+\[
+O_{1y} + A\cos\theta = m_{o1}\bigl(\bar a_{O_{1y}} + g\bigr) + B_y
+\]
+\[
+\lambda\sin\theta\,O_{1x} - \lambda\cos\theta\,O_{1y} + (L-\lambda)A
+= \bar I_{o1}\,\alpha_1 - \lambda\bigl(B_x\sin\theta - B_y\cos\theta\bigr)
+\]
+\[
+-2\cos(\phi-\theta)\,A + \frac{2}{r}\tau
+= \frac{2}{r}\,\bar I_{o2}\,\alpha_2 + m_{o2}\bigl(g + \ddot{a}_{O_{2y}} - \ddot{a}_{O_{2x}}\bigr)
+\]
+\end{center}
 
 \subsection{Potencia y eficiencia}
 La potencia de entrada y salida se estiman como:
