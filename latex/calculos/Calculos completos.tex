@@ -52,209 +52,12 @@
 % =======================================================
 
 \begin{document}
+{\LARGE\bfseries Diseño conceptual y análisis dinámico de un sistema de martillo accionado por un mecanismo de retorno rápido \par}
 
-% ===== PORTADA =====
-\begin{titlepage}
-    \centering
-    
-    % Logo de la Universidad Nacional de Colombia 
-    \includegraphics[width=4.5cm]{imagenes/escudo_unal.png}
-    
-    \vspace{1.5cm}
-    
-    {\LARGE\bfseries Diseño conceptual y análisis dinámico de un sistema de martillo accionado por un mecanismo de retorno rápido \par}
-    
-    \vspace{1.5cm}
-    
-
-    \vspace{2cm}
-    
-    {\large\bfseries Kevin Javier Gonzalez Luna\par}
-    {\large  kegonzalezl@unal.edu.co\par}
-    
-    \vspace{1cm}
-    
-    {\large\bfseries Ivan Felipe Malucho Suarez \par}
-    {\large imaluche @unal.edu.co\par}
-    
-    \vspace{1cm}
-    
-    {\large\bfseries Juan David Hernández Daza\par}
-    {\large jhernandezda@unal.edu.co\par}
-
-    \vspace{1cm}
-    
-    {\large\bfseries Joseph Nicolas Mahecha Cruz\par}
-    {\large jomahecha@unal.edu.co\par}
-    \vfill
-    
-    {\large Nelson Arzola de la Pe{\~n}a\\
-    \vspace{1cm}
-    Universidad Nacional de Colombia,\\
-    Bogotá D.C.\\
-    Facultad de Ingeniería.\\
-    2025.\par}
-    
-\end{titlepage}
-
-% ===== INICIO DEL CONTENIDO =====
-\newpage
-
-% ===== RESUMEN =====
-\addcontentsline{toc}{section}{Resumen}
-
-\begin{abstract}
-El presente proyecto desarrolla el diseño y modelado cinemático de un mecanismo de retorno rápido tipo Whitworth, modificado para operar como un martillo de impacto vertical. El objetivo principal consiste en transformar un movimiento rotacional uniforme, proporcionado por un motor eléctrico con reductor, en un movimiento alternativo de avance y retroceso con diferentes velocidades angulares efectivas, permitiendo un descenso lento y un retorno rápido del elemento percutor.
-
-El rediseño propuesto introduce una variación estructural respecto al mecanismo clásico: el rodillo deslizante tradicional es reemplazado por un tornillo pasante que transmite directamente la fuerza entre la manivela motriz y la palanca ranurada. Esta modificación reduce el número de componentes, simplifica la fabricación y mantiene la eficiencia cinemática del sistema. La energía rotacional del motor se transmite desde el eje de entrada $O_2$ a la palanca oscilante pivotada en $O_1$, la cual a su vez impulsa una biela articulada que acciona un bloque deslizante. Dicho bloque, fabricado en acero A36, cumple la función de martillo y se desplaza guiado por dos varillas lineales, ejecutando un golpe controlado durante la fase de avance.
-
-El mecanismo completo se inscribe en un volumen máximo de $60 \times 60 \times 15 \ \text{cm}$ y fue analizado mediante el método del lazo vectorial, considerando relaciones angulares, velocidades y aceleraciones instantáneas. Los resultados obtenidos muestran una correspondencia directa entre la velocidad angular de entrada y la aceleración lineal del martillo, validando el comportamiento asimétrico característico del retorno rápido. Este diseño demuestra una alternativa funcional, compacta y didáctica para el estudio de la conversión de movimiento rotacional en lineal alternativo, aplicable tanto en entornos académicos como en desarrollos de prototipos mecánicos ligeros.
-\end{abstract}
-
-\noindent\textbf{Palabras clave:} mecanismo de retorno rápido de Whitworth; martillo de impacto vertical; palanca ranurada; pasador deslizante; lazo vectorial; cinemática de mecanismos.
-
-\vspace{0.5cm}
-
-\newpage
-% ===== TABLA DE CONTENIDO =====
-\tableofcontents
-\newpage
-
-
-% ===== INTRODUCCIÓN =====
-\section{Introducción}
-
-\begin{justify}
-    (falta arreglarlo)
-\end{justify}
-
-% ===== FUNDAMENTACIÓN TEÓRICA =====
-\section{Fundamentación teórica}
-
-El análisis de mecanismos planos requiere el uso de conceptos fundamentales de cinemática y cinética, entre estos para el análisis del mecanismo se harán uso de:
-
-\subsection{Movimiento de plano general}
-
-El movimiento de plano general describe los valores de velocidad y aceleración de un punto de un sólido rígido por medio de las siguientes ecuaciones: 
-
-\begin{equation}
-\vec{V}_b = \vec{V}_a + \vec{V}_{b/a} = \vec{V}_a + (\vec{\omega} \times \vec{r}_{b/a})
-\end{equation}
-
-\begin{equation}
-\vec{a}_b = \vec{a}_a + \vec{a}_{b/a} = \vec{a}_a + (\vec{\alpha} \times \vec{r}_{b/a}) + (\vec{\omega} \times (\vec{\omega} \times \vec{r}_{b/a}))
-\end{equation}
-
-Donde: 
-\begin{itemize}
-    \item $\vec{\omega}$ y $\vec{\alpha}$ representan la velocidad y aceleración angular respectivamente, son iguales a la primera y segunda derivada del angulo de rotacion respecto al tiempo ($\dot{\theta}, \ddot{\theta}$)
-    \item $\vec{r}_{b/a}$ representa el vector que une $\vec{r_a}$ con $\vec{r_b}$
-\end{itemize}
-\subsection{Movimiento plano de una particula relativa a un sistema de referencia en rotacion}
-Cuando se presentan casos donde el objeto se mueve dentro de un sistema en rotacion (como es en nuestro caso el pasador que se mueve linealmente sobre la barra $O1B$) es necesario usar las siguiente ecuaciones para encontrar la variables cinematicas de un punto p dado: 
-
-\begin{equation}
-\vec{V}_p = \vec{V}'_p + \vec{V}_{p/f} 
-\end{equation}
-
-\begin{equation}
-\vec{a}_p = \vec{a}'_p + \vec{a}_{p/f} + a_{cor} 
-\end{equation}
-Donde: 
-\begin{itemize}
-    \item $\vec{V'_p}$ y $\vec{a'_p}$ representan las variables cinematicas que posee el cuerpo producto de la rotacion del sistema de referencia, se puede entender como un punto del sistema de referencia que coincide con p en todo momento
-    \item $\vec{V}_{p/f}$ y $\vec{a}_{p/f}$ representan las variables cinematicas del cuerpo relativas al sistema, en nuestro caso al ser un pasador sigue la geometria de la barra ${r_b}$
-    \item $\vec{a}_{cor}$ representa la aceleracion de coreolis, la cual debe ser igual a $2\vec{\Omega} \times \vec{V_{p/f}}$ y es propia del sistema en rotacion
-\end{itemize}
-
-\subsection{Método del lazo vectorial}
-
-Este método analiza mecanismos a partir de ecuaciones vectoriales que cierran un circuito. Cada eslabón se modela como un vector de posición en un sistema de coordenadas global $XY$. Con las longitudes conocidas y los ángulos de entrada, se plantea el lazo de cierre para obtener relaciones geométricas entre las posiciones de los eslabones. Luego, dichas relaciones se derivan una y dos veces respecto al tiempo para obtener, respectivamente, las velocidades y las aceleraciones instantáneas[ref:https://hal.science/hal-01715664/document ].
-
-En la práctica, el procedimiento consiste en:
-
-\begin{itemize}
-    \item Plantear el cierre vectorial y su proyección en los ejes $x$ y $y$.
-    \item Resolver la geometría para las incógnitas instantáneas (p. ej., $\theta$, $\beta$, $y_c$).
-    \item Derivar una vez para obtener las ecuaciones de velocidad y una segunda vez para las de aceleración.
-\end{itemize}
-
-\subsection{Ecuaciones de movimiento de un cuerpo rigido}
-
-las ecuaciones de movimiento de un cuerpo rigido me relacionan los vectores de fuerza efectiva con las fuerzas de reaccion del mecanismo:
-
-\begin{itemize}
-    \item  $\sum \vec{F} = m \bar{a}$
-    \item  $\sum \vec{M_G} = \dot{H_G}$
-\end{itemize}
-
-Donde:
-\begin{itemize}
-    \item $\sum \vec{F}$ es la suma de todas las fuerzas externas aplicadas al cuerpo.
-    \item $\sum \vec{M_G}$ es la suma de los momentos respecto al centro de masa $G$.
-    \item $\dot{H_G}$ es la derivada temporal del momento angular respecto al centro de masa. 
-    \item $\dot{H_G} = \bar{I} \alpha$
-\end{itemize}
-Estas ecuaciones permiten analizar el movimiento de cuerpos rígidos sometidos a fuerzas y momentos, relacionando las fuerzas efectivas con las reacciones internas del mecanismo. Son la base para el estudio dinámico de sistemas mecánicos como el mecanismo de martillo presentado en este informe.
-
-% ===== FASE DE DISEÑO CONCEPTUAL =====
-\section{Fase de Diseño Conceptual}
-
-El mecanismo consiste en un sistema de barras articuladas accionado por un motor que produce un movimiento de martilleo. Los componentes principales son:
-
-\begin{itemize}
-    \item \textbf{Motor:} Proporciona rotación constante con velocidad angular $\omega_2$ y aceleración angular $\alpha_2 = 0$
-    \item \textbf{Barra motriz ($O_2A$):} De longitud $r$, conectada al motor en $O_2$ y al punto $A$
-    \item \textbf{Barra acoplada ($O_1B$):} De longitud $L$ variable aparente, articulada en $O_1$ y conectada en punto coincidente con $A$
-    \item \textbf{Sistema de martillo:} Mecanismo articulado con barra de longitud constante $K$ que produce el movimiento de impacto
-\end{itemize}
-
-\subsection{Variables del sistema}
-
-\begin{itemize}
-    \item $\delta(t) = \omega_2 t$: Ángulo de la barra motriz (entrada del sistema)
-    \item $\alpha(t)$: Ángulo de la barra acoplada (función de $\delta$)
-    \item $L(\delta)$: Distancia variable entre articulaciones
-    \item $\omega_1 = \dot{\alpha}$: Velocidad angular de la barra acoplada
-    \item $X_E(t)$: Posición del martillo
-    \item $R$, $D$, $K$: Parámetros geométricos del mecanismo
-\end{itemize}
-
-\subsection{Modelo de prototipo inicial}
-
-\begin{justify}
-
-El proyecto se centra en el diseño y en la construcción de un mecanismo de retorno rápido basado en el mecanismo de Whitworth, modificado específicamente para funcionar como un martillo de forja. El objetivo principal es convertir el movimiento rotacional uniforme del motor eléctrico en un movimiento lineal alternativo con cinemática asimétrica, característica fundamental para que la fase de avance lento y controlado sea efectiva a la hora de transferir energía de impacto de forma eficiente. En la fase de retorno rápido, se busca reducir el tiempo muerto del ciclo, incrementando así la productividad del sistema.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.4\textwidth]{{imagenes/diagrama algo mecanismo}.png}
-\caption{Modelo esquemático del mecanismo de retorno rápido tipo Whitworth modificado.}
-\label{fig:mecanismo_prototipo}
-\end{figure}
-
-\vspace{0.5em}
-
-La innovación central radica en una reinterpretación espacial y constructiva del mecanismo clásico. A diferencia de la configuración tradicional, el sistema ha sido reorientado noventa grados, posicionando el plano de movimiento en un eje vertical. Esta modificación permite que el bloque deslizante final actúe directamente como un martillo, aprovechando su carrera lineal para el golpeo. El principio de funcionamiento se basa en la transmisión de movimiento desde una manivela motriz, solidaria al eje del motor en el punto $O_2$, hacia una palanca oscilante ranurada que pivota en $O_1$.
-
-\vspace{0.5em}
-
-Una solución de diseño clave sustituye el rodillo convencional por un tornillo pasante que actúa como un elemento de unión y guía. Este tornillo se desliza dentro de la ranura longitudinal de la palanca, estableciendo un contacto lineal directo que transmite el esfuerzo. Esta simplificación no solo facilita la fabricación y reduce el número de componentes, al eliminar el rodamiento intermedio, sino que también mantiene la esencia del mecanismo de deslizamiento que genera el efecto de retorno rápido.
-
-\vspace{0.5em}
-
-Finalmente, el movimiento angular oscilante de la palanca ranurada se transmite a través de una biela articulada al bloque deslizante o martillo. Este conjunto completa la transformación cinemática, guiando el martillo en su trayectoria vertical. Como resultado, se obtiene un dispositivo robusto y funcional que sincroniza perfectamente la entrada de rotación continua con la salida de impacto repetitivo.
-
-\vspace{0.5em}
-
-Cabe destacar que el modelado presentado se encuentra sujeto a posibles modificaciones, ya que aún está pendiente el diseño definitivo de la estructura o soporte del mecanismo. Dicho componente será determinante para definir la disposición final de los ejes, la ubicación del motor y los puntos de anclaje, por lo que es posible que se requieran ajustes dimensionales o constructivos en el modelo actual una vez se integre el sistema de soporte completo.
-
-\end{justify}
 
 % ===== MODELOS TEÓRICOS =====
-\section{modelo cinemático}
 
-\subsection*{Parámetros geométricos y operativos}
+\section*{Parámetros geométricos y operativos}
 
 \begin{figure}[H]
     \centering
@@ -274,10 +77,9 @@ Los valores usados en el análisis corresponden al diseño actual del prototipo 
 \end{align*}
 Se asume motor de velocidad angular constante ($\alpha_2=0$) y todos los ángulos en radianes. El valor de $\lambda$ corresponde a la distancia del pivote $O_1$ al centroide del eslabón $O_1B$.
 
-\subsection{Relación geométrica entre $\theta$ y $\phi$}
+\section{Relación geométrica entre $\theta$ y $\phi$}
 
-Inicialmente para el analisis cinemático es necesario encontrar expresiones que permitan describrir las distancias
-e inclinaciones de todas las partes del mecanismo que conforman el sistema en funcion de una unica variable, para este fin y por medio de un analisis geometrico es posible establecer la siguiente relacion fundamental entre los ángulos por medio del triángulo formado por las longitudes $r$, $d$ y $L$. De esta manera obtenemos:
+Relacion fundamental entre los ángulos por medio del triángulo formado por las longitudes $r$, $d$ y $L$:
 
 \begin{equation}
 L^2 = r^2 + d^2 - 2rd \cos(180^\circ - \phi)
@@ -314,9 +116,9 @@ Sustituyendo $L$ en la expresion obtenemos:
 
 De esta forma se establece una Relacion directa entre el angulo $\theta$ y $\phi$.
 
-\subsection{Velocidades angulares y relativas}
+\section{Velocidades angulares y relativas}
 
-Con la geometria del sistema definimos la velocidad en el punto $a$ por medio de las restricciones cinematicas de cada una de las partes a las que pertenece.
+Velocidad en el punto $a$ por medio de las restricciones cinematicas de cada una de las partes a las que pertenece.
 En primera instancia sabemos que el punto $a$ respecto la barra $O_2A$ tiene velocidad y aceleración angulares, mas no presenta traslacion. Por tanto se puede plantear la siguiente ecuacion de rotacion respecto a un eje fijo:
 \[
   \vec V_a = \boldsymbol{\omega}_2 \times \vec r,\; ⦭\, \Phi^\circ
