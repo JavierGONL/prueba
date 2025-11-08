@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.4)  7 NOV 2025 21:23
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.4)  7 NOV 2025 23:00
  restricted system commands enabled.
 **"c:/Users/ivanm/proyecto_dinamica/prueba/latex/calculos/Calculos completos"
 ("c:/Users/ivanm/proyecto_dinamica/prueba/latex/calculos/Calculos completos.tex
@@ -1478,8 +1478,498 @@ If that doesn't work, type  X <return>  to quit.
 
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 336--337
 
-[7] ("./Calculos completos.aux"
+ []
+
+
+LaTeX Warning: File `imagenes/L_phi.png' not found on input line 343.
+
+
+! Package luatex.def Error: File `imagenes/L_phi.png' not found: using draft se
+tting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.343 ...[width=0.7\textwidth]{imagenes/L_phi.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[7]
+
+LaTeX Warning: File `imagenes/theta_t.png' not found on input line 350.
+
+
+! Package luatex.def Error: File `imagenes/theta_t.png' not found: using draft 
+setting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.350 ...idth=0.7\textwidth]{imagenes/theta_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[8]
+
+LaTeX Warning: File `imagenes/beta_t.png' not found on input line 357.
+
+
+! Package luatex.def Error: File `imagenes/beta_t.png' not found: using draft s
+etting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.357 ...width=0.7\textwidth]{imagenes/beta_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[9]
+
+LaTeX Warning: File `imagenes/yc_t.png' not found on input line 364.
+
+
+! Package luatex.def Error: File `imagenes/yc_t.png' not found: using draft set
+ting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.364 ...s[width=0.7\textwidth]{imagenes/yc_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[10]
+
+LaTeX Warning: File `imagenes/vyc_t.png' not found on input line 371.
+
+
+! Package luatex.def Error: File `imagenes/vyc_t.png' not found: using draft se
+tting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.371 ...[width=0.7\textwidth]{imagenes/vyc_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[11]
+
+LaTeX Warning: File `imagenes/ayc_t.png' not found on input line 378.
+
+
+! Package luatex.def Error: File `imagenes/ayc_t.png' not found: using draft se
+tting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.378 ...[width=0.7\textwidth]{imagenes/ayc_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[12]
+
+LaTeX Warning: File `imagenes/omega_comp.png' not found on input line 385.
+
+
+! Package luatex.def Error: File `imagenes/omega_comp.png' not found: using dra
+ft setting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.385 ...h=0.7\textwidth]{imagenes/omega_comp.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[13]
+
+LaTeX Warning: File `imagenes/alpha_comp.png' not found on input line 392.
+
+
+! Package luatex.def Error: File `imagenes/alpha_comp.png' not found: using dra
+ft setting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.392 ...h=0.7\textwidth]{imagenes/alpha_comp.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[14]
+
+LaTeX Warning: File `imagenes/O1x_t.png' not found on input line 399.
+
+
+! Package luatex.def Error: File `imagenes/O1x_t.png' not found: using draft se
+tting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.399 ...[width=0.7\textwidth]{imagenes/O1x_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[15]
+
+LaTeX Warning: File `imagenes/O1y_t.png' not found on input line 406.
+
+
+! Package luatex.def Error: File `imagenes/O1y_t.png' not found: using draft se
+tting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.406 ...[width=0.7\textwidth]{imagenes/O1y_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[16]
+
+LaTeX Warning: File `imagenes/A_t.png' not found on input line 413.
+
+
+! Package luatex.def Error: File `imagenes/A_t.png' not found: using draft sett
+ing.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.413 ...cs[width=0.7\textwidth]{imagenes/A_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[17]
+
+LaTeX Warning: File `imagenes/Bx_t.png' not found on input line 420.
+
+
+! Package luatex.def Error: File `imagenes/Bx_t.png' not found: using draft set
+ting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.420 ...s[width=0.7\textwidth]{imagenes/Bx_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[18]
+
+LaTeX Warning: File `imagenes/By_t.png' not found on input line 427.
+
+
+! Package luatex.def Error: File `imagenes/By_t.png' not found: using draft set
+ting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.427 ...s[width=0.7\textwidth]{imagenes/By_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[19]
+
+LaTeX Warning: File `imagenes/C_t.png' not found on input line 434.
+
+
+! Package luatex.def Error: File `imagenes/C_t.png' not found: using draft sett
+ing.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 ...cs[width=0.7\textwidth]{imagenes/C_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[20]
+
+LaTeX Warning: File `imagenes/tau_t.png' not found on input line 441.
+
+
+! Package luatex.def Error: File `imagenes/tau_t.png' not found: using draft se
+tting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.441 ...[width=0.7\textwidth]{imagenes/tau_t.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[21]
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.445     \item F
+                 igura \ref{fig:L_phi}: Variación de la distancia $L$ con e...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.446     \item F
+                 igura \ref{fig:theta_t}: Evolución temporal del ángulo $\...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.447     \item F
+                 igura \ref{fig:beta_t}: Evolución temporal del ángulo $\b...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.448     \item F
+                 igura \ref{fig:yc_t}: Desplazamiento vertical del martillo ...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.449     \item F
+                 igura \ref{fig:vyc_t}: Velocidad vertical $\dot{y}_c$ del m...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.450     \item F
+                 igura \ref{fig:ayc_t}: Aceleración vertical $\ddot{y}_c$ d...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.451     \item F
+                 igura \ref{fig:omega_comp}: Comparación de velocidades ang...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.452     \item F
+                 igura \ref{fig:alpha_comp}: Comparación de aceleraciones a...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.453     \item F
+                 igura \ref{fig:O1x_t}: Componente horizontal de la reacció...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.454     \item F
+                 igura \ref{fig:O1y_t}: Componente vertical de la reacción ...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.455     \item F
+                 igura \ref{fig:A_t}: Magnitud de la fuerza en el pasador de...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.456     \item F
+                 igura \ref{fig:Bx_t}: Componente horizontal de la reacción...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.457     \item F
+                 igura \ref{fig:By_t}: Componente vertical de la reacción e...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.458     \item F
+                 igura \ref{fig:C_t}: Fuerza de contacto del martillo $C$ so...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.459     \item F
+                 igura \ref{fig:tau_t}: Par motor instantáneo $\tau$ requer...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{itemize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.460 \end{itemize}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+\end  ...end#1\endcsname \@checkend {#1}\endgroup 
+                                                  \UseHook {env/#1/after}\if...
+l.460 \end{itemize}
+                   
+Things are pretty mixed up, but I think the worst is over.
+
+
+
+[22] ("./Calculos completos.aux"
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -1490,15 +1980,16 @@ L3 programming layer <2025-10-09>
 )
 
 Here is how much of LuaTeX's memory you used:
- 11731 strings out of 476290
+ 12241 strings out of 476290
  100000,953878 words of node,token memory allocated
  784 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 69 attribute, 73 glue_spec
 , 36 attribute_list, 1 write nodes
-   avail lists: 1:1,2:1187,3:161,4:4,5:572,6:40,7:4936,8:64,9:1303,10:4,11:429
- 33806 multiletter control sequences out of 65536+600000
- 100 fonts using 29937111 bytes
- 86i,21n,93p,326b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
+   avail lists: 1:1,2:1187,3:161,4:17,5:572,6:40,7:4936,8:64,9:1303,10:11,11:470
+
+ 34271 multiletter control sequences out of 65536+600000
+ 100 fonts using 29936887 bytes
+ 86i,21n,93p,489b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/ivanm/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman10
 -bold.otf><c:/users/ivanm/appdata/local/programs/miktex/fonts/opentype/public/lm
 /lmroman10-regular.otf><C:/Users/ivanm/AppData/Local/Programs/MiKTeX/fonts/opent
@@ -1508,9 +1999,9 @@ iKTeX/fonts/opentype/public/lm-math/latinmodern-math.otf><c:/users/ivanm/appdata
 ivanm/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono10-regular.ot
 f><c:/users/ivanm/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman
 12-bold.otf>
-Output written on Calculos completos.pdf (7 pages, 54682 bytes).
+Output written on Calculos completos.pdf (22 pages, 68972 bytes).
 
-PDF statistics: 73 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 121 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

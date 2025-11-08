@@ -331,7 +331,137 @@ Las ecuaciones de movimiento se obtuvieron mediante los siguientes diagramas de 
     \label{fig:diagrama_O2A}
 \end{figure}
 ---
+\section{Análisis de los resultados teóricos}
 
+En base al modelo matemático desarrollado en las secciones anteriores se implementó un análisis numérico completo del mecanismo a lo largo de múltiples ciclos de operación. Los resultados presentados a continuación corresponden a las simulaciones realizadas con los parámetros geométricos y operativos especificados en la Sección 4, utilizando Python como plataforma de cálculo.\\
+
+A continuación se presentan descripciones breves de las gráficas referenciadas:
+
+% Figuras de las gráficas
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/L_phi.png}
+    \caption{Variación de la distancia $L$ con el ángulo de entrada $\phi$.}
+    \label{fig:L_phi}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/theta_t.png}
+    \caption{Evolución temporal del ángulo $\theta$ de la barra oscilante.}
+    \label{fig:theta_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/beta_t.png}
+    \caption{Evolución temporal del ángulo $\beta$ del eslabón $BC$.}
+    \label{fig:beta_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/yc_t.png}
+    \caption{Desplazamiento vertical del martillo $y_c$ a lo largo del ciclo.}
+    \label{fig:yc_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/vyc_t.png}
+    \caption{Velocidad vertical $\dot{y}_c$ del martillo.}
+    \label{fig:vyc_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/ayc_t.png}
+    \caption{Aceleración vertical $\ddot{y}_c$ del martillo.}
+    \label{fig:ayc_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/omega_comp.png}
+    \caption{Comparación de velocidades angulares $\omega_1$ y $\omega_3$.}
+    \label{fig:omega_comp}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/alpha_comp.png}
+    \caption{Comparación de aceleraciones angulares $\alpha_1$ y $\alpha_3$.}
+    \label{fig:alpha_comp}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/O1x_t.png}
+    \caption{Componente horizontal de la reacción en $O_1$.}
+    \label{fig:O1x_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/O1y_t.png}
+    \caption{Componente vertical de la reacción en $O_1$.}
+    \label{fig:O1y_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/A_t.png}
+    \caption{Magnitud de la fuerza en el pasador deslizante $A$.}
+    \label{fig:A_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Bx_t.png}
+    \caption{Componente horizontal de la reacción en $B$.}
+    \label{fig:Bx_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/By_t.png}
+    \caption{Componente vertical de la reacción en $B$.}
+    \label{fig:By_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/C_t.png}
+    \caption{Fuerza de contacto del martillo $C$ sobre la pieza de trabajo.}
+    \label{fig:C_t}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/tau_t.png}
+    \caption{Par motor instantáneo $\tau$ requerido para mantener $\omega_2$ constante.}
+    \label{fig:tau_t}
+\end{figure}
+    \item Figura \ref{fig:L_phi}: Variación de la distancia $L$ con el ángulo de entrada $\phi$ (comportamiento no lineal).
+    \item Figura \ref{fig:theta_t}: Evolución temporal del ángulo $\theta$ de la barra oscilante.
+    \item Figura \ref{fig:beta_t}: Evolución temporal del ángulo $\beta$ del eslabón $BC$.
+    \item Figura \ref{fig:yc_t}: Desplazamiento vertical del martillo $y_c$ a lo largo del ciclo.
+    \item Figura \ref{fig:vyc_t}: Velocidad vertical $\dot{y}_c$ del martillo (muestra la asimetría avance/retorno).
+    \item Figura \ref{fig:ayc_t}: Aceleración vertical $\ddot{y}_c$ del martillo (picos en inversiones de movimiento).
+    \item Figura \ref{fig:omega_comp}: Comparación de velocidades angulares $\omega_1$ y $\omega_3$.
+    \item Figura \ref{fig:alpha_comp}: Comparación de aceleraciones angulares $\alpha_1$ y $\alpha_3$.
+    \item Figura \ref{fig:O1x_t}: Componente horizontal de la reacción en $O_1$.
+    \item Figura \ref{fig:O1y_t}: Componente vertical de la reacción en $O_1$.
+    \item Figura \ref{fig:A_t}: Magnitud de la fuerza en el pasador deslizante $A$.
+    \item Figura \ref{fig:Bx_t}: Componente horizontal de la reacción en $B$.
+    \item Figura \ref{fig:By_t}: Componente vertical de la reacción en $B$.
+    \item Figura \ref{fig:C_t}: Fuerza de contacto del martillo $C$ sobre la pieza de trabajo.
+    \item Figura \ref{fig:tau_t}: Par motor instantáneo $\tau$ requerido para mantener $\omega_2$ constante.
+\end{itemize}
+
+
+
+Estos resultados teóricos servirán como base de comparación para las pruebas experimentales que se realizarán con el prototipo físico, permitiendo validar el modelo matemático y ajustar los parámetros de diseño según sea necesario.
 
 
 \end{document}
