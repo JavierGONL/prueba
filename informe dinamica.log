@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.4)  7 NOV 2025 22:26
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.4)  7 NOV 2025 22:44
  restricted system commands enabled.
 **"c:/Users/ivanm/proyecto_dinamica/prueba/informe dinamica"
 ("c:/Users/ivanm/proyecto_dinamica/prueba/informe dinamica.tex"
@@ -1578,7 +1578,7 @@ Here is how much of LuaTeX's memory you used:
 t, 3 glyph, 267 attribute, 73 glue_spec, 135 attribute_list, 1 write nodes
    avail lists: 1:1,2:967,3:254,4:42,5:447,6:70,7:6586,8:52,9:1040,10:14,11:832
  36908 multiletter control sequences out of 65536+600000
- 107 fonts using 32701099 bytes
+ 107 fonts using 32701223 bytes
  86i,12n,93p,1050b,422s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ivanm/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm-math/lati
 nmodern-math.otf><c:/users/ivanm/appdata/local/programs/miktex/fonts/opentype/pu
@@ -1593,7 +1593,7 @@ public/lm/lmroman9-regular.otf><C:/Users/ivanm/AppData/Local/Programs/MiKTeX/fon
 ts/opentype/public/lm/lmroman9-bold.otf><c:/users/ivanm/appdata/local/programs/m
 iktex/fonts/opentype/public/lm/lmroman12-regular.otf><c:/users/ivanm/appdata/loc
 al/programs/miktex/fonts/opentype/public/lm/lmroman12-bold.otf>
-Output written on informe dinamica.pdf (15 pages, 598124 bytes).
+Output written on informe dinamica.pdf (15 pages, 598007 bytes).
 
 PDF statistics: 141 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
