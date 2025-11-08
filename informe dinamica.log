@@ -1,20 +1,17 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.5)  7 NOV 2025 22:20
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.4)  7 NOV 2025 22:26
  restricted system commands enabled.
-**"c:/Users/lunit/OneDrive - Universidad Nacional de Colombia/Poo/prueba/inform
-e dinamica"
-
-("c:/Users/lunit/OneDrive - Universidad Nacional de Colombia/Poo/prueba/informe
- dinamica.tex"
+**"c:/Users/ivanm/proyecto_dinamica/prueba/informe dinamica"
+("c:/Users/ivanm/proyecto_dinamica/prueba/informe dinamica.tex"
 LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+L3 programming layer <2025-10-09>
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended 
 collection.
-luaotfload | conf : Root cache directory is "C:/Users/lunit/AppData/Local/MiKTeX
+luaotfload | conf : Root cache directory is "C:/Users/ivanm/AppData/Local/MiKTeX
 /luatex-cache/generic/names".
 luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
-olved path "C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/luatex/luaotfload/f
+olved path "C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/luatex/luaotfload/f
 ontloader-2023-12-28.lua".
 Lua-only attribute luaotfload@noligature = 1
 luaotfload | init : Context OpenType loader version 3.134
@@ -23,7 +20,7 @@ Inserting `luaotfload.node_processor' in `hpack_filter'.
 Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
 Inserting `luaotfload.define_font' in `define_font'.
 Lua-only attribute luaotfload_color_attribute = 2
-luaotfload | conf : Root cache directory is "C:/Users/lunit/AppData/Local/MiKTeX
+luaotfload | conf : Root cache directory is "C:/Users/ivanm/AppData/Local/MiKTeX
 /luatex-cache/generic/names".
 Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
 Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
@@ -42,12 +39,12 @@ Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
 Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
-Inserting `tracingstacklevels' in `input_level_string'. (C:/Users/lunit/AppData
+Inserting `tracingstacklevels' in `input_level_string'. (C:/Users/ivanm/AppData
 /Local/Programs/MiKTeX/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
-luaotfload | db : Font names database loaded from C:/Users/lunit/AppData/Local/M
+luaotfload | db : Font names database loaded from C:/Users/ivanm/AppData/Local/M
 iKTeX/luatex-cache/generic/names/luaotfload-names.luc.gz)
 \c@part=\count273
 \c@section=\count274
@@ -61,11 +58,11 @@ iKTeX/luatex-cache/generic/names/luaotfload-names.luc.gz)
 \belowcaptionskip=\skip50
 \bibindent=\dimen147
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty
-Package: babel 2025/10/01 v25.13 The multilingual framework for LuaLaTeX, pdfLa
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty
+Package: babel 2025/10/22 v25.14 The multilingual framework for LuaLaTeX, pdfLa
 TeX and XeLaTeX
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/generic/babel/luababel.def
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/generic/babel/luababel.def
 \bbl@readstream=\read2
 \l@afrikaans=\language2
 Package babel Info: Non-standard hyphenation setup on input line 118.
@@ -150,41 +147,45 @@ Package babel Info: Non-standard hyphenation setup on input line 118.
 )
 \babel@savecnt=\count281
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
-ne 2045.
+ne 2050.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
-ne 2047.
+ne 2052.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
-e 2049.
+e 2054.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
-e 2050.
+e 2055.
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
-on input line 2051.
+on input line 2056.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
-on input line 2053.
+on input line 2058.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
-on input line 2078.
+on input line 2083.
 \U@D=\dimen148
 \l@unhyphenated=\language79
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/generic/babel/luababel.def
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/generic/babel/luababel.def
 \bbl@attr@locale=\attribute4
 )
+
+Package babel Warning: Configuration files are deprecated, as
+(babel)                they can break document portability.
+(babel)                Reported on input line 4172.
+
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/arabi/bblopts.cfg
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/arabi/bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/babel-spanish/spanish.l
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/generic/babel/locale/es/babel
+-spanish.tex)
+Package babel Info: Importing font and identification data for spanish
+(babel)             from babel-es.ini. Reported on input line 4295.
+
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/babel-spanish/spanish.l
 df
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
-
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/generic/babel/locale/es/babel
--spanish.tex
-Package babel Info: Importing font and identification data for spanish
-(babel)             from babel-es.ini. Reported on input line 12.
-)
 \es@quottoks=\toks17
 \es@quotdepth=\count282
 Package babel Info: Making " an active character on input line 570.
@@ -192,31 +193,31 @@ Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/generic/hyph-utf8/loadhyph/lo
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/generic/hyph-utf8/loadhyph/lo
 adhyph-es.tex UTF-8 Spanish hyphenation patterns
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/generic/hyph-utf8/patterns/te
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/generic/hyph-utf8/patterns/te
 x/hyph-es.tex))))
 LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) 
 on input line 5.
 LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1)
  on input line 5.
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec.sty
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/l3packages/xparse/xpars
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/l3packages/xparse/xpars
 e.sty
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-09-02 L3 programming layer (loader) 
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-10-09 L3 programming layer (loader) 
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-lua
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-lua
 tex.def
-File: l3backend-luatex.def 2025-06-09 L3 backend support: PDF output (LuaTeX)
+File: l3backend-luatex.def 2025-10-09 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count283
 Inserting `l3color' in `luaotfload.parse_color'.))
-Package: xparse 2024-08-16 L3 Experimental document command parser
+Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
 Lua module: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec-luate
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec-luate
 x.sty
 Package: fontspec-luatex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaT
 eX
@@ -234,27 +235,27 @@ eX
 \l__fontspec_tmpa_dim=\dimen149
 \l__fontspec_tmpb_dim=\dimen150
 \l__fontspec_tmpc_dim=\dimen151
- (C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty
+ (C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty
 Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
-) (C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec.cfg
+) (C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/fontspec/fontspec.cfg
 )))
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-ma
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-ma
 th.sty
 Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-ma
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-ma
 th-luatex.sty
 Package: unicode-math-luatex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaL
 aTeX
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/l3packages/l3keys2e/l3k
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/l3packages/l3keys2e/l3k
 eys2e.sty
-Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/base/fix-cm.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/base/fix-cm.sty
 Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/base/ts1enc.def
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1)
@@ -512,24 +513,24 @@ put line 193.
 LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on inpu
 t line 194.
 ))
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsmath.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/06/16 v2.17y AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amstext.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsgen.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen152
 ))
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsbsy.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen153
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsopn.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count295
@@ -580,12 +581,12 @@ LaTeX Info: Redefining \Relbar on input line 970.
 LaTeX Info: Redefining \[ on input line 2949.
 LaTeX Info: Redefining \] on input line 2950.
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/lualatex/lualatex-math/lualat
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/lualatex/lualatex-math/lualat
 ex-math.sty
 Package: lualatex-math 2022/01/01 v1.12 Patches for mathematics typesetting wit
 h LuaLaTeX
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count307
 )
@@ -596,33 +597,33 @@ th LuaLaTeX)
 \l__um_primecount_int=\count310
 \g__um_primekern_muskip=\muskip18
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-ma
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-ma
 th-table.tex)))
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphicx.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphics.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/graphics.c
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/graphics.c
 fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: luatex.def on input line 106.
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/graphics-def/luatex.def
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/graphics-def/luatex.def
 File: luatex.def 2025/09/29 v1.2f Graphics/color driver for luatex
 ))
 \Gin@req@height=\dimen161
 \Gin@req@width=\dimen162
-) (C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/float/float.sty
+) (C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count311
 \float@exts=\toks24
@@ -630,7 +631,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks25
 \@floatcapt=\box56
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/microtype/microtype.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/microtype/microtype.sty
 Package: microtype 2025/07/09 v3.2b Micro-typographical refinements (RS)
 \MT@toks=\toks26
 \MT@tempbox=\box57
@@ -645,7 +646,7 @@ LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
 \MT@listname@count=\count313
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/microtype/microtype-lua
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/microtype/microtype-lua
 tex.def
 File: microtype-luatex.def 2025/07/09 v3.2b Definitions specific to luatex (RS)
 
@@ -657,14 +658,14 @@ LaTeX Info: Redefining \lslig on input line 779.
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/microtype/microtype.cfg
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
-) (C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/caption/caption.sty
+) (C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/caption/caption3.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen164
 \captionmargin=\dimen165
@@ -680,13 +681,13 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count315
 Package caption Info: float package is loaded.
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/generic/iftex/ifvtex.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
 \Gm@cnth=\count316
@@ -702,7 +703,7 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layoutvoffset=\dimen179
 \Gm@dimlist=\toks28
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.cfg)) (C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/ragged2e/ragged2e.sty
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.cfg)) (C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/ragged2e/ragged2e.sty
 Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \CenteringLeftskip=\skip55
 \RaggedLeftLeftskip=\skip56
@@ -718,7 +719,7 @@ Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \RaggedLeftParindent=\skip66
 \RaggedRightParindent=\skip67
 \JustifyingParindent=\skip68
-) (C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/abstract/abstract.sty
+) (C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/abstract/abstract.sty
 Package: abstract 2009/06/08 v1.2a configurable abstracts
 \abstitleskip=\skip69
 \absleftindent=\skip70
@@ -726,7 +727,7 @@ Package: abstract 2009/06/08 v1.2a configurable abstracts
 \absparindent=\skip72
 \absparsep=\skip73
 )
-luaotfload | cache : Lookup cache loaded from C:/Users/lunit/AppData/Local/MiKTe
+luaotfload | cache : Lookup cache loaded from C:/Users/ivanm/AppData/Local/MiKTe
 X/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
 
 Package fontspec Info: 
@@ -773,6 +774,123 @@ ine 26.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/LatinModernRoman(1)/b/n on input li
 ne 26.
+luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: File not foun
+d: "C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf
+/STIXTwoMath-Regular.otf".
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular" cannot be found;
+(fontspec)                this may be but usually is not a fontspec bug.
+(fontspec)                Either there is a typo in the font name/file, the
+(fontspec)                font is not installed (correctly), or there is a
+(fontspec)                bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+luaotfload | aux : no font with id 0
+
+Package fontspec Info: 
+(fontspec)             Script 'Math' not explicitly supported within font
+(fontspec)             'STIXTwoMath-Regular'. Check the typeset output, and if
+(fontspec)             it is okay then ignore this warning. Otherwise a
+(fontspec)             different font should be chosen.
+
+luaotfload | aux : no font with id 0
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular" cannot be found;
+(fontspec)                this may be but usually is not a fontspec bug.
+(fontspec)                Either there is a typo in the font name/file, the
+(fontspec)                font is not installed (correctly), or there is a
+(fontspec)                bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular" cannot be found;
+(fontspec)                this may be but usually is not a fontspec bug.
+(fontspec)                Either there is a typo in the font name/file, the
+(fontspec)                font is not installed (correctly), or there is a
+(fontspec)                bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular.otf" cannot be
+(fontspec)                found; this may be but usually is not a fontspec
+(fontspec)                bug. Either there is a typo in the font name/file,
+(fontspec)                the font is not installed (correctly), or there is
+(fontspec)                a bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular" cannot be found;
+(fontspec)                this may be but usually is not a fontspec bug.
+(fontspec)                Either there is a typo in the font name/file, the
+(fontspec)                font is not installed (correctly), or there is a
+(fontspec)                bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
 
 Package fontspec Info: 
 (fontspec)             Font family 'STIXTwoMath-Regular.otf(0)' created for
@@ -794,32 +912,225 @@ ge=dflt;mathfontdimen=xetex;"
 opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;langua
 ge=dflt;mathfontdimen=xetex;"
 
+! Font \TU/STIXTwoMath-Regular.otf(0)/m/n/10=[C:/Users/lunit/AppData/Local/Progr
+ams/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;sc
+ript=math;language=dflt;mathfontdimen=xetex; at 10pt not loadable: metric data n
+ot found or bad.
+<to be read again> 
+                   relax 
+l.31 ]
+      
+I wasn't able to read the size data for this font,
+so I will ignore the font specification.
+[Wizards can fix TFM files using TFtoPL/PLtoTF.]
+You might try inserting a different font spec;
+e.g., type `I\font<same font id>=<substitute font name>'.
+
+luaotfload | aux : no font with id 0
+
+Package unicode-math Warning: The first font loaded by unicode-math must be an
+(unicode-math)                OpenType Math font (with script=math). If you
+(unicode-math)                simply want ‘the default’ before loading
+(unicode-math)                supplementary fonts over the top for certain
+(unicode-math)                ranges, use: 
+(unicode-math)                  \setmathfont{latinmodern-math.otf}
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular" cannot be found;
+(fontspec)                this may be but usually is not a fontspec bug.
+(fontspec)                Either there is a typo in the font name/file, the
+(fontspec)                font is not installed (correctly), or there is a
+(fontspec)                bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+luaotfload | aux : no font with id 0
+
+Package fontspec Info: 
+(fontspec)             Script 'Math' not explicitly supported within font
+(fontspec)             'STIXTwoMath-Regular'. Check the typeset output, and if
+(fontspec)             it is okay then ignore this warning. Otherwise a
+(fontspec)             different font should be chosen.
+
+luaotfload | aux : no font with id 0
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular" cannot be found;
+(fontspec)                this may be but usually is not a fontspec bug.
+(fontspec)                Either there is a typo in the font name/file, the
+(fontspec)                font is not installed (correctly), or there is a
+(fontspec)                bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular" cannot be found;
+(fontspec)                this may be but usually is not a fontspec bug.
+(fontspec)                Either there is a typo in the font name/file, the
+(fontspec)                font is not installed (correctly), or there is a
+(fontspec)                bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular.otf" cannot be
+(fontspec)                found; this may be but usually is not a fontspec
+(fontspec)                bug. Either there is a typo in the font name/file,
+(fontspec)                the font is not installed (correctly), or there is
+(fontspec)                a bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular.otf" cannot be
+(fontspec)                found; this may be but usually is not a fontspec
+(fontspec)                bug. Either there is a typo in the font name/file,
+(fontspec)                the font is not installed (correctly), or there is
+(fontspec)                a bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular.otf" cannot be
+(fontspec)                found; this may be but usually is not a fontspec
+(fontspec)                bug. Either there is a typo in the font name/file,
+(fontspec)                the font is not installed (correctly), or there is
+(fontspec)                a bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
+
+! Package fontspec Error: 
+(fontspec)                The font "STIXTwoMath-Regular" cannot be found;
+(fontspec)                this may be but usually is not a fontspec bug.
+(fontspec)                Either there is a typo in the font name/file, the
+(fontspec)                font is not installed (correctly), or there is a
+(fontspec)                bug in the underlying font loading engine
+(fontspec)                (XeTeX/luaotfload).
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.31 ]
+      
+
+A font might not be found for many reasons.
+ Check the spelling, where the font is installed etc. etc.
+
+ When in doubt, ask someone for help!
+
+
 
 Package fontspec Info: 
 (fontspec)             Font family 'STIXTwoMath-Regular.otf(1)' created for
 (fontspec)             font 'STIXTwoMath-Regular.otf' with options
 (fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
-sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6.25-8.5,Font=STIXTwoMath-
-Regular.otf,Style=MathScript},{Size=-6.25,Font=STIXTwoMath-Regular.otf,Style=Ma
-thScriptScript}},RawFeature={mathfontdimen=xetex},Path={C:/Users/lunit/AppData/
-Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/},BoldFont={STIXTwoMath-R
-egular.otf}].
+sFont={},Script=Math,SizeFeatures={{Size=0-},{Size=0-0,Font=STIXTwoMath-Regular
+.otf,Style=MathScript},{Size=-0,Font=STIXTwoMath-Regular.otf,Style=MathScriptSc
+ript}},RawFeature={mathfontdimen=xetex},Path={C:/Users/lunit/AppData/Local/Prog
+rams/MiKTeX/fonts/opentype/public/stix2-otf/},BoldFont={STIXTwoMath-Regular.otf
+}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fon
-ts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;lan
-guage=dflt;mathfontdimen=xetex;"<6.25-8.5>"[C:/Users/lunit/AppData/Local/Progra
-ms/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;sc
-ript=math;language=dflt;mathfontdimen=xetex;+ssty=0;"<-6.25>"[C:/Users/lunit/Ap
-pData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular
-.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1;"
+(fontspec)             <0->"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts
+/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;langu
+age=dflt;mathfontdimen=xetex;"<0-0>"[C:/Users/lunit/AppData/Local/Programs/MiKT
+eX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=ma
+th;language=dflt;mathfontdimen=xetex;+ssty=0;"<-0>"[C:/Users/lunit/AppData/Loca
+l/Programs/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode
+=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/
 opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;langua
 ge=dflt;mathfontdimen=xetex;"
+
+! Font \TU/STIXTwoMath-Regular.otf(1)/m/n/10=[C:/Users/lunit/AppData/Local/Progr
+ams/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;sc
+ript=math;language=dflt;mathfontdimen=xetex; at 10pt not loadable: metric data n
+ot found or bad.
+<to be read again> 
+                   relax 
+l.31 ]
+      
+I wasn't able to read the size data for this font,
+so I will ignore the font specification.
+[Wizards can fix TFM files using TFtoPL/PLtoTF.]
+You might try inserting a different font spec;
+e.g., type `I\font<same font id>=<substitute font name>'.
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
 (Font)              `operators' in the math version `normal' on input line 31.
@@ -831,86 +1142,36 @@ LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/STIXTwoMath-Regular.otf(1)/b/n on i
 nput line 31.
+! Font \TU/STIXTwoMath-Regular.otf(1)/m/n/7=[C:/Users/lunit/AppData/Local/Progra
+ms/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;scr
+ipt=math;language=dflt;mathfontdimen=xetex; at 7pt not loadable: metric data not
+ found or bad.
+<to be read again> 
+                   relax 
+l.31 ]
+      
+I wasn't able to read the size data for this font,
+so I will ignore the font specification.
+[Wizards can fix TFM files using TFtoPL/PLtoTF.]
+You might try inserting a different font spec;
+e.g., type `I\font<same font id>=<substitute font name>'.
 
-Package fontspec Info: 
-(fontspec)             Font family 'STIXTwoMath-Regular.otf(2)' created for
-(fontspec)             font 'STIXTwoMath-Regular.otf' with options
-(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
-sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6.25-8.5,Font=STIXTwoMath-
-Regular.otf,Style=MathScript},{Size=-6.25,Font=STIXTwoMath-Regular.otf,Style=Ma
-thScriptScript}},RawFeature={mathfontdimen=xetex},Path={C:/Users/lunit/AppData/
-Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/},BoldFont={STIXTwoMath-R
-egular.otf},RawFeature={mathfontdimen=tex2}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fon
-ts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;lan
-guage=dflt;mathfontdimen=xetex;mathfontdimen=tex2;"<6.25-8.5>"[C:/Users/lunit/A
-ppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regula
-r.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=te
-x2;+ssty=0;"<-6.25>"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentyp
-e/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;language=dflt
-;mathfontdimen=xetex;mathfontdimen=tex2;+ssty=1;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/
-opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;langua
-ge=dflt;mathfontdimen=xetex;mathfontdimen=tex2;"
+! Font \TU/STIXTwoMath-Regular.otf(1)/m/n/5=[C:/Users/lunit/AppData/Local/Progra
+ms/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;scr
+ipt=math;language=dflt;mathfontdimen=xetex; at 5pt not loadable: metric data not
+ found or bad.
+<to be read again> 
+                   relax 
+l.31 ]
+      
+I wasn't able to read the size data for this font,
+so I will ignore the font specification.
+[Wizards can fix TFM files using TFtoPL/PLtoTF.]
+You might try inserting a different font spec;
+e.g., type `I\font<same font id>=<substitute font name>'.
 
-LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 31.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> TU/STIXTwoMath-Regular.otf(2)/m/n on i
-nput line 31.
-LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 31.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> TU/STIXTwoMath-Regular.otf(2)/b/n on i
-nput line 31.
 
-Package fontspec Info: 
-(fontspec)             Font family 'STIXTwoMath-Regular.otf(3)' created for
-(fontspec)             font 'STIXTwoMath-Regular.otf' with options
-(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
-sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6.25-8.5,Font=STIXTwoMath-
-Regular.otf,Style=MathScript},{Size=-6.25,Font=STIXTwoMath-Regular.otf,Style=Ma
-thScriptScript}},RawFeature={mathfontdimen=xetex},Path={C:/Users/lunit/AppData/
-Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/},BoldFont={STIXTwoMath-R
-egular.otf},RawFeature={mathfontdimen=tex3}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fon
-ts/opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;lan
-guage=dflt;mathfontdimen=xetex;mathfontdimen=tex3;"<6.25-8.5>"[C:/Users/lunit/A
-ppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/STIXTwoMath-Regula
-r.otf]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=te
-x3;+ssty=0;"<-6.25>"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentyp
-e/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;language=dflt
-;mathfontdimen=xetex;mathfontdimen=tex3;+ssty=1;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"[C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/
-opentype/public/stix2-otf/STIXTwoMath-Regular.otf]:mode=base;script=math;langua
-ge=dflt;mathfontdimen=xetex;mathfontdimen=tex3;"
-
-LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 3
-1.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> TU/STIXTwoMath-Regular.otf(3)/m/n on i
-nput line 31.
-LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 31.
-
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> TU/STIXTwoMath-Regular.otf(3)/b/n on i
-nput line 31.
-
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/newunicodechar/newunico
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/newunicodechar/newunico
 dechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 ) ("./informe dinamica.aux"
@@ -948,7 +1209,120 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 62.
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mk
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
+sFont={},Script=Math,RawFeature={mathfontdimen=xetex},BoldFont={latinmodern-mat
+h.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[latinmodern-math.otf]:mode=base;script=math;languag
+e=dflt;mathfontdimen=xetex;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[latinmodern-math.otf]:mode=base;script=math;languag
+e=dflt;mathfontdimen=xetex;"
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
+sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-mat
+h.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScri
+pt}},RawFeature={mathfontdimen=xetex},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->"[latinmodern-math.otf]:mode=base;script=math;lang
+uage=dflt;mathfontdimen=xetex;"<6-8.5>"[latinmodern-math.otf]:mode=base;script=
+math;language=dflt;mathfontdimen=xetex;+ssty=0;"<-6>"[latinmodern-math.otf]:mod
+e=base;script=math;language=dflt;mathfontdimen=xetex;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[latinmodern-math.otf]:mode=base;script=math;languag
+e=dflt;mathfontdimen=xetex;"
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/STIXTwoMath-Regular.otf(1)/m/n --> TU/latinmodern-ma
+th.otf(1)/m/n on input line 62.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/STIXTwoMath-Regular.otf(1)/b/n --> TU/latinmodern-ma
+th.otf(1)/b/n on input line 62.
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
+sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-mat
+h.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScri
+pt}},RawFeature={mathfontdimen=xetex},BoldFont={latinmodern-math.otf},RawFeatur
+e={mathfontdimen=tex2}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->"[latinmodern-math.otf]:mode=base;script=math;lang
+uage=dflt;mathfontdimen=xetex;mathfontdimen=tex2;"<6-8.5>"[latinmodern-math.otf
+]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex2;+s
+sty=0;"<-6>"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfont
+dimen=xetex;mathfontdimen=tex2;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[latinmodern-math.otf]:mode=base;script=math;languag
+e=dflt;mathfontdimen=xetex;mathfontdimen=tex2;"
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 62.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
+t line 62.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 62.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
+t line 62.
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCap
+sFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-mat
+h.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScri
+pt}},RawFeature={mathfontdimen=xetex},BoldFont={latinmodern-math.otf},RawFeatur
+e={mathfontdimen=tex3}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->"[latinmodern-math.otf]:mode=base;script=math;lang
+uage=dflt;mathfontdimen=xetex;mathfontdimen=tex3;"<6-8.5>"[latinmodern-math.otf
+]:mode=base;script=math;language=dflt;mathfontdimen=xetex;mathfontdimen=tex3;+s
+sty=0;"<-6>"[latinmodern-math.otf]:mode=base;script=math;language=dflt;mathfont
+dimen=xetex;mathfontdimen=tex3;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[latinmodern-math.otf]:mode=base;script=math;languag
+e=dflt;mathfontdimen=xetex;mathfontdimen=tex3;"
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 6
+2.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
+t line 62.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 62.
+
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
+t line 62.
+
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count319
@@ -963,13 +1337,13 @@ ii
 \makeMPintoPDFobject=\count324
 \everyMPtoPDFconversion=\toks30
 )
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-b
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-b
 ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/00miktex/epstopdf-sys.c
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/00miktex/epstopdf-sys.c
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
@@ -991,7 +1365,7 @@ Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
 
-(C:/Users/lunit/AppData/Local/Programs/MiKTeX/tex/latex/microtype/mt-LatinModer
+(C:/Users/ivanm/AppData/Local/Programs/MiKTeX/tex/latex/microtype/mt-LatinModer
 nRoman.cfg
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Mod
 ern Roman (RS)
@@ -1042,10 +1416,10 @@ Package luatex.def Info: imagenes/escudo_unal.png  used on input line 69.
 
 [1
 
-{C:/Users/lunit/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}<./imagenes/esc
+{C:/Users/ivanm/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}<./imagenes/esc
 udo_unal.png>]
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `STIXTwoMath-Regular.otf' (encoding: TU).
+(microtype)             `latinmodern-math.otf' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
@@ -1086,7 +1460,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 [4]
-<imagenes/diagrama mecanismo.png, id=28, 618.05907pt x 352.31625pt>
+<imagenes/diagrama mecanismo.png, id=27, 618.05907pt x 352.31625pt>
 File: imagenes/diagrama mecanismo.png Graphic file (type png)
 <use imagenes/diagrama mecanismo.png>
 Package luatex.def Info: imagenes/diagrama mecanismo.png  used on input line 26
@@ -1097,12 +1471,26 @@ Package luatex.def Info: imagenes/diagrama mecanismo.png  used on input line 26
 [5]
 
 [6<./imagenes/diagrama mecanismo.png>]
-<imagenes/Poligono velocidades A.png, id=38, 361.35pt x 207.77625pt>
+Missing character: There is no ⦭ (U+29AD) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+<imagenes/Poligono velocidades A.png, id=37, 361.35pt x 207.77625pt>
 File: imagenes/Poligono velocidades A.png Graphic file (type png)
 <use imagenes/Poligono velocidades A.png>
 Package luatex.def Info: imagenes/Poligono velocidades A.png  used on input lin
 e 342.
 (luatex.def)             Requested size: 182.09486pt x 104.70583pt.
+Missing character: There is no ⦭ (U+29AD) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦫ (U+29AB) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦫ (U+29AB) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦭ (U+29AD) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦡ (U+29A1) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦫ (U+29AB) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
 
 
 [7<./imagenes/Poligono velocidades A.png>]
@@ -1114,6 +1502,31 @@ Package luatex.def Info: imagenes/Lazo vectorial.png  used on input line 421.
 
 
 [8<./imagenes/Lazo vectorial.png>]
+Missing character: There is no ⦭ (U+29AD) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦭ (U+29AD) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦪ (U+29AA) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦪ (U+29AA) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦭ (U+29AD) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦭ (U+29AD) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦫ (U+29AB) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦫ (U+29AB) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦪ (U+29AA) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦪ (U+29AA) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦯ (U+29AF) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+Missing character: There is no ⦯ (U+29AF) in font [latinmodern-math.otf]:mode=
+base;script=math;language=dflt;mathfontdimen=xetex;!
+
 
 [9]
 
@@ -1153,35 +1566,34 @@ LaTeX Info: Redefining \% on input line 8.
 )
  ***********
 LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+L3 programming layer <2025-10-09>
  ***********
 )
 
 Here is how much of LuaTeX's memory you used:
- 14871 strings out of 476291
+ 14876 strings out of 476290
  125240,953878 words of node,token memory allocated
  1484 words of node memory still in use:
    8 hlist, 2 vlist, 2 rule, 1 local_par, 4 glue, 4 kern, 1 penalty, 20 sub_mlis
 t, 3 glyph, 267 attribute, 73 glue_spec, 135 attribute_list, 1 write nodes
-   avail lists: 1:2,2:967,3:254,4:42,5:498,6:70,7:6586,8:52,9:1040,10:14,11:832
- 36902 multiletter control sequences out of 65536+600000
- 106 fonts using 46101159 bytes
- 86i,12n,93p,1080b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<//?/c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
-an10-regular.otf><c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/pu
-blic/lm/lmmono10-regular.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts
-/opentype/public/stix2-otf/stixtwomath-regular.otf><//?/c:/users/lunit/appdata/l
-ocal/programs/miktex/fonts/opentype/public/lm/lmroman10-regular.otf><//?/c:/user
-s/lunit/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman10-bold.ot
-f><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/
-stixtwomath-regular.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/open
-type/public/stix2-otf/stixtwomath-regular.otf><C:/Users/lunit/AppData/Local/Prog
-rams/MiKTeX/fonts/opentype/public/lm/lmroman9-regular.otf><C:/Users/lunit/AppDat
-a/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman9-bold.otf><C:/Users/lun
-it/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12-regular.otf>
-<C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12
--bold.otf>
-Output written on informe dinamica.pdf (15 pages, 596325 bytes).
+   avail lists: 1:1,2:967,3:254,4:42,5:447,6:70,7:6586,8:52,9:1040,10:14,11:832
+ 36908 multiletter control sequences out of 65536+600000
+ 107 fonts using 32701099 bytes
+ 86i,12n,93p,1050b,422s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/ivanm/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm-math/lati
+nmodern-math.otf><c:/users/ivanm/appdata/local/programs/miktex/fonts/opentype/pu
+blic/lm/lmroman10-regular.otf><c:/users/ivanm/appdata/local/programs/miktex/font
+s/opentype/public/lm/lmmono10-regular.otf><c:/users/ivanm/appdata/local/programs
+/miktex/fonts/opentype/public/lm/lmroman10-regular.otf><c:/users/ivanm/appdata/l
+ocal/programs/miktex/fonts/opentype/public/lm/lmroman10-bold.otf><C:/Users/ivanm
+/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm-math/latinmodern-math.ot
+f><C:/Users/ivanm/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm-math/la
+tinmodern-math.otf><C:/Users/ivanm/AppData/Local/Programs/MiKTeX/fonts/opentype/
+public/lm/lmroman9-regular.otf><C:/Users/ivanm/AppData/Local/Programs/MiKTeX/fon
+ts/opentype/public/lm/lmroman9-bold.otf><c:/users/ivanm/appdata/local/programs/m
+iktex/fonts/opentype/public/lm/lmroman12-regular.otf><c:/users/ivanm/appdata/loc
+al/programs/miktex/fonts/opentype/public/lm/lmroman12-bold.otf>
+Output written on informe dinamica.pdf (15 pages, 598124 bytes).
 
 PDF statistics: 141 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
