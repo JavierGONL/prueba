@@ -24,11 +24,8 @@
 
 \setmainfont{Latin Modern Roman}
 
-% Usa STIX Two Math que tiene los símbolos geométricos
-\setmathfont{STIXTwoMath-Regular.otf}[
-  Path = C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/,
-  BoldFont = STIXTwoMath-Regular.otf
-]
+% Usa STIX Math que tiene los símbolos geométricos
+\setmathfont{STIXMath-Regular.otf}
 
 \usepackage{newunicodechar}
 
@@ -236,7 +233,7 @@ El proyecto se centra en el diseño y en la construcción de un mecanismo de ret
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{{imagenes/diagrama algo mecanismo}.png}
+\includegraphics[width=0.4\textwidth]{{imagenes/diagrama mecanismo}.png}
 \caption{Modelo esquemático del mecanismo de retorno rápido tipo Whitworth modificado.}
 \label{fig:mecanismo_prototipo}
 \end{figure}
@@ -660,7 +657,7 @@ El eslabon O1-B no presenta restriccion en la direccion x e y, ademas que su ace
 
     \item Y - $O_1$:
     \begin{equation}
-        O_{1y} + A\cos\theta - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A\cos\theta = m_{o_1}(g + \bar{a}_{o_1}_{y})+ B_y
+        O_{1y} + A\cos\theta - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A\cos\theta = m_{o_1}(g + \bar{a}_{o_1y})+ B_y
     \end{equation}
 
     \item Z - $O_1$:
