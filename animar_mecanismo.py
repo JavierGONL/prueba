@@ -19,7 +19,7 @@ d = 0.11   # Distancia entre O1 y O2 (m)
 r = 0.07   # Longitud barra motriz O2-A (m)
 R = 0.20   # Longitud FIJA barra O1-B (m)
 K = 0.07   # Longitud barra BC (m)
-D = 0.00665  # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
+D = 0.177 # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
 
 # Nota: 
 # - Barra O1-B: longitud R (FIJA), gira con ángulo θ
@@ -27,7 +27,7 @@ D = 0.00665  # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
 # - L: distancia VARIABLE de O1 hasta A (calculada, varía de ~40mm a ~200mm)
 # - B: extremo de la barra O1-B, a distancia R de O1
 
-omega_2 = 4.0  # Velocidad angular del motor (rad/s)
+omega_2 = 2.0  # Velocidad angular del motor (rad/s)
 
 # Activar búsqueda opcional de D óptimo para evitar beta singular (cosβ≈0)
 optimizar_D = True
