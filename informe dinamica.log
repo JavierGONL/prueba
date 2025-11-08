@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.5)  7 NOV 2025 21:17
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.5)  7 NOV 2025 21:28
  restricted system commands enabled.
 **"c:/Users/lunit/OneDrive - Universidad Nacional de Colombia/Poo/prueba/inform
 e dinamica"
@@ -1121,7 +1121,7 @@ Package luatex.def Info: imagenes/Lazo vectorial.png  used on input line 421.
 
 [11]
 ! Double subscript.
-l.662 ... A\cos\theta = m_{o_1}(g + \bar{a}_{o_1}_
+l.663 ... A\cos\theta = m_{o_1}(g + \bar{a}_{o_1}_
                                                   {y})+ B_y
 I treat `x_1_2' essentially like `x_1{}_2'.
 
@@ -1146,9 +1146,9 @@ Here is how much of LuaTeX's memory you used:
    8 hlist, 2 vlist, 2 rule, 1 local_par, 4 glue, 4 kern, 1 penalty, 20 sub_mlis
 t, 1 margin_kern, 3 glyph, 225 attribute, 73 glue_spec, 114 attribute_list, 1 wr
 ite nodes
-   avail lists: 1:2,2:1116,3:278,4:44,5:517,6:76,7:6586,8:51,9:990,10:14,11:832
+   avail lists: 1:2,2:1116,3:270,4:41,5:517,6:74,7:6586,8:51,9:990,10:14,11:832
  36875 multiletter control sequences out of 65536+600000
- 106 fonts using 46101295 bytes
+ 106 fonts using 46101839 bytes
  86i,12n,93p,1080b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <//?/c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
 an10-regular.otf><c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/pu
@@ -1164,7 +1164,7 @@ a/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman9-bold.otf><C:/Users/lun
 it/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12-regular.otf>
 <C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12
 -bold.otf>
-Output written on informe dinamica.pdf (14 pages, 355630 bytes).
+Output written on informe dinamica.pdf (14 pages, 355748 bytes).
 
 PDF statistics: 132 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
