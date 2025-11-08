@@ -13,13 +13,13 @@ import matplotlib.patches as mpatches
 # PARÁMETROS DEL MECANISMO
 # ============================================================
 # Pivotes fijos (unificados con graficar_mecanismo.py):
-d = 0.1   # Distancia entre O1 y O2 (m)
+d = 0.14   # Distancia entre O1 y O2 (m)
 
 # Barras (unificadas):
 r = 0.07   # Longitud barra motriz O2-A (m)
-R = 0.18   # Longitud FIJA barra O1-B (m)
+R = 0.24   # Longitud FIJA barra O1-B (m)
 K = 0.07   # Longitud barra BC (m)
-D = 0.175 # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
+D = 0.2 # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
 
 # Nota: 
 # - Barra O1-B: longitud R (FIJA), gira con ángulo θ

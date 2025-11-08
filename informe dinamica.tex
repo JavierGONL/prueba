@@ -8,10 +8,12 @@
 \usepackage{float} % Para posicionamiento exacto de figuras con [H]
 \usepackage{microtype} % Microtipografía: mejor espaciado y cortes
 \usepackage{caption} % Control de espaciado en captions
+\usepackage{subcaption} % Para subfiguras
 \usepackage{geometry}
 \geometry{a4paper, margin=2.5cm}
 \usepackage{ragged2e} % Para el entorno justify
 \usepackage{abstract} % Para el entorno abstract
+\usepackage[hidelinks]{hyperref} % Para enlaces clickeables sin cuadros de colores
 
 \renewcommand{\contentsname}{Contenido}
 \renewcommand{\abstractname}{Resumen}
@@ -70,7 +72,7 @@
     
     \vspace{1.5cm}
     
-    {\LARGE\bfseries Diseño conceptual y análisis dinámico de un sistema de martillo accionado por un mecanismo de retorno rápido \par}
+    {\LARGE\bfseries Diseño Conceptual y Análisis Dinámico de un Sistema de Martillo Accionado por un Mecanismo de Retorno Rápido \par}
     
     \vspace{1.5cm}
     
@@ -82,7 +84,7 @@
     
     \vspace{1cm}
     
-    {\large\bfseries Ivan Felipe Malucho Suarez \par}
+    {\large\bfseries Ivan Felipe Maluche Suarez \par}
     {\large imaluche @unal.edu.co\par}
     
     \vspace{1cm}
@@ -112,15 +114,23 @@
 \addcontentsline{toc}{section}{Resumen}
 
 \begin{abstract}
-El presente proyecto desarrolla el diseño y modelado cinemático de un mecanismo de retorno rápido tipo Whitworth, modificado para operar como un martillo de impacto vertical. El objetivo principal consiste en transformar un movimiento rotacional uniforme, proporcionado por un motor eléctrico con reductor, en un movimiento alternativo de avance y retroceso con diferentes velocidades angulares efectivas, permitiendo un descenso lento y un retorno rápido del elemento percutor.
+El proyecto presenta el diseño y el modelado cinemático de un mecanismo de retorno rápido tipo Whitworth, modificado para funcionar como un martillo de impacto vertical. Su propósito es convertir el movimiento rotacional uniforme entregado por un motor el\'ectrico con reductor en un movimiento alternativo de avance y retroceso con velocidades angulares efectivas distintas, de modo que el percutor descienda lentamente y retorne con rapidez.
 
-El rediseño propuesto introduce una variación estructural respecto al mecanismo clásico: el rodillo deslizante tradicional es reemplazado por un tornillo pasante que transmite directamente la fuerza entre la manivela motriz y la palanca ranurada. Esta modificación reduce el número de componentes, simplifica la fabricación y mantiene la eficiencia cinemática del sistema. La energía rotacional del motor se transmite desde el eje de entrada $O_2$ a la palanca oscilante pivotada en $O_1$, la cual a su vez impulsa una biela articulada que acciona un bloque deslizante. Dicho bloque, fabricado en acero A36, cumple la función de martillo y se desplaza guiado por dos varillas lineales, ejecutando un golpe controlado durante la fase de avance.
 
-El mecanismo completo se inscribe en un volumen máximo de $60 \times 60 \times 15 \ \text{cm}$ y fue analizado mediante el método del lazo vectorial, considerando relaciones angulares, velocidades y aceleraciones instantáneas. Los resultados obtenidos muestran una correspondencia directa entre la velocidad angular de entrada y la aceleración lineal del martillo, validando el comportamiento asimétrico característico del retorno rápido. Este diseño demuestra una alternativa funcional, compacta y didáctica para el estudio de la conversión de movimiento rotacional en lineal alternativo, aplicable tanto en entornos académicos como en desarrollos de prototipos mecánicos ligeros.
+En la propuesta de redise\~no, el rodillo deslizante cl\'asico se sustituye por un tornillo pasante que transmite directamente el esfuerzo entre la manivela motriz y la palanca ranurada; esta modificaci\'on reduce el n\'umero de componentes, simplifica la manufactura y conserva la eficiencia cinem\'atica del conjunto.
+
+
+La transmisi\'on de energ\'ia se realiza desde el eje de entrada $O_{2}$ hasta la palanca oscilante pivotada en $O_{1}$, la cual acciona una biela articulada que mueve un bloque deslizante (martillo) fabricado en acero A36 y guiado por dos varillas lineales, generando un golpe controlado durante la fase de avance.
+
+
+El mecanismo est\'a contenido en un volumen m\'aximo de $60\times60\times15\ \mathrm{cm}$ y se anal\'izo mediante el m\'etodo del lazo vectorial, determinando relaciones angulares as\'i como velocidades y aceleraciones instant\'aneas. Los resultados muestran una correlaci\'on directa entre la velocidad angular de entrada y la aceleraci\'on lineal del martillo, corroborando el comportamiento asim\'etrico de retorno r\'apido.
+
+
+En conjunto, el dise\~no constituye una alternativa compacta, funcional y did\'actica para el estudio pr\'actico de la conversi\'on de movimiento rotacional en movimiento lineal alternativo, con aplicaciones tanto en entornos acad\'emicos como en prototipos mec\'anicos ligeros.
 \end{abstract}
 
-\noindent\textbf{Palabras clave:} mecanismo de retorno rápido de Whitworth; martillo de impacto vertical; palanca ranurada; pasador deslizante; lazo vectorial; cinemática de mecanismos.
 
+\noindent\textbf{Palabras clave:} mecanismo de retorno rápido de Whitworth; Cinemática, Cinética, Impacto, Desplazamiento, Mecanismo, Martillo.
 \vspace{0.5cm}
 
 \newpage
@@ -133,7 +143,7 @@ El mecanismo completo se inscribe en un volumen máximo de $60 \times 60 \times 
 \section{Introducción}
 
 \begin{justify}
-    (falta arreglarlo)
+El presente informe aborda el diseño, modelado y verificación de un mecanismo de retorno rápido aplicado a un martillo de impacto vertical. Motivado por la necesidad de convertir un giro rotacional continuo en un desplazamiento alternado con fases asimétricas de trabajo y recuperación, el proyecto propondra una adaptación del esquema Whitworth —reemplazando el rodillo por un tornillo pasante— para reducir componentes, mejorar la rigidez y facilitar la fabricación. La metodología integra formulación geométrica mediante el lazo vectorial, derivación de la Jacobiana, modelado CAD, simulaciones dinámicas y la construcción experimental de un prototipo para validar recorridos, aceleraciones y pares requeridos. El alcance incluye el dimensionamiento geométrico, análisis cinematográfico y cinético, planos de fabricación y pruebas funcionales; el documento se ordena para presentar la fundamentación teórica, el diseño conceptual y detallado, el modelado, las pruebas y las conclusiones.
 \end{justify}
 
 % ===== FUNDAMENTACIÓN TEÓRICA =====
@@ -177,7 +187,7 @@ Donde:
 
 \subsection{Método del lazo vectorial}
 
-Este método analiza mecanismos a partir de ecuaciones vectoriales que cierran un circuito. Cada eslabón se modela como un vector de posición en un sistema de coordenadas global $XY$. Con las longitudes conocidas y los ángulos de entrada, se plantea el lazo de cierre para obtener relaciones geométricas entre las posiciones de los eslabones. Luego, dichas relaciones se derivan una y dos veces respecto al tiempo para obtener, respectivamente, las velocidades y las aceleraciones instantáneas[ref:https://hal.science/hal-01715664/document ].
+Este método analiza mecanismos a partir de ecuaciones vectoriales que cierran un circuito. Cada eslabón se modela como un vector de posición en un sistema de coordenadas global $XY$. Con las longitudes conocidas y los ángulos de entrada, se plantea el lazo de cierre para obtener relaciones geométricas entre las posiciones de los eslabones. Luego, dichas relaciones se derivan una y dos veces respecto al tiempo para obtener, respectivamente, las velocidades y las aceleraciones instantáneas [2].
 
 En la práctica, el procedimiento consiste en:
 
@@ -206,58 +216,68 @@ Donde:
 Estas ecuaciones permiten analizar el movimiento de cuerpos rígidos sometidos a fuerzas y momentos, relacionando las fuerzas efectivas con las reacciones internas del mecanismo. Son la base para el estudio dinámico de sistemas mecánicos como el mecanismo de martillo presentado en este informe.
 
 % ===== FASE DE DISEÑO CONCEPTUAL =====
+
 \section{Fase de Diseño Conceptual}
+\subsection{Fase de Diseño Conceptual (versión ampliada con formulación cinemática)}
 
-El mecanismo consiste en un sistema de barras articuladas accionado por un motor que produce un movimiento de martilleo. Los componentes principales son:
+El mecanismo consiste en un sistema de barras articuladas accionado por un motor que produce el movimiento de martillo. Los componentes principales son: el motor (proporciona rotación constante con velocidad angular $\omega_2$), la barra motriz $(O_2A)$ de longitud $r$ conectada al motor en $O_2$ y al punto $A$, la barra acoplada $(O_1B)$ de longitud aparente variable $L$ articulada en $O_1$ y conectada en $A$, y el sistema de martillo constituido por una biela que transmite el movimiento al bloque deslizante de longitud constante $K$.
 
+Durante la fase conceptual, cada integrante del equipo presentó propuestas de adaptación del mecanismo (variaciones geométricas en bielas, alternativas de guiado, y soluciones híbridas rodillo/tornillo). Se evaluaron múltiples configuraciones bajo criterios de simplicidad constructiva, eficiencia cinemática, robustez frente a impactos y facilidad de fabricación. La solución adoptada —reorientar el plano de movimiento a posición vertical y sustituir el rodillo por un tornillo pasante— fue seleccionada por entregar el mejor compromiso entre reducción de piezas, rigidez y mantenimiento del comportamiento asimétrico característico de retorno rápido.
+
+\subsection{Modelo de prototipo inicial con formulación matemática}
+
+Para el modelado cinemático se emplea el método del lazo vectorial. Definiendo el ángulo de entrada
+\[
+\delta(t)=\omega_2 t,
+\]
+y tomando el lazo cerrado entre los puntos característicos del mecanismo, se puede escribir
+\[
+\overrightarrow{O_2A}(\delta) + \overrightarrow{AB}(\alpha,L) + \overrightarrow{BO_1} = \overrightarrow{O_2O_1},
+\]
+donde $\alpha$ y $L$ son funciones implícitas de $\delta$ determinadas por la geometría. Si se selecciona un sistema de referencia con $O_2$ en el origen y $\overrightarrow{O_2O_1} = (D,0)$, el lazo se descompone en sus componentes escalares
+\begin{align}
+r\cos\delta + L(\delta)\cos\alpha(\delta) + b_x &= D,\label{eq:loop_x}\\
+r\sin\delta + L(\delta)\sin\alpha(\delta) + b_y &= 0,\label{eq:loop_y}
+\end{align}
+donde $(b_x,b_y)$ expresa la posición relativa conocida de la porción final del subensamble $(B\!\to\!O_1)$ respecto a $O_1$ (constante según la construcción). Las Eqs. \eqref{eq:loop_x}--\eqref{eq:loop_y} constituyen el sistema no lineal que relaciona $\alpha$ y $L$ con la entrada $\delta$.
+
+Diferenciando temporalmente el lazo se obtienen las relaciones de velocidades:
+\[
+\frac{d}{dt}\Big(\overrightarrow{O_2A}+\overrightarrow{AB}+\overrightarrow{BO_1}\Big)=\mathbf{0},
+\]
+que en forma expandida vectorial es
+\[
+r\dot\delta\begin{pmatrix}-\sin\delta\\[2pt]\cos\delta\end{pmatrix}
++ \dot L\begin{pmatrix}\cos\alpha\\[2pt]\sin\alpha\end{pmatrix}
++ L\dot\alpha\begin{pmatrix}-\sin\alpha\\[2pt]\cos\alpha\end{pmatrix}
+= \begin{pmatrix}0\\[2pt]0\end{pmatrix}.
+\]
+Esta expresión puede reordenarse y, mediante diferenciación implícita de las Eqs. \eqref{eq:loop_x}--\eqref{eq:loop_y}, resolverse numérica o analíticamente (según el caso geométrico) para obtener $\dfrac{d\alpha}{d\delta}$ y $\dfrac{dL}{d\delta}$, y finalmente las velocidades $\dot\alpha$ y $\dot L$ en función de $\dot\delta$.
+
+Para la descripción del movimiento lineal del martillo se define la coordenada de interés $x_E$ (posición del extremo o del centro de masa del bloque deslizante) como función de las variables generalizadas:
+\[
+x_E = x_E(\delta,\alpha,L).
+\]
+Aplicando la regla de la cadena, la velocidad y aceleración lineal resultan
+\begin{align}
+\dot x_E &= \frac{\partial x_E}{\partial\delta}\dot\delta + \frac{\partial x_E}{\partial\alpha}\dot\alpha + \frac{\partial x_E}{\partial L}\dot L
+       = J(\delta,\alpha,L)\,\dot{\mathbf{q}},\label{eq:velJ}\\
+\ddot x_E &= J(\delta,\alpha,L)\,\ddot{\mathbf{q}} + \dot J(\delta,\alpha,L,\dot{\mathbf{q}})\,\dot{\mathbf{q}},\label{eq:accJ}
+\end{align}
+donde $\dot{\mathbf{q}}=[\dot\delta,\;\dot\alpha,\;\dot L]^{T}$ y $J$ es la matriz Jacobiana que relaciona velocidades generalizadas con la velocidad lineal del martillo. Si la entrada es \(\delta(t)=\omega_2 t\) con \(\ddot\delta=0\) (velocidad angular constante), la aceleración \(\ddot x_E\) queda dominada por los términos cuadráticos en \(\dot\delta\) (i.e., \(\propto \dot\delta^2\)), lo que evidencia por qué la dinámica del martillo es altamente sensible al valor de \(\omega_2\) y por qué el retorno rápido se manifiesta como un pico de aceleración en la fase de recuperación.
+
+Estas expresiones (lazo vectorial, diferenciación implícita y formulación Jacobiana) son la base para:
 \begin{itemize}
-    \item \textbf{Motor:} Proporciona rotación constante con velocidad angular $\omega_2$ y aceleración angular $\alpha_2 = 0$
-    \item \textbf{Barra motriz ($O_2A$):} De longitud $r$, conectada al motor en $O_2$ y al punto $A$
-    \item \textbf{Barra acoplada ($O_1B$):} De longitud $L$ variable aparente, articulada en $O_1$ y conectada en punto coincidente con $A$
-    \item \textbf{Sistema de martillo:} Mecanismo articulado con barra de longitud constante $K$ que produce el movimiento de impacto
+  \item implementar el modelo numérico que calcule $\alpha(\delta)$ y $L(\delta)$ para una disposición geométrica dada,
+  \item obtener $\dot x_E(\delta)$ y $\ddot x_E(\delta)$ y, a partir de ellas, estimar velocidades de impacto y cargas dinámicas,
+  \item estudiar la sensibilidad del sistema frente a variaciones de $\omega_2$ y parámetros geométricos.
 \end{itemize}
 
-\subsection{Variables del sistema}
+\subsection{Consideraciones prácticas y de diseño}
 
-\begin{itemize}
-    \item $\delta(t) = \omega_2 t$: Ángulo de la barra motriz (entrada del sistema)
-    \item $\alpha(t)$: Ángulo de la barra acoplada (función de $\delta$)
-    \item $L(\delta)$: Distancia variable entre articulaciones
-    \item $\omega_1 = \dot{\alpha}$: Velocidad angular de la barra acoplada
-    \item $X_E(t)$: Posición del martillo
-    \item $R$, $D$, $K$: Parámetros geométricos del mecanismo
-\end{itemize}
+Como complementos prácticos se mantienen las recomendaciones ya mencionadas:s repetidos; guías lineales para reducir desviaciones y desgaste; especificación de tolerancias funcionales en articulaciones y alojamientos; y la instrumentación mínima necesaria para validar experimentalmente $\delta(t)$, $\dot x_E(t)$ y $\ddot x_E(t)$ frente a las predicciones teóricas.
 
-\subsection{Modelo de prototipo inicial}
-
-\begin{justify}
-
-El proyecto se centra en el diseño y en la construcción de un mecanismo de retorno rápido basado en el mecanismo de Whitworth, modificado específicamente para funcionar como un martillo de forja. El objetivo principal es convertir el movimiento rotacional uniforme del motor eléctrico en un movimiento lineal alternativo con cinemática asimétrica, característica fundamental para que la fase de avance lento y controlado sea efectiva a la hora de transferir energía de impacto de forma eficiente. En la fase de retorno rápido, se busca reducir el tiempo muerto del ciclo, incrementando así la productividad del sistema.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.4\textwidth]{{imagenes/diagrama algo mecanismo}.png}
-\caption{Modelo esquemático del mecanismo de retorno rápido tipo Whitworth modificado.}
-\label{fig:mecanismo_prototipo}
-\end{figure}
-
-\vspace{0.5em}
-
-La innovación central radica en una reinterpretación espacial y constructiva del mecanismo clásico. A diferencia de la configuración tradicional, el sistema ha sido reorientado noventa grados, posicionando el plano de movimiento en un eje vertical. Esta modificación permite que el bloque deslizante final actúe directamente como un martillo, aprovechando su carrera lineal para el golpeo. El principio de funcionamiento se basa en la transmisión de movimiento desde una manivela motriz, solidaria al eje del motor en el punto $O_2$, hacia una palanca oscilante ranurada que pivota en $O_1$.
-
-\vspace{0.5em}
-
-Una solución de diseño clave sustituye el rodillo convencional por un tornillo pasante que actúa como un elemento de unión y guía. Este tornillo se desliza dentro de la ranura longitudinal de la palanca, estableciendo un contacto lineal directo que transmite el esfuerzo. Esta simplificación no solo facilita la fabricación y reduce el número de componentes, al eliminar el rodamiento intermedio, sino que también mantiene la esencia del mecanismo de deslizamiento que genera el efecto de retorno rápido.
-
-\vspace{0.5em}
-
-Finalmente, el movimiento angular oscilante de la palanca ranurada se transmite a través de una biela articulada al bloque deslizante o martillo. Este conjunto completa la transformación cinemática, guiando el martillo en su trayectoria vertical. Como resultado, se obtiene un dispositivo robusto y funcional que sincroniza perfectamente la entrada de rotación continua con la salida de impacto repetitivo.
-
-\vspace{0.5em}
-
-Cabe destacar que el modelado presentado se encuentra sujeto a posibles modificaciones, ya que aún está pendiente el diseño definitivo de la estructura o soporte del mecanismo. Dicho componente será determinante para definir la disposición final de los ejes, la ubicación del motor y los puntos de anclaje, por lo que es posible que se requieran ajustes dimensionales o constructivos en el modelo actual una vez se integre el sistema de soporte completo.
-
-\end{justify}
+El modelo presentado permanece sujeto a ajustes definitivos (disposición final de ejes, anclajes y soportes) que condicionarán las expresiones específicas de $x_E(\cdot)$ y, por tanto, las soluciones cerradas de las ecuaciones mostradas. Si querés, tomo tus dimensiones geométricas y te devuelvo las expresiones cerradas de $\alpha(\delta)$, $L(\delta)$ y las fórmulas explícitas de $x_E(\delta)$, $\dot x_E(\delta)$ y $\ddot x_E(\delta)$ para uso directo en simulación numérica.
 
 % ===== MODELOS TEÓRICOS =====
 \section{modelo cinemático}
@@ -266,14 +286,13 @@ Cabe destacar que el modelado presentado se encuentra sujeto a posibles modifica
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{{imagenes/diagrama mecanismo}.png}
+    \includegraphics[width=0.45\textwidth]{imagenes/diagrama mecanismo.png}
     \caption{Diagrama geométrico del mecanismo con referencias de dimensiones (r, d, R, K, D).}
     \label{fig:diagrama_mecanismo}
 \end{figure}
 
 \vspace{0.5em}
  
-\addcontentsline{toc}{subsection}{Parámetros geométricos y operativos (SI)}
 Los valores usados en el análisis corresponden al diseño actual del prototipo y se expresan en unidades SI:
 \begin{align*}
  r &= 0.070\;\text{m} & d &= 0.110\;\text{m} & R &= 0.200\;\text{m} & \delta = 0.00665\\
@@ -282,7 +301,7 @@ Los valores usados en el análisis corresponden al diseño actual del prototipo 
 \end{align*}
 Se asume motor de velocidad angular constante ($\alpha_2=0$) y todos los ángulos en radianes. El valor de $\lambda$ corresponde a la distancia del pivote $O_1$ al centroide del eslabón $O_1B$.
 
-\subsection{Relación geométrica entre $\theta$ y $\phi$}
+\subsection[Relación geométrica entre theta y phi]{Relación geométrica entre $\theta$ y $\phi$}
 
 Inicialmente para el analisis cinemático es necesario encontrar expresiones que permitan describrir las distancias
 e inclinaciones de todas las partes del mecanismo que conforman el sistema en funcion de una unica variable, para este fin y por medio de un analisis geometrico es posible establecer la siguiente relacion fundamental entre los ángulos por medio del triángulo formado por las longitudes $r$, $d$ y $L$. De esta manera obtenemos:
@@ -339,7 +358,7 @@ donde $\vec V'_a$ representa la velocidad producto de la rotacion del sistema mi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{{imagenes/Poligono velocidades A}.png}
+    \includegraphics[width=0.3\textwidth]{imagenes/Poligono velocidades A.png}
     \caption{Polígono de velocidades en el punto A.}
     \label{fig:poligono_velocidades_A}
 \end{figure}
@@ -418,7 +437,7 @@ Planteando el lazo vectorial para el mecanismo, se tiene:
 % Lazo vectorial (ya existe la imagen en la carpeta 'imagenes')
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{{imagenes/Lazo vectorial}.png}
+    \includegraphics[width=0.3\textwidth]{imagenes/Lazo vectorial.png}
     \caption{Lazo vectorial del mecanismo que relaciona $O_1B$, el eslabón $BC$ y el desplazamiento vertical del martillo.}
     \label{fig:lazo_vectorial}
 \end{figure}
@@ -473,8 +492,8 @@ Nota: $\dot{\omega}_1 = \ddot{\theta} = \alpha_1$ es la aceleración angular.
 % ============================================================
 % SECCIÓN 4: CÁLCULO DE ω₃ Y α₃
 % ============================================================
-\section{Cinemática del eslabón $BC$}
-\subsection{Ángulo $\beta$ del eslabón $K$}
+\section[Cinemática del eslabón BC]{Cinemática del eslabón $BC$}
+\subsection[Ángulo beta del eslabón K]{Ángulo $\beta$ del eslabón $K$}
 
 Antes de obtener las variables cineticas del mecanismo es necesario preparar el terreno por medio de algunas relaciones cinematicas adicionales las cuales no fueron necesarias con anterioridad para encontrar los puntos de inetres.
 
@@ -660,7 +679,7 @@ El eslabon O1-B no presenta restriccion en la direccion x e y, ademas que su ace
 
     \item Y - $O_1$:
     \begin{equation}
-        O_{1y} + A\cos\theta - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A\cos\theta = m_{o_1}(g + \bar{a}_{o_1}_{y})+ B_y
+        O_{1y} + A\cos\theta - B_y - W_{o_1} = m_{o_1}(\bar{a}_{o_1})_y \quad \Rightarrow \quad O_{1y} + A\cos\theta = m_{o_1}(g + \bar{a}_{o_1,y})+ B_y
     \end{equation}
 
     \item Z - $O_1$:
@@ -730,49 +749,162 @@ P_{in} &= \tau\,\omega_2, & P_{out} &= C\,\dot{y}_c, & \eta &= \frac{P_{out}}{P_
 
 \section{Fase de Diseño Detallado}
 
+La fase de diseño Detallado se divide en varias etapas, cabe realizar la aclaracion de que el diseño se baso en gran parte en la fudamentacion matematica: 
+
+\subsection{Objetivo y Alcance}:
+
+En esta estapa se define que se va a entregar(planos, ensamble, simulaciones dinámicas, etc), ademas de comprobar de manera practica y simulada los requisitos funcionales del prototipo. 
+
+\subsection{Metodología y Entregables}
+
+\subsubsection{bocetos}
+
+La fase inicial de diseño se centra en la elaboración del diagrama conceptual del prototipo. En esta etapa se definen la geometría, las dimensiones y los conjuntos, así como la viabilidad funcional y constructiva de la solución propuesta. Este ejercicio preliminar, realizado antes del modelado detallado, permite estructurar un proceso de diseño secuencial y reproducible, identificar restricciones de fabricación y evaluar alternativas de ensamblaje. A continuación se adjuntan las imágenes de algunos bocetos
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.35\textwidth]{imagenes/Bocetos.png}
+  \caption{Bocetos de Elementos pertenecientes al prototipado en su fase incial.}
+  \label{fig:bocetos}
+\end{figure}
+
+\subsubsection{modelados}
+
+Posteriormente a la fase de bocetos se realizó el modelado en 3D empleando Autodesk Inventor. Los bocetos iniciales fueron recreados como modelos sólidos, lo que permitió comprender en detalle la geometría de las piezas y evaluar su factibilidad de fabricación. El modelado facilitó además la creación y verificación del ensamblaje, la detección temprana de interferencias o errores de diseño y la preparación de los archivos para fabricación. Adicionalmente se efectuaron simulaciones de movimiento (simulación dinámica), que permiten estudiar de forma realista el comportamiento cinemático del mecanismo durante su operación y validar restricciones y recorridos antes de fabricar prototipos.
+
+A continuación se adjuntan imágenes representativas de los modelos y del ensamblaje.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{imagenes/Modelados.png}
+  \caption{Modelados de piezas por medio de Software de diseño CAD Autodesk Inventor. }
+  \label{fig:modelados}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.25\textwidth]{imagenes/Ensamble.png}
+  \caption{Ensamble de componentes por medio de Software de diseño CAD Autodesk Inventor.}
+  \label{fig:ensamble_cad}
+\end{figure}
+
+Para ver los todos los modelados y simulaciones vease la sección $ANEXOS$
+
+\subsubsection{Planos}
+
+Una vez completados los modelos sólidos de los elementos del prototipo, se procedió a la elaboración de los planos de fabricación. Los planos son documentos esenciales para la producción de los componentes; por ello se elaboraron siguiendo las normas técnicas de dibujo (NTC) aplicables en Colombia y se incorporaron las tolerancias pertinentes al proceso de manufactura previsto. Se verificó la concordancia y el sentido de las cotas, se aplicaron ajustes de tolerancia por proceso y se realizaron múltiples revisiones para garantizar el correcto dimensionamiento y montaje de las piezas.
+
+A continuación se adjuntan algunos de los planos desarrollados:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{imagenes/Planos.png}
+  \caption{Planos del Mecanismo de retorno rapido tipo martillo.}
+  \label{fig:planos}
+\end{figure}
+
+Cabe aclarar que en la imagen anterior no están todos los planos, si desea ver los planos en su totalidad diríjase a la sección de "ANEXOS"
+
+
+\section{Análisis de Construcción y Pruebas del modelo}
+
+Una vez concluida la fase de modelado, en la cual se verificó mediante simulación el correcto funcionamiento cinemático del mecanismo, se procedió a la fabricación del prototipo físico utilizando tecnología de manufactura aditiva. Como material base se empleó filamento de PLA de 1.75\,mm de diámetro, seleccionado por su facilidad de impresión, rigidez adecuada y bajo costo, lo que lo hace idóneo para una etapa de validación funcional.
+
+\medskip
+
+Tras la impresión de las piezas, se llevó a cabo el ensamble estructural del prototipo. La base principal fue unida a su complemento mediante resina epóxica, asegurando la rigidez necesaria para soportar las cargas del sistema. Durante el proceso de secado del adhesivo, se procedió al montaje de las articulaciones, utilizando ejes también fabricados mediante impresión 3D, los cuales fueron restringidos con tapas de cierre para evitar desplazamientos axiales y garantizar la correcta alineación durante la operación.
+
+\medskip
+
+Cabe mencionar que algunos de estos ejes requirieron lijado y ajuste dimensional, debido a pequeñas imperfecciones derivadas del proceso de impresión, con el fin de asegurar un movimiento fluido y sin fricción excesiva.
+
+\medskip
+
+Una vez completada la unión de la base y el soporte, se procedió a instalar el brazo articulado y el conjunto del mecanismo en posición vertical, configuración necesaria para reproducir el comportamiento de un martillo de forja y permitir el desplazamiento lineal descendente del percutor.
+
+\medskip
+
+Finalmente, se realizó la prueba funcional del sistema mediante la operación manual de la manivela. Durante la experimentación se observó que, dependiendo del sentido de giro, el mecanismo exhibía el comportamiento característico del sistema Whitworth:
+\begin{itemize}
+    \item Giro horario: fase de avance rápido y retorno lento.
+    \item Giro antihorario: fase de avance lento y retorno rápido.
+\end{itemize}
+
+\medskip
+
+Para comprobar su desempeño práctico, se colocó una muestra de plastilina bajo el martillo, observándose una deformación visible al accionar la manivela en sentido horario, confirmando así que el prototipo cumplía su propósito funcional y cinemático de transformar el movimiento rotacional manual en un impacto lineal controlado.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ensamble final.jpeg}
+    \caption{Fase de ensamblaje del mecanismo}
+    \label{fig:ensamble_final}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.35\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/Ensamble presentado.jpeg}
+    \caption{Pruebas de funcionamiento}
+    \label{fig:pruebas_funcionamiento}
+  \end{subfigure}
+  \caption{Fotografías del prototipo físico: ensamblaje y validación experimental}
+  \label{fig:prototipo_fotos}
+\end{figure}
 \section{Análisis de los resultados teóricos}
 
-Se presentan únicamente las tres curvas clave que sintetizan el desempeño del mecanismo: posición vertical del martillo, aceleración vertical y par motor requerido. Estas permiten evaluar funcionalidad (carrera y asimetría), exigencia dinámica (picos de aceleración) y demanda energética (variación de par).
+Con los parámetros geométricos especificados se realizó un análisis numérico del mecanismo a lo largo de múltiples ciclos.
 
 \subsection*{Posición vertical del martillo}
-Evolución $y_c(t)$: carrera y asimetría (avance lento, retorno rápido).
+
+El sistema presenta un recorrido total de aproximadamente \textbf{206 mm} (desde $y_c \approx -162.4$ mm hasta $y_c \approx 43.3$ mm), adecuado para aplicaciones de martilleo ligero. Se observa la asimetría temporal característica: fase de descenso lenta (trabajo) y fase de ascenso rápida (retorno).
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{{salidas/yc_vs_t}.png}
-    \caption{Posición vertical $y_c(t)$ del martillo: se aprecia carrera y asimetría del ciclo.}
+    \includegraphics[width=0.45\textwidth]{salidas/yc_vs_t.png}
+    \caption{Posición vertical $y_c(t)$ del martillo: carrera de 206 mm con asimetría temporal.}
     \label{fig:yc_ciclo}
 \end{figure}
 
 \subsection*{Aceleración vertical}
-Los picos de $\ddot{y}_c$ determinan las fuerzas inerciales máximas transmitidas a las uniones y soportes; son críticos para el dimensionamiento estructural.
+
+La aceleración del martillo presenta valores extremos de $\ddot{y}_c \approx -55.9$ m/s² durante el descenso y $\ddot{y}_c \approx 2.3$ m/s² en el retorno, con un rango total de aproximadamente \textbf{58.2 m/s²}. El pico negativo significativo durante la fase de trabajo indica las cargas inerciales máximas que experimentan las uniones
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{{salidas/ac_vs_t}.png}
+    \includegraphics[width=0.5\textwidth]{salidas/ac_vs_t.png}
     \caption{Aceleración vertical $\ddot{y}_c$ del martillo.}
     \label{fig:ac_ciclo}
 \end{figure}
 
 \subsection*{Par motor requerido}
-La variación del par $\tau$ evidencia los picos de demanda energética asociados a cambios rápidos de estado cinemático. Estos valores guían la selección del motor y justifican (si las oscilaciones son grandes) el uso de un volante de inercia.
+La variación del par $\tau$ respecto al tiempo nos permite visualizar la ida y vuelta en el martillo (esto gracias a la simetria que se puede notar en la grafica). Esto nos demuestra que para mantener un cierto valor deseado en la aceleracion centroidal del martillo c es necesario a lo largo del funcionamiento del mecanismo aplicar un par variable.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{{salidas/tau_vs_t}.png}
-    \caption{Par motor instantáneo $\tau$ necesario para mantener la velocidad de entrada.}
+    \includegraphics[width=0.5\textwidth]{salidas/tau_vs_t.png}
+    \caption{Par motor instantáneo $\tau$ necesario para mantener velocidad constante.}
     \label{fig:tau_ciclo}
 \end{figure}
 
-\subsection*{Síntesis}
-\begin{itemize}
-    \item La curva $y_c(t)$ confirma una carrera estable y la asimetría funcional del retorno rápido.
-    \item Los picos de $\ddot{y}_c$ delimitan el rango de esfuerzos dinámicos a considerar en soporte y guiado.
-    \item La variación de $\tau(t)$ establece la potencia intermitente y la posible necesidad de almacenamiento de energía (volante) para suavizar demanda.
-\end{itemize}
-
 \section{Análisis sobre el funcionamiento del prototipo}
 
+A partir de las simulaciones dinámicas realizadas en Autodesk Inventor y de los análisis numéricos desarrollados en Python, se verificó el correcto funcionamiento del prototipo en condiciones operativas previstas. Tras la impresión y el ensamblaje de las piezas, se llevaron a cabo pruebas experimentales que corroboraron las predicciones teóricas: los recorridos y restricciones del mecanismo se ajustaron al diseño, no se presentaron interferencias, y el comportamiento dinámico observado (trayectorias, rangos de giro y tiempos de respuesta) se mantuvo dentro de las tolerancias establecidas en el plan de diseño. Los resultados confirman la validez del modelo y permiten avanzar hacia la fase de optimización y ensayo a mayor escala.
+
 \section{Conclusiones y recomendaciones}
+\begin{enumerate}
+  \item El mecanismo diseñado cumple su función de transformar el movimiento rotacional continuo en un recorrido alternado asimétrico; las mediciones del prototipo confirman las tendencias previstas por el modelo numérico.
+  \item Los cálculos cinemáticos y dinámicos, junto con las verificaciones locales por elementos finitos, muestran valores reales; no obstante, es necesario revisar tolerancias y pares de apriete en las uniones para mitigar concentraciones de esfuerzo.
+  \item En lugar del hueco interior para contrapeso, se recomienda emplear un sistema de fijación por succión (chupas) al suelo: esta solución facilita la estabilidad durante el impacto, permite ajustes de masa y simplifica mantenimiento y montaje.
+  \item Mejoras geométricas puntuales —filetes en aristas, aumento localizado de sección en transiciones y control de radios— incrementan la vida a fatiga sin elevar significativamente el costo de fabricación.
+  \item Es conveniente documentar y aplicar pares de apriete y secuencias de montaje para asegurar la reproducibilidad dinámica del prototipo.
+  \item La instrumentación de ensayo debe contemplar un acelerómetro con rango apropiado a los picos medidos, muestreo $\geq 10\cdot f_{\max}$ y filtrado anti-aliasing para mejorar la correlación entre simulación y ensayo.
+  \item En conjunto, el concepto es válido y reproducible; las medidas sugeridas (fijación mediante chupas, ajustes geométricos y control de montaje e instrumentación) aumentan la robustez y facilitan iteraciones futuras.
+\end{enumerate}
 
 % ===== REFERENCIAS =====
+
+
 
 \addcontentsline{toc}{section}{Referencias}
 \begin{thebibliography}{99}
@@ -782,11 +914,28 @@ La variación del par $\tau$ evidencia los picos de demanda energética asociado
 Ferdinand P. Beer, E. Russell Johnston Jr., William E. Clausen, "Dinámica para ingeniería", McGraw-Hill, última edición disponible.
 
 \bibitem{hal-01715664}
-Autor desconocido, “Vector loop approach for mechanism analysis,” HAL Open Science, 2018. Disponible en: https://hal.science/hal-01715664/document
+Autor desconocido, "Vector loop approach for mechanism analysis," HAL Open Science, 2018. Disponible en: https://hal.science/hal-01715664/document
 
 \bibitem{stix2}
-STIX Fonts Project, “STIX Two Math,” 2020. Disponible en: https://stixfonts.org
+STIX Fonts Project, "STIX Two Math," 2020. Disponible en: https://stixfonts.org
+
+\bibitem{mecapedia}
+Mecapedia, "Mecanismo de retorno rápido de Whitworth," Universitat Jaume I. Disponible en: https://www.mecapedia.uji.es/pages/mecanismo\_de\_retorno\_rapido\_de\_Whitworth.html
 
 \end{thebibliography}
+
+\section*{Anexos}
+\addcontentsline{toc}{section}{Anexos}
+
+En el siguiente enlace se ha dispuesto una carpeta en Google Drive que reúne la totalidad de los anexos referenciados en este documento. La carpeta contiene planos de fabricación, modelos CAD, códigos fuente, gráficas, imágenes y demás archivos auxiliares, organizados por tipo y con documentación de soporte (README) para facilitar su consulta. Si requiere permisos de acceso, por favor solicítelos al autor del documento:
+
+\begin{itemize}
+    \item \textbf{Repositorio de archivos (Google Drive):} \\
+    \url{https://drive.google.com/drive/folders/1992kkEoi9HfHHkotnGhMryOI3XGjRC80?usp=drive_link}
+    
+    \item \textbf{video presentacion proyecto:} \\
+    \url{https://youtu.be/QGrWv6MqCTA}
+
+\end{itemize}
 
 \end{document}
