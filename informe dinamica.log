@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.5)  7 NOV 2025 21:28
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.5)  7 NOV 2025 22:02
  restricted system commands enabled.
 **"c:/Users/lunit/OneDrive - Universidad Nacional de Colombia/Poo/prueba/inform
 e dinamica"
@@ -1110,7 +1110,7 @@ e 342.
 File: imagenes/Lazo vectorial.png Graphic file (type png)
 <use imagenes/Lazo vectorial.png>
 Package luatex.def Info: imagenes/Lazo vectorial.png  used on input line 421.
-(luatex.def)             Requested size: 273.14923pt x 241.74834pt.
+(luatex.def)             Requested size: 182.09486pt x 161.15582pt.
 
 
 [8<./imagenes/Lazo vectorial.png>]
@@ -1128,45 +1128,7 @@ I treat `x_1_2' essentially like `x_1{}_2'.
 
 
 [12]
-
-[13] ("./informe dinamica.aux"
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
-)
- ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
- ***********
-)
-
-Here is how much of LuaTeX's memory you used:
- 14835 strings out of 476291
- 125240,953878 words of node,token memory allocated
- 1362 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 1 local_par, 4 glue, 4 kern, 1 penalty, 20 sub_mlis
-t, 1 margin_kern, 3 glyph, 225 attribute, 73 glue_spec, 114 attribute_list, 1 wr
-ite nodes
-   avail lists: 1:2,2:1116,3:270,4:41,5:517,6:74,7:6586,8:51,9:990,10:14,11:832
- 36875 multiletter control sequences out of 65536+600000
- 106 fonts using 46101839 bytes
- 86i,12n,93p,1080b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<//?/c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
-an10-regular.otf><c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/pu
-blic/lm/lmmono10-regular.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts
-/opentype/public/stix2-otf/stixtwomath-regular.otf><//?/c:/users/lunit/appdata/l
-ocal/programs/miktex/fonts/opentype/public/lm/lmroman10-regular.otf><//?/c:/user
-s/lunit/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman10-bold.ot
-f><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/
-stixtwomath-regular.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/open
-type/public/stix2-otf/stixtwomath-regular.otf><C:/Users/lunit/AppData/Local/Prog
-rams/MiKTeX/fonts/opentype/public/lm/lmroman9-regular.otf><C:/Users/lunit/AppDat
-a/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman9-bold.otf><C:/Users/lun
-it/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12-regular.otf>
-<C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12
--bold.otf>
-Output written on informe dinamica.pdf (14 pages, 355748 bytes).
-
-PDF statistics: 132 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 100000000)
-
+<salidas/L_vs_phi.png, id=61, 393.8715pt x 283.2984pt>
+File: salidas/L_vs_phi.png Graphic file (type png)
+<use salidas/L_vs_phi.png>
+Package luatex.def Info: salidas/L_vs

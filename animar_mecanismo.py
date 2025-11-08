@@ -13,13 +13,13 @@ import matplotlib.patches as mpatches
 # PARÁMETROS DEL MECANISMO
 # ============================================================
 # Pivotes fijos (unificados con graficar_mecanismo.py):
-d = 0.11   # Distancia entre O1 y O2 (m)
+d = 0.1   # Distancia entre O1 y O2 (m)
 
 # Barras (unificadas):
 r = 0.07   # Longitud barra motriz O2-A (m)
-R = 0.20   # Longitud FIJA barra O1-B (m)
+R = 0.18   # Longitud FIJA barra O1-B (m)
 K = 0.07   # Longitud barra BC (m)
-D = 0.177 # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
+D = 0.175 # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
 
 # Nota: 
 # - Barra O1-B: longitud R (FIJA), gira con ángulo θ
@@ -30,13 +30,13 @@ D = 0.177 # Distancia horizontal O1 a C (m) (se actualizará si se optimiza)
 omega_2 = 2.0  # Velocidad angular del motor (rad/s)
 
 # Activar búsqueda opcional de D óptimo para evitar beta singular (cosβ≈0)
-optimizar_D = True
+optimizar_D = False
 eps_cosb = 5e-2
 eps_den = 1e-3
 
 # Parámetros de duración/visualización
 fps = 60            # Cuadros por segundo del GIF/preview
-n_ciclos = 15       # Número de ciclos completos a animar
+n_ciclos = 2       # Número de ciclos completos a animar
 guardar_gif = True  # Guardar GIF en disco
 mostrar_en_vivo = False  # Mostrar animación en una ventana interactiva
 
@@ -153,9 +153,9 @@ C_positions = np.array([calcular_posicion_C(theta, beta) for theta, beta in zip(
 # CREAR LA FIGURA
 # ============================================================
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+fig, ax1 = plt.subplots(1, 1, figsize=(10, 8))
 
-# Panel izquierdo: Animación del mecanismo
+# Animación del mecanismo
 ax1.set_xlim(-0.15, 0.35)
 ax1.set_ylim(-0.4, 0.15)
 ax1.set_aspect('equal')
@@ -202,35 +202,6 @@ info_text = ax1.text(0.02, 0.98, '', transform=ax1.transAxes,
 
 ax1.legend(loc='lower right', fontsize=8)
 
-# Panel derecho: Gráficas de velocidad y aceleración
-ax2.set_xlabel('Tiempo (s)')
-ax2.set_ylabel('Velocidad (m/s)', color='blue')
-ax2.tick_params(axis='y', labelcolor='blue')
-ax2.grid(True, alpha=0.3)
-
-# Calcular velocidades para el gráfico
-y_c_vals = np.array([C[1] for C in C_positions])
-velocidad = np.gradient(y_c_vals, t_vals)
-
-line_vel, = ax2.plot([], [], 'b-', linewidth=2, label='Velocidad')
-point_vel, = ax2.plot([], [], 'bo', markersize=8)
-
-# Eje secundario para aceleración
-ax3 = ax2.twinx()
-ax3.set_ylabel('Aceleración (m/s²)', color='red')
-ax3.tick_params(axis='y', labelcolor='red')
-
-aceleracion = np.gradient(velocidad, t_vals)
-line_acc, = ax3.plot([], [], 'r-', linewidth=2, label='Aceleración')
-point_acc, = ax3.plot([], [], 'ro', markersize=8)
-
-ax2.set_title('Cinemática del martillo', fontsize=12, fontweight='bold')
-
-# Leyenda combinada
-lines1, labels1 = ax2.get_legend_handles_labels()
-lines2, labels2 = ax3.get_legend_handles_labels()
-ax2.legend(lines1 + lines2, labels1 + labels2, loc='upper right', fontsize=8)
-
 # ============================================================
 # FUNCIÓN DE ACTUALIZACIÓN DE LA ANIMACIÓN
 # ============================================================
@@ -241,9 +212,7 @@ def init():
     line_O1B.set_data([], [])
     line_BC.set_data([], [])
     trajectory_line.set_data([], [])
-    line_vel.set_data([], [])
-    line_acc.set_data([], [])
-    return line_O2A, line_O1B, line_BC, trajectory_line, line_vel, line_acc
+    return line_O2A, line_O1B, line_BC, trajectory_line
 
 def update(frame):
     """Actualizar cada frame de la animación"""
@@ -276,33 +245,15 @@ def update(frame):
     phi = phi_vals[frame]
     theta = theta_vals[frame]
     beta = beta_vals[frame]
-    v = velocidad[frame]
-    a = aceleracion[frame]
     
     info_str = (f't = {t:.3f} s\n'
                 f'φ = {np.degrees(phi):.1f}°\n'
                 f'θ = {np.degrees(theta):.1f}°\n'
-                f'β = {np.degrees(beta):.1f}°\n'
-                f'v = {v*1000:.1f} mm/s\n'
-                f'a = {a:.2f} m/s²')
+                f'β = {np.degrees(beta):.1f}°')
     info_text.set_text(info_str)
     
-    # Actualizar gráficas
-    line_vel.set_data(t_vals[:frame+1], velocidad[:frame+1])
-    point_vel.set_data([t], [v])
-    
-    line_acc.set_data(t_vals[:frame+1], aceleracion[:frame+1])
-    point_acc.set_data([t], [a])
-    
-    # Ajustar límites de las gráficas
-    if frame > 0:
-        ax2.set_xlim(0, t_vals[frame] + 0.1)
-        ax2.set_ylim(min(velocidad[:frame+1])*1.1, max(velocidad[:frame+1])*1.1)
-        ax3.set_ylim(min(aceleracion[:frame+1])*1.1, max(aceleracion[:frame+1])*1.1)
-    
     return (line_O2A, line_O1B, line_BC, circle_A, circle_B, circle_C, 
-            martillo, trajectory_line, info_text, line_vel, point_vel, 
-            line_acc, point_acc)
+            martillo, trajectory_line, info_text)
 
 # ============================================================
 # CREAR Y GUARDAR LA ANIMACIÓN
