@@ -9,14 +9,41 @@
 \contentsline {section}{\numberline {3}Fase de Diseño Conceptual}{4}{}%
 \contentsline {subsection}{\numberline {3.1}Variables del sistema}{4}{}%
 \contentsline {subsection}{\numberline {3.2}Modelo de prototipo inicial}{4}{}%
-\contentsline {section}{\numberline {4}Modelos teóricos empleados}{5}{}%
-\contentsline {subsection}{\numberline {4.1}Modelo cinemático}{5}{}%
-\contentsline {subsection}{\numberline {4.2}Modelo cinemático}{5}{}%
-\contentsline {subsubsection}{\numberline {4.2.1}Relación entre $\mittheta $ y $\mitphi $}{5}{}%
-\contentsline {subsubsection}{\numberline {4.2.2}Análisis de velocidades}{6}{}%
-\contentsline {subsection}{\numberline {4.3}Modelo cinetico}{7}{}%
-\contentsline {section}{\numberline {5}Fase de Diseño Detallado}{7}{}%
-\contentsline {section}{\numberline {6}Análisis de los resultados teóricos}{7}{}%
-\contentsline {section}{\numberline {7}Análisis sobre el funcionamiento del prototipo}{7}{}%
-\contentsline {section}{\numberline {8}Conclusiones y recomendaciones}{7}{}%
-\contentsline {section}{Referencias}{7}{}%
+\contentsline {section}{\numberline {4}modelo cinemático}{6}{}%
+\contentsline {subsection}{Parámetros geométricos y operativos (SI)}{6}{}%
+\contentsline {subsection}{\numberline {4.1}Relación geométrica entre $\mittheta $ y $\mitphi $}{6}{}%
+\contentsline {subsection}{\numberline {4.2}Velocidades angulares y relativas}{7}{}%
+\contentsline {subsection}{\numberline {4.3}Aceleraciones angulares y relativas}{7}{}%
+\contentsline {subsection}{\numberline {4.4}Lazo vectorial del martillo: posición, velocidad y aceleración}{8}{}%
+\contentsline {subsubsection}{\numberline {4.4.1}Derivación de la velocidad}{8}{}%
+\contentsline {subsubsection}{\numberline {4.4.2}Resultado para la velocidad}{9}{}%
+\contentsline {subsubsection}{\numberline {4.4.3}Aceleración mediante lazo vectorial}{9}{}%
+\contentsline {subsubsection}{\numberline {4.4.4}Forma expandida de la aceleración}{9}{}%
+\contentsline {section}{\numberline {5}Cinemática del eslabón $BC$}{9}{}%
+\contentsline {subsection}{\numberline {5.1}Ángulo $\mitbeta $ del eslabón $K$}{9}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}Inclinacion eslabón K}{10}{}%
+\contentsline {subsubsection}{\numberline {5.1.2}Ecuacion vectorial de velocidad en el punto $B$}{10}{}%
+\contentsline {subsubsection}{\numberline {5.1.3}Ecuacion vectorial de aceleración en el punto $B$}{10}{}%
+\contentsline {section}{\numberline {6}Aceleraciones centroidales}{11}{}%
+\contentsline {subsection}{\numberline {6.1}Eslabón $O_1B$}{11}{}%
+\contentsline {subsection}{\numberline {6.2}Eslabón $O_2A$}{11}{}%
+\contentsline {subsection}{\numberline {6.3}Martillo $C$}{11}{}%
+\contentsline {subsection}{\numberline {6.4}Eslabón $BC$}{11}{}%
+\contentsline {subsection}{\numberline {6.5}Momentos de inercia centroidales de los eslabones}{11}{}%
+\contentsline {paragraph}{Eslabón $O_1B$ (longitud $R$, ancho $b_R$, masa $m_R$).}{11}{}%
+\contentsline {paragraph}{Eslabón $O_2A$ (longitud $r$, ancho $b_r$, masa $m_r$).}{12}{}%
+\contentsline {paragraph}{Eslabón $BC$ (longitud $K$, ancho $b_K$, masa $m_K$).}{12}{}%
+\contentsline {subsection}{\numberline {6.6}Momentos de inercia}{12}{}%
+\contentsline {section}{\numberline {7}Análisis cinético}{12}{}%
+\contentsline {subsection}{\numberline {7.1}Ecuaciones de movimiento martillo C}{12}{}%
+\contentsline {subsection}{\numberline {7.2}Ecuaciones de movimiento del eslabon BC}{12}{}%
+\contentsline {subsection}{\numberline {7.3}Ecuaciones de movimiento eslabon O1-B}{13}{}%
+\contentsline {subsection}{\numberline {7.4}Ecuaciones de movimiento eslabon O2-A}{13}{}%
+\contentsline {subsection}{\numberline {7.5}Sistema reducido para resolución secuencial}{13}{}%
+\contentsline {subsection}{\numberline {7.6}Potencia y eficiencia}{13}{}%
+\contentsline {section}{\numberline {8}Notas finales}{13}{}%
+\contentsline {section}{\numberline {9}Fase de Diseño Detallado}{14}{}%
+\contentsline {section}{\numberline {10}Análisis de los resultados teóricos}{14}{}%
+\contentsline {section}{\numberline {11}Análisis sobre el funcionamiento del prototipo}{14}{}%
+\contentsline {section}{\numberline {12}Conclusiones y recomendaciones}{14}{}%
+\contentsline {section}{Referencias}{14}{}%

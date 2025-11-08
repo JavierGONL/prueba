@@ -6,6 +6,8 @@
 \usepackage{unicode-math}
 \usepackage{graphicx}
 \usepackage{float} % Para posicionamiento exacto de figuras con [H]
+\usepackage{microtype} % Microtipografía: mejor espaciado y cortes
+\usepackage{caption} % Control de espaciado en captions
 \usepackage{geometry}
 \geometry{a4paper, margin=2.5cm}
 \usepackage{ragged2e} % Para el entorno justify
@@ -13,6 +15,12 @@
 
 \renewcommand{\contentsname}{Contenido}
 \renewcommand{\abstractname}{Resumen}
+
+% Ajustes globales de espaciado alrededor de figuras y captions
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\captionsetup{aboveskip=6pt,belowskip=6pt}
 
 \setmainfont{Latin Modern Roman}
 
@@ -347,23 +355,18 @@ Usando $\cos(\phi - \theta) = \frac{V_a'}{V_a}$  tambien obtenemos la siguiente 
     V_a' = \cos(\Phi -\Theta) \, V_a
 \end{equation}
 
-Finalmente a partir de esta ultima relacion y remplazando con sus valores producto de su rotacion respecto a un eje fijo obtenemos:
+Finalmente a partir de esta ultima relacion, remplazando con sus valores producto de su rotacion respecto a un eje fijo y despejando para $\omega_1$, obtenemos:
 
-\[
-    \omega_1 L = [\cos(\Phi -\Theta)]\, \omega_2 r
-\]
-
-Despejando L del lado izquierdo de la ecuacion obtenemos la siguiente expresion para la velocidad angular del eslabón ($ \omega_1 $):
 \begin{equation}
     \boxed{
     \omega_1 = \frac{\omega_2 r}{L} \, \cos(\Phi -\Theta)
     }
 \end{equation}
 
-
 % ============================================================
 % SECCIÓN 2: ANÁLISIS DE ACELERACIONES
 % ============================================================
+
 \subsection{Aceleraciones angulares y relativas}
 
 De manera similar a en el analisis de velocidades tomamos a $a$ respecto a la barra $O_2A$ tiene velocidad y aceleración angular y no presenta traslación, debido a esto aplicamos nuevamente rotación respecto a eje fijo y obtenemos la siguiente expresion vectorial:
@@ -381,13 +384,11 @@ Donde:
     \item \[
   \vec a'_a =  (\alpha_1 \times \vec L) ,\; ⦫\, \theta^\circ  + (\boldsymbol{\omega}_1 \times(\boldsymbol{\omega}_1 \times \vec L)) ,\; ⦭\, \theta^\circ 
 \] 
-$\vec a'_a$ representa  la aceleracion producto de la rotacion del sistema
     \item \[
   \vec a_{cor} =  (2\boldsymbol{\omega}_1 \times \vec V_{a/f}) ,\; ⦮\, \theta^\circ \] 
-$\vec a_{cor}$ representa la aceleracion de coriolis, un termino adicional que surge en sistemas no inerciales de este tipo
     \item \[a_{a/f} =  \; ⦫\,\theta^\circ \]
-$a_{a/f}$ representa la aceleracion del punto $a$ relativo al sistema en rotacion
 \end{itemize}
+
 Igualando ambas ecuaciones vectoriales para encontrar las incognitas requeridas proyectamos todos los vectores respecto a sus componentes rectangulares, obteniendo las siguientes ecuaciones para X e Y:
 \begin{align*}
 (a'_{a})_{t} \sin\theta + (a_{a/f}) \cos\theta 
@@ -438,49 +439,11 @@ Elevando ambas ecuaciones al cuadrado y sumando:
 \subsubsection{Derivación de la velocidad}
 
 Derivando ambos lados respecto al tiempo. Donde:
-\begin{itemize}
-    \item $K$ es constante
-    \item $\frac{d\theta}{dt} = \omega_1$
-    \item $y_c$ es variable
-    \item $R$ es constante
-    \item $D$ es constante
-\end{itemize}
+
+$K$ es constante, $\frac{d\theta}{dt} = \omega_1$, $y_c$ es variable, $R$ es constante, $D$ es constante.
 
 \begin{align}
 \frac{d(K^2)}{dt} &= \frac{d}{dt}\left[(R\cos(\theta) - D)^2 + (R\sin(\theta) - y_c)^2\right]
-\end{align}
-
-Como $K$ es constante:
-\begin{align}
-0 &= \frac{d}{dt}\left[(R\cos(\theta) - D)^2 + (R\sin(\theta) - y_c)^2\right]
-\end{align}
-
-Aplicando la regla de la cadena:
-\begin{align}
-0 &= 2(R\cos(\theta) - D)\frac{d}{dt}(R\cos(\theta) - D) + 2(R\sin(\theta) - y_c)\frac{d}{dt}(R\sin(\theta) - y_c)
-\end{align}
-
-Calculando las derivadas internas:
-\begin{align}
-\frac{d}{dt}(R\cos(\theta) - D) &= -R\sin(\theta)\frac{d\theta}{dt} = -R\sin(\theta)\omega_1 \\
-\frac{d}{dt}(R\sin(\theta) - y_c) &= R\cos(\theta)\frac{d\theta}{dt} - \dot{y}_c = R\cos(\theta)\omega_1 - \dot{y}_c
-\end{align}
-
-Sustituyendo:
-\begin{align}
-0 &= 2(R\cos(\theta) - D)(-R\sin(\theta)\omega_1) + 2(R\sin(\theta) - y_c)(R\cos(\theta)\omega_1 - \dot{y}_c)
-\end{align}
-
-Dividiendo entre 2:
-\begin{align}
-0 &= -(R\cos(\theta) - D)R\sin(\theta)\omega_1 + (R\sin(\theta) - y_c)(R\cos(\theta)\omega_1 - \dot{y}_c)
-\end{align}
-
-Expandiendo:
-\begin{align}
-0 &= -R^2\cos(\theta)\sin(\theta)\omega_1 + DR\sin(\theta)\omega_1 \nonumber \\
-  &\quad + R^2\sin(\theta)\cos(\theta)\omega_1 - R\sin(\theta)\dot{y}_c \nonumber \\
-  &\quad - y_cR\cos(\theta)\omega_1 + y_c\dot{y}_c
 \end{align}
 
 Los términos $R^2\cos(\theta)\sin(\theta)\omega_1$ se cancelan, quedando:
