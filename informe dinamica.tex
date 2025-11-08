@@ -738,16 +738,17 @@ Se presentan únicamente las tres curvas clave que sintetizan el desempeño del 
 Evolución $y_c(t)$: carrera y asimetría (avance lento, retorno rápido).
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{{salidas/yc_vs_t}.png}
-    \caption{Posición vertical $y_c(t)$ del martillo: se aprecia carrera y asimetría del ciclo.}
+    \includegraphics[width=0.6\textwidth]{{salidas/yc_vs_t}.png}
+    \caption{Posición vertical $y_c(t)$ del martillo. Con los parámetros actuales: recorrido total $\Delta y \approx 0.280\,\text{m}$ (280 mm).}
     \label{fig:yc_ciclo}
 \end{figure}
+\noindent Con estos parámetros, $y_{\min} \approx -0.140\,\text{m}$ y $y_{\max} \approx 0.140\,\text{m}$; el descenso dura $\approx 0.398\,\text{s}$ y el retorno $\approx 1.17\,\text{s}$ (relación $\approx 2.95$).
 
 \subsection*{Aceleración vertical}
 Los picos de $\ddot{y}_c$ determinan las fuerzas inerciales máximas transmitidas a las uniones y soportes; son críticos para el dimensionamiento estructural.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{{salidas/ac_vs_t}.png}
+    \includegraphics[width=0.6\textwidth]{{salidas/ac_vs_t}.png}
     \caption{Aceleración vertical $\ddot{y}_c$ del martillo.}
     \label{fig:ac_ciclo}
 \end{figure}
@@ -756,7 +757,7 @@ Los picos de $\ddot{y}_c$ determinan las fuerzas inerciales máximas transmitida
 La variación del par $\tau$ evidencia los picos de demanda energética asociados a cambios rápidos de estado cinemático. Estos valores guían la selección del motor y justifican (si las oscilaciones son grandes) el uso de un volante de inercia.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{{salidas/tau_vs_t}.png}
+    \includegraphics[width=0.6\textwidth]{{salidas/tau_vs_t}.png}
     \caption{Par motor instantáneo $\tau$ necesario para mantener la velocidad de entrada.}
     \label{fig:tau_ciclo}
 \end{figure}

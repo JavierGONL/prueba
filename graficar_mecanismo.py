@@ -19,7 +19,7 @@ plt.rcParams['font.size'] = 10
 # Pivotes fijos:
 d = 0.10  # Distancia entre O1 y O2 (m)
 # δ (delta) solicitado: 6.65 mm => 0.00665 m
-D = 0.00665  # Distancia horizontal de O1 a C (m)
+D = 0.17735  # Distancia horizontal de O1 a C (m)
 
 # Barras:
 r = 0.07  # Longitud de la barra motriz O2-A (m)

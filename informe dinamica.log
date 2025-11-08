@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.5)  7 NOV 2025 22:20
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.11.5)  7 NOV 2025 22:31
  restricted system commands enabled.
 **"c:/Users/lunit/OneDrive - Universidad Nacional de Colombia/Poo/prueba/inform
 e dinamica"
@@ -1129,20 +1129,20 @@ I treat `x_1_2' essentially like `x_1{}_2'.
 File: salidas/yc_vs_t.png Graphic file (type png)
 <use salidas/yc_vs_t.png>
 Package luatex.def Info: salidas/yc_vs_t.png  used on input line 741.
-(luatex.def)             Requested size: 250.38564pt x 176.5178pt.
+(luatex.def)             Requested size: 273.14923pt x 192.56526pt.
 
 
 [12]
 <salidas/ac_vs_t.png, id=62, 399.4122pt x 283.2984pt>
 File: salidas/ac_vs_t.png Graphic file (type png)
 <use salidas/ac_vs_t.png>
-Package luatex.def Info: salidas/ac_vs_t.png  used on input line 750.
-(luatex.def)             Requested size: 250.38564pt x 177.59708pt.
+Package luatex.def Info: salidas/ac_vs_t.png  used on input line 751.
+(luatex.def)             Requested size: 273.14923pt x 193.74266pt.
 <salidas/tau_vs_t.png, id=63, 396.0396pt x 283.2984pt>
 File: salidas/tau_vs_t.png Graphic file (type png)
 <use salidas/tau_vs_t.png>
-Package luatex.def Info: salidas/tau_vs_t.png  used on input line 759.
-(luatex.def)             Requested size: 250.38564pt x 179.11005pt.
+Package luatex.def Info: salidas/tau_vs_t.png  used on input line 760.
+(luatex.def)             Requested size: 273.14923pt x 195.39397pt.
 
 
 [13<./salidas/yc_vs_t.png><./salidas/ac_vs_t.png>]
@@ -1163,27 +1163,28 @@ Here is how much of LuaTeX's memory you used:
  1484 words of node memory still in use:
    8 hlist, 2 vlist, 2 rule, 1 local_par, 4 glue, 4 kern, 1 penalty, 20 sub_mlis
 t, 3 glyph, 267 attribute, 73 glue_spec, 135 attribute_list, 1 write nodes
-   avail lists: 1:2,2:967,3:254,4:42,5:498,6:70,7:6586,8:52,9:1040,10:14,11:832
+   avail lists: 1:2,2:982,3:254,4:42,5:498,6:70,7:6586,8:52,9:1040,10:14,11:832
  36902 multiletter control sequences out of 65536+600000
- 106 fonts using 46101159 bytes
+ 106 fonts using 46101431 bytes
  86i,12n,93p,1080b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman7-
+regular.otf><//?/c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/pub
+lic/lm/lmroman10-regular.otf><c:/users/lunit/appdata/local/programs/miktex/fonts
+/opentype/public/lm/lmmono10-regular.otf><C:/Users/lunit/AppData/Local/Programs/
+MiKTeX/fonts/opentype/public/stix2-otf/stixtwomath-regular.otf><//?/c:/users/lun
+it/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman10-regular.otf>
 <//?/c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
-an10-regular.otf><c:/users/lunit/appdata/local/programs/miktex/fonts/opentype/pu
-blic/lm/lmmono10-regular.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts
-/opentype/public/stix2-otf/stixtwomath-regular.otf><//?/c:/users/lunit/appdata/l
-ocal/programs/miktex/fonts/opentype/public/lm/lmroman10-regular.otf><//?/c:/user
-s/lunit/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman10-bold.ot
-f><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/stix2-otf/
-stixtwomath-regular.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/open
-type/public/stix2-otf/stixtwomath-regular.otf><C:/Users/lunit/AppData/Local/Prog
-rams/MiKTeX/fonts/opentype/public/lm/lmroman9-regular.otf><C:/Users/lunit/AppDat
-a/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman9-bold.otf><C:/Users/lun
-it/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12-regular.otf>
-<C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12
--bold.otf>
-Output written on informe dinamica.pdf (15 pages, 596325 bytes).
+an10-bold.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/publi
+c/stix2-otf/stixtwomath-regular.otf><C:/Users/lunit/AppData/Local/Programs/MiKTe
+X/fonts/opentype/public/stix2-otf/stixtwomath-regular.otf><C:/Users/lunit/AppDat
+a/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman9-regular.otf><C:/Users/
+lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman9-bold.otf><
+C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/lm/lmroman12-
+regular.otf><C:/Users/lunit/AppData/Local/Programs/MiKTeX/fonts/opentype/public/
+lm/lmroman12-bold.otf>
+Output written on informe dinamica.pdf (15 pages, 599414 bytes).
 
-PDF statistics: 141 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 148 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

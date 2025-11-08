@@ -1,0 +1,60 @@
+\section{Fase de Diseño Conceptual 
+
+El mecanismo consiste en un sistema de barras articuladas accionado por un motor que produce el movimiento de martillo. Los componentes principales son: el motor (proporciona rotación constante con velocidad angular $\omega_2$), la barra motriz $(O_2A)$ de longitud $r$ conectada al motor en $O_2$ y al punto $A$, la barra acoplada $(O_1B)$ de longitud aparente variable $L$ articulada en $O_1$ y conectada en $A$, y el sistema de martillo constituido por una biela que transmite el movimiento al bloque deslizante de longitud constante $K$.
+
+Durante la fase conceptual, cada integrante del equipo presentó propuestas de adaptación del mecanismo (variaciones geométricas en bielas, alternativas de guiado, y soluciones híbridas rodillo/tornillo). Se evaluaron múltiples configuraciones bajo criterios de simplicidad constructiva, eficiencia cinemática, robustez frente a impactos y facilidad de fabricación. La solución adoptada —reorientar el plano de movimiento a posición vertical y sustituir el rodillo por un tornillo pasante— fue seleccionada por entregar el mejor compromiso entre reducción de piezas, rigidez y mantenimiento del comportamiento asimétrico característico de retorno rápido.
+
+\subsection{Modelo de prototipo inicial con formulación matemática}
+
+Para el modelado cinemático se emplea el método del lazo vectorial. Definiendo el ángulo de entrada
+\[
+\delta(t)=\omega_2 t,
+\]
+y tomando el lazo cerrado entre los puntos característicos del mecanismo, se puede escribir
+\[
+\overrightarrow{O_2A}(\delta) + \overrightarrow{AB}(\alpha,L) + \overrightarrow{BO_1} = \overrightarrow{O_2O_1},
+\]
+donde $\alpha$ y $L$ son funciones implícitas de $\delta$ determinadas por la geometría. Si se selecciona un sistema de referencia con $O_2$ en el origen y $\overrightarrow{O_2O_1} = (D,0)$, el lazo se descompone en sus componentes escalares
+\begin{align}
+r\cos\delta + L(\delta)\cos\alpha(\delta) + b_x &= D,\label{eq:loop_x}\\
+r\sin\delta + L(\delta)\sin\alpha(\delta) + b_y &= 0,\label{eq:loop_y}
+\end{align}
+donde $(b_x,b_y)$ expresa la posición relativa conocida de la porción final del subensamble $(B\!\to\!O_1)$ respecto a $O_1$ (constante según la construcción). Las Eqs. \eqref{eq:loop_x}--\eqref{eq:loop_y} constituyen el sistema no lineal que relaciona $\alpha$ y $L$ con la entrada $\delta$.
+
+Diferenciando temporalmente el lazo se obtienen las relaciones de velocidades:
+\[
+\frac{d}{dt}\Big(\overrightarrow{O_2A}+\overrightarrow{AB}+\overrightarrow{BO_1}\Big)=\mathbf{0},
+\]
+que en forma expandida vectorial es
+\[
+r\dot\delta\begin{pmatrix}-\sin\delta\\[2pt]\cos\delta\end{pmatrix}
++ \dot L\begin{pmatrix}\cos\alpha\\[2pt]\sin\alpha\end{pmatrix}
++ L\dot\alpha\begin{pmatrix}-\sin\alpha\\[2pt]\cos\alpha\end{pmatrix}
+= \begin{pmatrix}0\\[2pt]0\end{pmatrix}.
+\]
+Esta expresión puede reordenarse y, mediante diferenciación implícita de las Eqs. \eqref{eq:loop_x}--\eqref{eq:loop_y}, resolverse numérica o analíticamente (según el caso geométrico) para obtener $\dfrac{d\alpha}{d\delta}$ y $\dfrac{dL}{d\delta}$, y finalmente las velocidades $\dot\alpha$ y $\dot L$ en función de $\dot\delta$.
+
+Para la descripción del movimiento lineal del martillo se define la coordenada de interés $x_E$ (posición del extremo o del centro de masa del bloque deslizante) como función de las variables generalizadas:
+\[
+x_E = x_E(\delta,\alpha,L).
+\]
+Aplicando la regla de la cadena, la velocidad y aceleración lineal resultan
+\begin{align}
+\dot x_E &= \frac{\partial x_E}{\partial\delta}\dot\delta + \frac{\partial x_E}{\partial\alpha}\dot\alpha + \frac{\partial x_E}{\partial L}\dot L
+       = J(\delta,\alpha,L)\,\dot{\mathbf{q}},\label{eq:velJ}\\
+\ddot x_E &= J(\delta,\alpha,L)\,\ddot{\mathbf{q}} + \dot J(\delta,\alpha,L,\dot{\mathbf{q}})\,\dot{\mathbf{q}},\label{eq:accJ}
+\end{align}
+donde $\dot{\mathbf{q}}=[\dot\delta,\;\dot\alpha,\;\dot L]^{T}$ y $J$ es la matriz Jacobiana que relaciona velocidades generalizadas con la velocidad lineal del martillo. Si la entrada es \(\delta(t)=\omega_2 t\) con \(\ddot\delta=0\) (velocidad angular constante), la aceleración \(\ddot x_E\) queda dominada por los términos cuadráticos en \(\dot\delta\) (i.e., \(\propto \dot\delta^2\)), lo que evidencia por qué la dinámica del martillo es altamente sensible al valor de \(\omega_2\) y por qué el retorno rápido se manifiesta como un pico de aceleración en la fase de recuperación.
+
+Estas expresiones (lazo vectorial, diferenciación implícita y formulación Jacobiana) son la base para:
+\begin{itemize}
+  \item implementar el modelo numérico que calcule $\alpha(\delta)$ y $L(\delta)$ para una disposición geométrica dada,
+  \item obtener $\dot x_E(\delta)$ y $\ddot x_E(\delta)$ y, a partir de ellas, estimar velocidades de impacto y cargas dinámicas,
+  \item estudiar la sensibilidad del sistema frente a variaciones de $\omega_2$ y parámetros geométricos.
+\end{itemize}
+
+\subsection{Consideraciones prácticas y de diseño}
+
+Como complementos prácticos se mantienen las recomendaciones ya mencionadas: uso de bloque en acero A36 por su respuesta a impactos repetidos; guías lineales para reducir desviaciones y desgaste; especificación de tolerancias funcionales en articulaciones y alojamientos; y la instrumentación mínima necesaria (encoder en eje motor y acelerómetro o célula de carga en el martillo) para validar experimentalmente $\delta(t)$, $\dot x_E(t)$ y $\ddot x_E(t)$ frente a las predicciones teóricas.
+
+El modelo presentado permanece sujeto a ajustes definitivos (disposición final de ejes, anclajes y soportes) que condicionarán las expresiones específicas de $x_E(\cdot)$ y, por tanto, las soluciones cerradas de las ecuaciones mostradas. Si querés, tomo tus dimensiones geométricas y te devuelvo las expresiones cerradas de $\alpha(\delta)$, $L(\delta)$ y las fórmulas explícitas de $x_E(\delta)$, $\dot x_E(\delta)$ y $\ddot x_E(\delta)$ para uso directo en simulación numérica.
