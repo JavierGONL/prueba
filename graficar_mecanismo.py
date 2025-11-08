@@ -17,7 +17,7 @@ plt.rcParams['font.size'] = 10
 # ============================================================
 # Dimensiones geométricas (en metros)
 # Pivotes fijos:
-d = 0.11  # Distancia entre O1 y O2 (m)
+d = 0.10  # Distancia entre O1 y O2 (m)
 # δ (delta) solicitado: 6.65 mm => 0.00665 m
 D = 0.00665  # Distancia horizontal de O1 a C (m)
 

@@ -732,186 +732,41 @@ P_{in} &= \tau\,\omega_2, & P_{out} &= C\,\dot{y}_c, & \eta &= \frac{P_{out}}{P_
 
 \section{Análisis de los resultados teóricos}
 
-Con el modelo matemático desarrollado en las secciones anteriores, se implementó un análisis numérico completo del mecanismo a lo largo de múltiples ciclos de operación. Los resultados presentados a continuación corresponden a las simulaciones realizadas con los parámetros geométricos y operativos especificados en la Sección 4, utilizando Python como plataforma de cálculo.
+Se presentan únicamente las tres curvas clave que sintetizan el desempeño del mecanismo: posición vertical del martillo, aceleración vertical y par motor requerido. Estas permiten evaluar funcionalidad (carrera y asimetría), exigencia dinámica (picos de aceleración) y demanda energética (variación de par).
 
-\subsection{Comportamiento cinemático del mecanismo}
-
-\subsubsection{Variables geométricas fundamentales}
-
-La distancia variable $L$ entre el pivote $O_1$ y el punto $A$ representa una magnitud clave en el análisis del mecanismo. Como se observa en la Figura \ref{fig:L_phi}, esta distancia varía de forma no lineal con el ángulo de entrada $\phi$, alcanzando valores entre aproximadamente 40 mm y 200 mm. Esta variación considerable confirma que el pasador deslizante recorre gran parte de la ranura en la barra $O_1B$ durante cada ciclo.
-
+\subsection*{Posición vertical del martillo}
+La evolución temporal de $y_c$ muestra la carrera útil del martillo y la relación temporal entre la fase de descenso y la fase de retorno rápido.
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/L_vs_phi}.png}
-\caption{Relación entre la distancia $L$ y el ángulo de entrada $\phi$ de la barra motriz.}
-\label{fig:L_phi}
+    \centering
+    \includegraphics[width=0.75\textwidth]{{salidas/yc_vs_t}.png}
+    \caption{Posición vertical del martillo $y_c$ durante un ciclo.}
+    \label{fig:yc_ciclo}
 \end{figure}
 
-La relación angular entre $\theta$ (ángulo de la barra oscilante) y $\phi$ (ángulo de la barra motriz) se muestra en la Figura \ref{fig:theta_t}. A pesar de que $\phi$ aumenta linealmente con el tiempo debido a la velocidad angular constante del motor ($\omega_2 = 2.0$ rad/s), el ángulo $\theta$ presenta una variación no lineal característica que genera la asimetría temporal del movimiento del martillo.
-
+\subsection*{Aceleración vertical}
+Los picos de $\ddot{y}_c$ determinan las fuerzas inerciales máximas transmitidas a las uniones y soportes; son críticos para el dimensionamiento estructural.
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/theta_vs_t}.png}
-\caption{Evolución temporal del ángulo $\theta$ de la barra oscilante $O_1B$.}
-\label{fig:theta_t}
+    \centering
+    \includegraphics[width=0.75\textwidth]{{salidas/ac_vs_t}.png}
+    \caption{Aceleración vertical $\ddot{y}_c$ del martillo.}
+    \label{fig:ac_ciclo}
 \end{figure}
 
-El ángulo $\beta$ del eslabón $BC$ (Figura \ref{fig:beta_t}) controla la orientación del martillo respecto a la vertical. Este parámetro se mantiene dentro de límites seguros durante todo el ciclo, evitando configuraciones singulares donde $\cos\beta \to 0$, lo cual causaría indeterminaciones en las ecuaciones de velocidad angular $\omega_3$.
-
+\subsection*{Par motor requerido}
+La variación del par $\tau$ evidencia los picos de demanda energética asociados a cambios rápidos de estado cinemático. Estos valores guían la selección del motor y justifican (si las oscilaciones son grandes) el uso de un volante de inercia.
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/beta_vs_t}.png}
-\caption{Variación temporal del ángulo $\beta$ del eslabón $BC$.}
-\label{fig:beta_t}
+    \centering
+    \includegraphics[width=0.75\textwidth]{{salidas/tau_vs_t}.png}
+    \caption{Par motor instantáneo $\tau$ necesario para mantener la velocidad de entrada.}
+    \label{fig:tau_ciclo}
 \end{figure}
 
-\subsubsection{Cinemática del martillo}
-
-El desplazamiento vertical del martillo $y_c$ (Figura \ref{fig:yc_t}) muestra el comportamiento cíclico del sistema. La carrera total del martillo (diferencia entre posiciones extremas) es de aproximadamente 254 mm, valor que resulta adecuado para aplicaciones de forja ligera o conformado mecánico.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/yc_vs_t}.png}
-\caption{Posición vertical del martillo $y_c$ a lo largo del tiempo.}
-\label{fig:yc_t}
-\end{figure}
-
-La velocidad vertical del martillo $\dot{y}_c$ (Figura \ref{fig:vyc_t}) evidencia claramente el comportamiento asimétrico del mecanismo de retorno rápido. Durante la fase de descenso (avance), el martillo se desplaza con velocidades relativamente bajas (del orden de 0.1--0.3 m/s), lo que permite un impacto controlado y una transferencia de energía más eficiente. Por el contrario, durante el ascenso (retorno), la velocidad aumenta significativamente (hasta aproximadamente 0.5 m/s), reduciendo así el tiempo muerto del ciclo y aumentando la productividad del sistema.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/dot_yc_vs_t}.png}
-\caption{Velocidad vertical del martillo $\dot{y}_c$ mostrando la asimetría característica del ciclo.}
-\label{fig:vyc_t}
-\end{figure}
-
-La aceleración vertical del martillo $\ddot{y}_c$ (Figura \ref{fig:ayc_t}) presenta picos considerables durante las transiciones del movimiento, especialmente en los puntos de inversión de la dirección. Estos valores de aceleración, que pueden alcanzar varios m/s², son críticos para el dimensionamiento estructural, ya que generan fuerzas inerciales significativas que deben ser soportadas por los eslabones y articulaciones del mecanismo.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/ac_vs_t}.png}
-\caption{Aceleración vertical del martillo $\ddot{y}_c$ durante el ciclo completo.}
-\label{fig:ayc_t}
-\end{figure}
-
-\subsubsection{Velocidades y aceleraciones angulares de los eslabones}
-
-Las velocidades angulares de los eslabones $O_1B$ y $BC$ se comparan en la Figura \ref{fig:omega_comp}. Se observa que $\omega_3$ (velocidad angular del eslabón $BC$) alcanza valores considerablemente mayores que $\omega_1$ (velocidad angular de $O_1B$), lo cual es consecuencia directa de la geometría del mecanismo y la transmisión del movimiento. Los picos en $\omega_3$ ocurren cuando el ángulo $\beta$ se aproxima a configuraciones donde $\cos\beta$ es pequeño, amplificando el efecto de la rotación de la barra $O_1B$.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/comparacion_velocidades_angulares}.png}
-\caption{Comparación de las velocidades angulares $\omega_1$ (eslabón $O_1B$) y $\omega_3$ (eslabón $BC$).}
-\label{fig:omega_comp}
-\end{figure}
-
-Las aceleraciones angulares $\alpha_1$ y $\alpha_3$ (Figura \ref{fig:alpha_comp}) presentan variaciones importantes a lo largo del ciclo. Los valores máximos de estas aceleraciones generan momentos dinámicos considerables que deben tenerse en cuenta en el análisis de resistencia de los eslabones y en el diseño de las uniones articuladas. La amplitud de $\alpha_3$ es especialmente notable y está directamente relacionada con las fuerzas internas del eslabón $BC$.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/comparacion_aceleraciones_angulares}.png}
-\caption{Comparación de las aceleraciones angulares $\alpha_1$ y $\alpha_3$.}
-\label{fig:alpha_comp}
-\end{figure}
-
-\subsection{Análisis dinámico: fuerzas y reacciones}
-
-\subsubsection{Reacciones en el pivote fijo $O_1$}
-
-Las componentes horizontal y vertical de la reacción en el pivote fijo $O_1$ se presentan en las Figuras \ref{fig:O1x_t} y \ref{fig:O1y_t}. La componente horizontal $O_{1x}$ varía de forma oscilatoria y alcanza valores máximos durante las fases de mayor aceleración horizontal del sistema. La componente vertical $O_{1y}$ debe soportar no solo el peso de los eslabones y del martillo, sino también las cargas dinámicas generadas por las aceleraciones verticales. Estos valores son fundamentales para el diseño del soporte y la selección de los rodamientos del pivote.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/O1x_vs_t}.png}
-\caption{Componente horizontal de la reacción en el pivote $O_1$.}
-\label{fig:O1x_t}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/O1y_vs_t}.png}
-\caption{Componente vertical de la reacción en el pivote $O_1$.}
-\label{fig:O1y_t}
-\end{figure}
-
-\subsubsection{Fuerza en el pasador deslizante $A$}
-
-La magnitud de la fuerza en el pasador $A$ (Figura \ref{fig:A_t}) representa la carga transmitida entre la barra motriz $O_2A$ y la barra oscilante $O_1B$. Esta fuerza presenta variaciones cíclicas importantes y alcanza valores máximos que determinan los requisitos de resistencia del pasador y las dimensiones de la ranura. El diseño debe asegurar que el pasador no falle por fatiga ni provoque desgaste excesivo en la ranura durante la vida útil del mecanismo.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/A_vs_t}.png}
-\caption{Magnitud de la fuerza en el pasador deslizante $A$.}
-\label{fig:A_t}
-\end{figure}
-
-\subsubsection{Reacciones en el punto $B$}
-
-Las reacciones en el punto $B$, donde se unen la barra $O_1B$ y el eslabón $BC$, se muestran en las Figuras \ref{fig:Bx_t} y \ref{fig:By_t}. La componente horizontal $B_x$ varía principalmente debido a las aceleraciones horizontales del eslabón $BC$, mientras que la componente vertical $B_y$ es particularmente significativa ya que debe transmitir el peso del martillo más las fuerzas dinámicas generadas durante el movimiento vertical. El perno o eje en $B$ debe dimensionarse para soportar la resultante de estas dos componentes.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/Bx_vs_t}.png}
-\caption{Componente horizontal de la reacción en el punto $B$.}
-\label{fig:Bx_t}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/By_vs_t}.png}
-\caption{Componente vertical de la reacción en el punto $B$.}
-\label{fig:By_t}
-\end{figure}
-
-\subsubsection{Fuerza de contacto del martillo}
-
-La fuerza de contacto $C$ ejercida por el martillo sobre la pieza de trabajo se presenta en la Figura \ref{fig:C_t}. Esta fuerza alcanza sus valores máximos durante la fase de impacto, cuando la velocidad del martillo se reduce bruscamente al entrar en contacto con la pieza. La magnitud y duración de esta fuerza determinan la efectividad del proceso de conformado o forjado. El valor máximo de $C$ es un parámetro crítico para la selección del material del martillo y para estimar la energía transferida en cada golpe.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/C_vs_t}.png}
-\caption{Fuerza de contacto del martillo $C$ durante el ciclo de trabajo.}
-\label{fig:C_t}
-\end{figure}
-
-\subsection{Requerimientos de par motor}
-
-El par motor instantáneo $\tau$ necesario para mantener el movimiento uniforme del mecanismo se presenta en la Figura \ref{fig:tau_t}. Se observan variaciones significativas del par a lo largo del ciclo, con valores máximos que corresponden a las fases de mayor aceleración angular de los eslabones. El par promedio y los picos máximos son parámetros críticos para:
-
+\subsection*{Síntesis}
 \begin{itemize}
-    \item La selección del motor eléctrico y su potencia nominal
-    \item El diseño del sistema de transmisión (reductor de velocidad)
-    \item La evaluación de la necesidad de incorporar un volante de inercia para suavizar las fluctuaciones de par
+    \item La curva $y_c(t)$ confirma una carrera estable y la asimetría funcional del retorno rápido.
+    \item Los picos de $\ddot{y}_c$ delimitan el rango de esfuerzos dinámicos a considerar en soporte y guiado.
+    \item La variación de $\tau(t)$ establece la potencia intermitente y la posible necesidad de almacenamiento de energía (volante) para suavizar demanda.
 \end{itemize}
-
-La fluctuación considerable del par sugiere que la incorporación de un volante de inercia en el eje motor podría ser beneficiosa para reducir las demandas instantáneas sobre el motor y mejorar la eficiencia energética del sistema.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{{salidas/tau_vs_t}.png}
-\caption{Par motor $\tau$ requerido en función del tiempo para mantener $\omega_2$ constante.}
-\label{fig:tau_t}
-\end{figure}
-
-\subsection{Síntesis de resultados}
-
-El análisis numérico completo del mecanismo permite extraer las siguientes conclusiones principales:
-
-\begin{enumerate}
-    \item \textbf{Asimetría del ciclo:} El mecanismo cumple satisfactoriamente con el objetivo de producir un movimiento asimétrico. La relación entre los tiempos de avance y retorno es aproximadamente 1.5:1, lo que reduce significativamente el tiempo muerto del ciclo productivo.
-    
-    \item \textbf{Estabilidad cinemática:} Todas las variables cinemáticas ($\theta$, $\beta$, $\omega_1$, $\omega_3$, $\alpha_1$, $\alpha_3$) se mantienen dentro de rangos finitos y predecibles, evitando singularidades que podrían causar velocidades o aceleraciones infinitas.
-    
-    \item \textbf{Carrera útil:} El martillo alcanza una carrera de aproximadamente 254 mm, valor adecuado para operaciones de conformado ligero. Esta carrera puede ajustarse modificando los parámetros geométricos $R$, $K$ y $D$.
-    
-    \item \textbf{Fuerzas de reacción:} Los valores calculados de las fuerzas en los pivotes y articulaciones proporcionan información cuantitativa para el dimensionamiento de los componentes mecánicos (ejes, pernos, rodamientos, soldaduras).
-    
-    \item \textbf{Requerimientos de potencia:} Las fluctuaciones del par motor indican que podría ser ventajoso incorporar un volante de inercia para regularizar la demanda de potencia y reducir los picos de par.
-    
-    \item \textbf{Validación del modelo:} Los resultados obtenidos son coherentes con las ecuaciones teóricas desarrolladas y muestran un comportamiento físicamente realista del mecanismo.
-\end{enumerate}
-
-Estos resultados teóricos servirán como base de comparación para las pruebas experimentales que se realizarán con el prototipo físico, permitiendo validar el modelo matemático y ajustar los parámetros de diseño según sea necesario.
 
 \section{Análisis sobre el funcionamiento del prototipo}
 
